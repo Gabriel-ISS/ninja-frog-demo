@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://xgn1empg341f"]
+
+[node name="BaseBackground" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sky" type="Sprite2D" parent="Sky"]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+
+[node name="BG_decor" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="BgDecor" type="Sprite2D" parent="BG_decor"]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+
+[node name="Middle_decor" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="MiddleDecor" type="Sprite2D" parent="Middle_decor"]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+
+[node name="Foreground" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Foreground" type="Sprite2D" parent="Foreground"]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+
+[node name="Ground" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Ground" type="Sprite2D" parent="Ground"]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)

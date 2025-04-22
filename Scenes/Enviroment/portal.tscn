@@ -1,0 +1,145 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxj5e7erqyjtm"]
+
+[ext_resource type="Script" path="res://Scenes/Enviroment/portal.gd" id="1_edwch"]
+[ext_resource type="AudioStream" uid="uid://dl87s63stwmew" path="res://Assets/Sound Effects/88_Teleport_02.wav" id="2_numie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg70y"]
+size = Vector2(5, 7)
+
+[sub_resource type="Animation" id="Animation_vr4tj"]
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.603922, 0.411765, 1, 1), Color(0.546748, 0.252423, 0.999995, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.509117, 0.00348139, 0.994839, 1), Color(0.406533, 0.00213816, 0.803928, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/ColorRect2/ColorRect3:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.225438, 0.000221113, 0.670449, 1), Color(0.208535, 0.000190983, 0.626723, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_duf7t"]
+resource_name = "regular_move"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.333333, -0.166667, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.285516, 0.00102817, 0.578712, 1), Color(0.285516, 0.00102817, 0.578712, 1), Color(0.411765, 0, 0.580392, 1), Color(0.285516, 0.00102817, 0.578712, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.466667, -0.3, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.375902, 0.00181039, 0.746923, 1), Color(0.375902, 0.00181039, 0.746923, 1), Color(0.556863, 0, 0.745098, 1), Color(0.375902, 0.00181039, 0.746923, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/ColorRect2/ColorRect3:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.6, -0.3, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.364323, 0.142682, 1, 1), Color(0.364323, 0.142682, 1, 1), Color(0.827451, 0.141176, 1, 1), Color(0.364323, 0.142682, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lebtx"]
+_data = {
+"RESET": SubResource("Animation_vr4tj"),
+"regular_move": SubResource("Animation_duf7t")
+}
+
+[node name="Portal" type="Node2D"]
+z_index = -1
+scale = Vector2(2, 2)
+script = ExtResource("1_edwch")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+offset_bottom = 16.0
+color = Color(0.603922, 0.411765, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 12.0
+offset_bottom = 28.0
+color = Color(0.509117, 0.00348139, 0.994839, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect/ColorRect2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 5.0
+offset_bottom = 20.0
+color = Color(0.225438, 0.000221113, 0.670449, 1)
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("RectangleShape2D_qg70y")
+debug_color = Color(0.868724, 0.791254, 0.0170071, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lebtx")
+}
+autoplay = "RESET"
+speed_scale = 1.116
+
+[node name="Timeout" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Teleport" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_numie")
+
+[connection signal="area_shape_entered" from="PlayerDetect" to="." method="_on_player_detect_area_shape_entered"]

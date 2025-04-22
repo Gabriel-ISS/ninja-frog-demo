@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bitcbucr2kw1o"]
+
+[ext_resource type="Texture2D" uid="uid://bosy5lt7ageva" path="res://Assets/CustomAssets/Heart_16x16.png" id="1_rxtv2"]
+
+[node name="heart" type="TextureRect"]
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(10, 10)
+texture = ExtResource("1_rxtv2")

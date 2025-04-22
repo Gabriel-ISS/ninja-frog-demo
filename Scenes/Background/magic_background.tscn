@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3ucohoaanhrg"]
+
+[ext_resource type="PackedScene" uid="uid://xgn1empg341f" path="res://Scenes/Background/base_background.tscn" id="1_ld4nf"]
+[ext_resource type="Texture2D" uid="uid://c5cxyj0oh6dkr" path="res://Assets/Background/Cartoon_Forest_BG_04/Layers/Sky.png" id="2_y4486"]
+[ext_resource type="Texture2D" uid="uid://bej1hfw0cst3y" path="res://Assets/Background/Cartoon_Forest_BG_04/Layers/BG_Decor.png" id="3_duj4x"]
+[ext_resource type="Texture2D" uid="uid://csyfv6pgiubfv" path="res://Assets/Background/Cartoon_Forest_BG_04/Layers/Middle_Decor.png" id="4_hf57w"]
+[ext_resource type="Texture2D" uid="uid://f36xyded50yp" path="res://Assets/Background/Cartoon_Forest_BG_04/Layers/Foreground.png" id="5_bogag"]
+[ext_resource type="Texture2D" uid="uid://biyb8g6pxntnh" path="res://Assets/Background/Cartoon_Forest_BG_04/Layers/Ground.png" id="6_6hkn7"]
+
+[node name="MagicBackground" instance=ExtResource("1_ld4nf")]
+
+[node name="Sky" parent="Sky" index="0"]
+texture = ExtResource("2_y4486")
+
+[node name="BgDecor" parent="BG_decor" index="0"]
+texture = ExtResource("3_duj4x")
+
+[node name="MiddleDecor" parent="Middle_decor" index="0"]
+texture = ExtResource("4_hf57w")
+
+[node name="Foreground" parent="Foreground" index="0"]
+texture = ExtResource("5_bogag")
+
+[node name="Ground" parent="Ground" index="0"]
+texture = ExtResource("6_6hkn7")

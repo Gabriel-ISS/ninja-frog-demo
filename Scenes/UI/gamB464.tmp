@@ -1,0 +1,218 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgo4gdkg68dpx"]
+
+[ext_resource type="Script" path="res://Scenes/GUI/game_gui.gd" id="1_e1ev7"]
+[ext_resource type="Texture2D" uid="uid://m0sxg4glblx1" path="res://Assets/Items/Fruits/Apple.png" id="3_7pwmx"]
+
+[sub_resource type="GDScript" id="GDScript_3sybu"]
+script/source = "extends GridContainer
+
+class_name HealtPoints
+
+const Heart: PackedScene = preload(\"res://Scenes/GUI/heart.tscn\")
+
+var hp: int = 0
+
+func _ready() -> void:
+	while hp < GeneralRules.INITIAL_LIFES:
+		addLife()
+
+func addLife():
+	hp += 1
+	var heart = Heart.instantiate()
+	add_child(heart)
+
+func removeLife():
+	if hp == 0: return
+	hp -= 1
+	var element = get_child(0)
+	element.queue_free()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1bpg"]
+atlas = ExtResource("3_7pwmx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SystemFont" id="SystemFont_ds613"]
+font_names = PackedStringArray("Tempus Sans ITC")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_qm0y1"]
+font_names = PackedStringArray("Tempus Sans ITC")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2u2k"]
+bg_color = Color(0, 0.54, 0.108, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="GDScript" id="GDScript_2lhlh"]
+script/source = "extends Button
+
+func _pressed() -> void:
+	print('que demosios')
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ram4"]
+bg_color = Color(0.03, 0.03, 0.03, 0.796078)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="game_gui" type="CanvasLayer"]
+script = ExtResource("1_e1ev7")
+
+[node name="HP" type="GridContainer" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 200.0
+offset_bottom = 40.0
+scale = Vector2(1.7, 1.7)
+size_flags_horizontal = 4
+columns = 5
+script = SubResource("GDScript_3sybu")
+
+[node name="Points" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -448.0
+offset_top = 8.0
+offset_right = -144.0
+offset_bottom = 70.0
+grow_horizontal = 0
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Points"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_h1bpg")
+expand_mode = 2
+
+[node name="Counter" type="Label" parent="Points"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_ds613")
+theme_override_font_sizes/font_size = 40
+text = "x 0"
+horizontal_alignment = 2
+
+[node name="pause" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 8.0
+offset_right = -7.0
+offset_bottom = 70.0
+grow_horizontal = 0
+theme_override_fonts/font = SubResource("SystemFont_qm0y1")
+theme_override_font_sizes/font_size = 41
+text = "Pause"
+
+[node name="Menu" type="Control" parent="."]
+process_mode = 2
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -188.0
+offset_right = 125.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2u2k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="resume" type="Button" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+script = SubResource("GDScript_2lhlh")
+
+[node name="music_label" type="Label" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="music_volume" type="HSlider" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+min_value = 50.0
+value = 100.0
+
+[node name="soud_effect_label" type="Label" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Soud effects"
+
+[node name="soud_effect_volume" type="HSlider" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+min_value = 50.0
+value = 100.0
+
+[node name="restart" type="Button" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="back_to_menu" type="Button" parent="Menu/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Back to menu"
+
+[node name="Tutorial" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -208.0
+offset_right = 240.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ram4")
+text = "- Muevete con las flechas de teclado o con A y D
+- Salta con Space
+- Doble salto con Space en el aire
+- Movimiento rapido con Shift + tecla de direccion
+- Salta al cuadro amarillo para pegarte
+- Presiona Space + tecla de direccion para salir de la pared saltando o solo Space para soltarte"
+autowrap_mode = 2
+
+[connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Menu/Panel/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="value_changed" from="Menu/Panel/VBoxContainer/music_volume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="Menu/Panel/VBoxContainer/soud_effect_volume" to="." method="_on_soud_effect_volume_value_changed"]
+[connection signal="pressed" from="Menu/Panel/VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Menu/Panel/VBoxContainer/back_to_menu" to="." method="_on_back_to_menu_pressed"]

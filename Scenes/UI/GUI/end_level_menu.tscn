@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4l06swu3b0at"]
+
+[ext_resource type="Script" path="res://Scenes/UI/GUI/end_level_menu.gd" id="1_4tisk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6g2ge"]
+bg_color = Color(5.29438e-07, 0.716284, 0.39587, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_7cdkn"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_tkakg"]
+events = [SubResource("InputEventKey_7cdkn")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ht7kn"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_2be8p"]
+events = [SubResource("InputEventKey_ht7kn")]
+
+[node name="EndLevelMenu" type="Panel"]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6g2ge")
+script = ExtResource("1_4tisk")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="NextLevel" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_tkakg")
+text = "Next level [Enter]"
+
+[node name="BackToMenu" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_2be8p")
+text = "Back to menu [Esc]"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

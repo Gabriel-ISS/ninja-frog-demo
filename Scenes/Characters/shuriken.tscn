@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://b7p8eldy2leet"]
+
+[ext_resource type="Script" path="res://Scenes/Characters/shuriken.gd" id="1_8xswg"]
+[ext_resource type="Texture2D" uid="uid://d2aonvgl26v2m" path="res://Assets/Main Characters/Desappearing (96x96).png" id="2_dhhww"]
+[ext_resource type="Texture2D" uid="uid://c22owothb40kn" path="res://Assets/Items/Suriken/04.png" id="3_v8ckb"]
+[ext_resource type="AudioStream" uid="uid://4h0l5qimkfim" path="res://Assets/Sound Effects/Character/61_Hit_03.wav" id="4_062wa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b38m"]
+atlas = ExtResource("2_dhhww")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t7ei"]
+atlas = ExtResource("2_dhhww")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy32y"]
+atlas = ExtResource("2_dhhww")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgmvc"]
+atlas = ExtResource("2_dhhww")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35cyb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b38m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t7ei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy32y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgmvc")
+}],
+"loop": false,
+"name": &"collide",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v8ckb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_kul37"]
+resource_name = "rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5f5u"]
+_data = {
+"rotate": SubResource("Animation_kul37")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uu7kx"]
+radius = 15.0
+
+[node name="Shuriken" type="Node2D"]
+script = ExtResource("1_8xswg")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_35cyb")
+animation = &"collide"
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v5f5u")
+}
+autoplay = "rotate"
+speed_scale = 2.0
+
+[node name="hit_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_area"]
+shape = SubResource("CircleShape2D_uu7kx")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_062wa")
+pitch_scale = 1.47
+bus = &"Soud Effects"
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_shuriken_animation_finished"]
+[connection signal="body_entered" from="hit_area" to="." method="_on_hit_area_body_entered"]
