@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2dvgnfuf86xl"]
+
+[ext_resource type="Texture2D" uid="uid://c6tptrecxeu60" path="res://Assets/Traps/Fan/On (24x8).png" id="1_cewtv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7ni1"]
+atlas = ExtResource("1_cewtv")
+region = Rect2(0, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xjx7"]
+atlas = ExtResource("1_cewtv")
+region = Rect2(24, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2k4c"]
+atlas = ExtResource("1_cewtv")
+region = Rect2(48, 0, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eb70"]
+atlas = ExtResource("1_cewtv")
+region = Rect2(72, 0, 24, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l22l5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7ni1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xjx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2k4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eb70")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_gqhev"]
+script/source = "extends AnimatedSprite2D
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoam8"]
+size = Vector2(21, 3)
+
+[node name="Fan" type="AnimatedSprite2D"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_l22l5")
+autoplay = "default"
+frame_progress = 0.941594
+script = SubResource("GDScript_gqhev")
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_eoam8")
+debug_color = Color(0.970913, 0.110916, 0.333252, 0.42)

@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnoxv831rwjxe"]
+
+[ext_resource type="Script" path="res://Scenes/Traps/falling_platform.gd" id="1_coj6o"]
+[ext_resource type="Texture2D" uid="uid://dnyo7tdb6g1br" path="res://Assets/Traps/Falling Platforms/On (32x10).png" id="2_8xl07"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8b0b"]
+atlas = ExtResource("2_8xl07")
+region = Rect2(0, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56kw5"]
+atlas = ExtResource("2_8xl07")
+region = Rect2(32, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3vjx"]
+atlas = ExtResource("2_8xl07")
+region = Rect2(64, 0, 32, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgjx7"]
+atlas = ExtResource("2_8xl07")
+region = Rect2(96, 0, 32, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onapk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8b0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56kw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3vjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgjx7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfjka"]
+size = Vector2(32, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl1kd"]
+size = Vector2(30, 2)
+
+[node name="FallingPlatform" type="AnimatableBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_coj6o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_onapk")
+autoplay = "default"
+frame_progress = 0.00254548
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_lfjka")
+
+[node name="PlayerChecker" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerChecker"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_kl1kd")
+
+[connection signal="body_entered" from="PlayerChecker" to="." method="_on_player_checker_body_entered"]

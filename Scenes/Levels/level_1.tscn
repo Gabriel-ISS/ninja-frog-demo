@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=4 uid="uid://bdbepgya43yvq"]
 
 [ext_resource type="PackedScene" uid="uid://dhr0npcu7vrep" path="res://Scenes/Levels/base_level.tscn" id="1_ws846"]
-[ext_resource type="AudioStream" uid="uid://bv30d6f4vmrt1" path="res://Assets/Music/it_takes_a_hero.wav" id="2_5urgv"]
+[ext_resource type="AudioStream" uid="uid://dvvk6scqoi3mq" path="res://Assets/Music/it_takes_a_hero.ogg" id="2_5urgv"]
 [ext_resource type="PackedScene" uid="uid://d0r2pweypewu5" path="res://Scenes/Enviroment/Platforms/moving_platform_1.tscn" id="6_cwnxg"]
-[ext_resource type="PackedScene" uid="uid://bjuo6axyk7u72" path="res://Scenes/Enemies/saw.tscn" id="7_nfadn"]
+[ext_resource type="PackedScene" uid="uid://bjuo6axyk7u72" path="res://Scenes/Traps/saw.tscn" id="7_nfadn"]
 [ext_resource type="PackedScene" uid="uid://cngfcxuc5eqhi" path="res://Scenes/Enviroment/trampoline.tscn" id="8_fxjmy"]
-[ext_resource type="PackedScene" uid="uid://5xm425cqfqjv" path="res://Scenes/Enemies/SpikeBall/spike_ball.tscn" id="9_y513n"]
+[ext_resource type="PackedScene" uid="uid://5xm425cqfqjv" path="res://Scenes/Traps/SpikeBall/spike_ball.tscn" id="9_y513n"]
 [ext_resource type="PackedScene" uid="uid://uuyahgbcqmik" path="res://Scenes/Enviroment/fruit.tscn" id="10_aooaa"]
 [ext_resource type="PackedScene" uid="uid://dxj5e7erqyjtm" path="res://Scenes/Enviroment/portal.tscn" id="11_cdrtx"]
 
