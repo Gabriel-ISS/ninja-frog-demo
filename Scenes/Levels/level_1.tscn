@@ -64,7 +64,7 @@ bg = "Forest"
 music = ExtResource("2_5urgv")
 
 [node name="NinjaFrog" parent="." index="2"]
-position = Vector2(7462.11, 444.846)
+position = Vector2(88, 248)
 
 [node name="EndPortal" parent="." index="3"]
 position = Vector2(8000, 384)
