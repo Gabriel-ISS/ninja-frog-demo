@@ -4,7 +4,8 @@ extends Node2D
 const Chain: PackedScene = preload("res://Scenes/Traps/SpikeBall/one_chain.tscn")
 const chain_spacing = 6
 
-@export var velocity: float = 1
+@export var VELOCITY: float = 1
+@export var MAX_DISTANCE: int = 200
 
 @onready var rotate_animation = $RotateAnimation
 @onready var floor_detection = $FloorChecker
@@ -16,14 +17,16 @@ var floor_detection_initial_y = 0
 
 
 func _ready() -> void:
-	rotate_animation.speed_scale = velocity
+	rotate_animation.speed_scale = VELOCITY
 	floor_detection_initial_y = floor_detection.target_position.y
 	safe_timer.start()
 
 
 func _process(_delta: float) -> void:
+	# esperar a que cargue el mapa
 	if not safe_timer.is_stopped(): return
 	
+	# detect floor
 	if not floor_detected:
 		floor_detection.target_position.y += chain_spacing
 		if floor_detection.is_colliding():
@@ -40,10 +43,10 @@ func init_spike_ball():
 		ring.position = Vector2(0, i * chain_spacing)
 		self.add_child(ring)
 	
-	
+# start rotation
 func _on_safe_timer_timeout() -> void:
 	rotate_animation.play("regular_move")
 	
-	
+# change direction
 func _on_ball_area_body_entered(_body: Node2D) -> void:
 	rotate_animation.speed_scale *= -1

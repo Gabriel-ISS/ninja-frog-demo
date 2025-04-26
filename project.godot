@@ -62,7 +62,9 @@ dash={
 2d_physics/layer_4="Sticky wall"
 2d_physics/layer_5="Damage zone"
 2d_physics/layer_6="Moving platform"
-2d_physics/layer_7="Resbaladizo"
+2d_physics/layer_7="Slippery"
+2d_physics/layer_8="Quicksand"
+2d_physics/layer_9="Clingy sand"
 
 [rendering]
 

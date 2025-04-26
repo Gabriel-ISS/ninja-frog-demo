@@ -6,7 +6,7 @@ extends State
 @export var shuriken_combo_state: State
 @export var step_audio: AudioStreamPlayer
 @export var jump_audio: AudioStreamPlayer
-@export var resbaladizo_ray_cast: RayCast2D
+@export var slippery_ray_cast: RayCast2D
 @export var combo_timer: Timer
 
 const SLIDE_DELTA_MOVE_TOWARD = 5
@@ -32,7 +32,7 @@ func process_state(_delta):
 		next_state = air_state
 	
 	# resbalar (slide?)
-	if resbaladizo_ray_cast.is_colliding():
+	if slippery_ray_cast.is_colliding():
 		DELTA_MOVE_TOWARD = SLIDE_DELTA_MOVE_TOWARD
 	else:
 		DELTA_MOVE_TOWARD = DEFAULT_DELTA_MOVE_TOWARD

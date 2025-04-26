@@ -557,7 +557,7 @@ region = Rect2(0, 0, 32, 32)
 [node name="NinjaFrog" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "sprite", "front_ray_cast")]
 scale = Vector2(2, 2)
 collision_layer = 2
-collision_mask = 41
+collision_mask = 489
 platform_floor_layers = 4294901792
 script = ExtResource("1_uefwj")
 state_machine = NodePath("StateMachine")
@@ -590,7 +590,7 @@ target_position = Vector2(12, 0)
 collision_mask = 8
 script = ExtResource("11_0yi4k")
 
-[node name="ResbaladizoRayCast" type="RayCast2D" parent="."]
+[node name="SlipperyRayCast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 17)
 collision_mask = 64
 
@@ -652,7 +652,7 @@ damage_state = NodePath("Damage")
 script = ExtResource("20_ixtou")
 ground_state = NodePath("../InGroundState")
 
-[node name="InGroundState" type="Node" parent="StateMachine" node_paths=PackedStringArray("air_state", "dash_state", "shuriken_state", "shuriken_combo_state", "step_audio", "jump_audio", "resbaladizo_ray_cast", "combo_timer")]
+[node name="InGroundState" type="Node" parent="StateMachine" node_paths=PackedStringArray("air_state", "dash_state", "shuriken_state", "shuriken_combo_state", "step_audio", "jump_audio", "slippery_ray_cast", "combo_timer")]
 script = ExtResource("21_vx1nt")
 air_state = NodePath("../InAirState")
 dash_state = NodePath("../Dash")
@@ -660,7 +660,7 @@ shuriken_state = NodePath("../ThrowShuriken")
 shuriken_combo_state = NodePath("../ShurikenCombo")
 step_audio = NodePath("StepRock")
 jump_audio = NodePath("../../SharedAudios/Jump")
-resbaladizo_ray_cast = NodePath("../../ResbaladizoRayCast")
+slippery_ray_cast = NodePath("../../SlipperyRayCast")
 combo_timer = NodePath("Combo")
 
 [node name="Combo" type="Timer" parent="StateMachine/InGroundState"]

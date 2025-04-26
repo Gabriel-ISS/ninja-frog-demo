@@ -10,7 +10,7 @@ var player: Character
 @onready var menu = $PauseMenu
 @onready var end_level_menu = $EndLevelMenu
 @onready var hp: HealthPoints = $HP 
-@onready var points: PointsCounter = $Points/PointsCounter
+@onready var points: PointsCounter = $HBoxContainer/Points/PointsCounter
 
 func _ready() -> void:
 	visible = true

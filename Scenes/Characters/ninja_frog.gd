@@ -56,7 +56,7 @@ func set_direction(direction):
 
 func addPoints(toAdd):
 	_points += toAdd
-	gui.points.set_value(_points)
+	gui.points.set_value(_points) 
 
 func loseLife():
 	_lifes -= 1

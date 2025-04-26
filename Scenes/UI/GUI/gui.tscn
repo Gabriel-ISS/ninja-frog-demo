@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgo4gdkg68dpx"]
+[gd_scene load_steps=13 format=3 uid="uid://cgo4gdkg68dpx"]
 
 [ext_resource type="Script" path="res://Scenes/UI/GUI/gui.gd" id="1_e1ev7"]
 [ext_resource type="Script" path="res://Scenes/UI/GUI/hp.gd" id="2_gmnd3"]
-[ext_resource type="AudioStream" uid="uid://bv30d6f4vmrt1" path="res://Assets/Music/it_takes_a_hero.wav" id="2_p3t1h"]
 [ext_resource type="Texture2D" uid="uid://m0sxg4glblx1" path="res://Assets/Items/Fruits/Apple.png" id="3_7pwmx"]
 [ext_resource type="PackedScene" uid="uid://bitcbucr2kw1o" path="res://Scenes/UI/GUI/heart.tscn" id="4_l3eo5"]
 [ext_resource type="PackedScene" uid="uid://eukpto2lftyx" path="res://Scenes/UI/GUI/pause_menu.tscn" id="6_cyhx4"]
@@ -33,7 +32,6 @@ script = ExtResource("1_e1ev7")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("2_p3t1h")
 volume_db = -16.289
 autoplay = true
 bus = &"Music"
@@ -64,24 +62,34 @@ layout_mode = 2
 [node name="heart5" parent="HP" instance=ExtResource("4_l3eo5")]
 layout_mode = 2
 
-[node name="Points" type="HBoxContainer" parent="."]
+[node name="PauseMenu" parent="." instance=ExtResource("6_cyhx4")]
+
+[node name="EndLevelMenu" parent="." instance=ExtResource("8_4nxp0")]
+visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -544.0
-offset_top = 11.0
-offset_right = -218.0
-offset_bottom = 64.0
+offset_left = -616.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 74.0
 grow_horizontal = 0
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Points" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 10
 alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="Points"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Points"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_h1bpg")
 expand_mode = 2
 
-[node name="PointsCounter" type="Label" parent="Points"]
+[node name="PointsCounter" type="Label" parent="HBoxContainer/Points"]
 texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_ds613")
@@ -90,24 +98,12 @@ text = "x 0"
 horizontal_alignment = 2
 script = ExtResource("6_vofyj")
 
-[node name="Pause" type="Button" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -128.0
-offset_top = 8.0
-offset_right = -7.0
-offset_bottom = 70.0
-grow_horizontal = 0
+[node name="Pause" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_qm0y1")
 theme_override_font_sizes/font_size = 41
 shortcut = SubResource("Shortcut_iy3m3")
 text = "Pause [Esc]"
 
-[node name="PauseMenu" parent="." instance=ExtResource("6_cyhx4")]
-
-[node name="EndLevelMenu" parent="." instance=ExtResource("8_4nxp0")]
-visible = false
-
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
-[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="HBoxContainer/Pause" to="." method="_on_pause_pressed"]

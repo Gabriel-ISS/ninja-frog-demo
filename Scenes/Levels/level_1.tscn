@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://bdbepgya43yvq"]
+[gd_scene load_steps=15 format=4 uid="uid://bdbepgya43yvq"]
 
 [ext_resource type="PackedScene" uid="uid://dhr0npcu7vrep" path="res://Scenes/Levels/base_level.tscn" id="1_ws846"]
 [ext_resource type="AudioStream" uid="uid://dvvk6scqoi3mq" path="res://Assets/Music/it_takes_a_hero.ogg" id="2_5urgv"]
 [ext_resource type="PackedScene" uid="uid://d0r2pweypewu5" path="res://Scenes/Enviroment/Platforms/moving_platform_1.tscn" id="6_cwnxg"]
+[ext_resource type="Script" path="res://Scenes/Traps/saw.gd" id="6_pxsa1"]
+[ext_resource type="Script" path="res://Scenes/Traps/SpikeBall/spike_ball.gd" id="7_n2daf"]
 [ext_resource type="PackedScene" uid="uid://bjuo6axyk7u72" path="res://Scenes/Traps/saw.tscn" id="7_nfadn"]
 [ext_resource type="PackedScene" uid="uid://cngfcxuc5eqhi" path="res://Scenes/Enviroment/trampoline.tscn" id="8_fxjmy"]
 [ext_resource type="PackedScene" uid="uid://5xm425cqfqjv" path="res://Scenes/Traps/SpikeBall/spike_ball.tscn" id="9_y513n"]
@@ -62,8 +64,7 @@ bg = "Forest"
 music = ExtResource("2_5urgv")
 
 [node name="NinjaFrog" parent="." index="2"]
-z_index = -1
-position = Vector2(70.0087, 192.445)
+position = Vector2(7462.11, 444.846)
 
 [node name="EndPortal" parent="." index="3"]
 position = Vector2(8000, 384)
@@ -82,25 +83,25 @@ objetive_portal = NodePath("../Portal4")
 position = Vector2(4360, 352)
 objetive_portal = NodePath("../Portal")
 
-[node name="Trampoline" parent="Interactables" index="2"]
-position = Vector2(4752, 520)
-
-[node name="Trampoline2" parent="Interactables" index="3" instance=ExtResource("8_fxjmy")]
-position = Vector2(3245, 548)
-
-[node name="Trampoline3" parent="Interactables" index="4" instance=ExtResource("8_fxjmy")]
-position = Vector2(6487, 516)
-
-[node name="Trampoline4" parent="Interactables" index="5" instance=ExtResource("8_fxjmy")]
-position = Vector2(6734, 550)
-
-[node name="Portal2" parent="Interactables" index="6" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("11_cdrtx")]
+[node name="Portal2" parent="Interactables" index="2" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("11_cdrtx")]
 position = Vector2(6863, 543)
 objetive_portal = NodePath("../Portal3")
 
-[node name="Portal3" parent="Interactables" index="7" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("11_cdrtx")]
+[node name="Portal3" parent="Interactables" index="3" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("11_cdrtx")]
 position = Vector2(6929, 352)
 objetive_portal = NodePath("../Portal2")
+
+[node name="Trampoline" parent="Interactables" index="4"]
+position = Vector2(4752, 520)
+
+[node name="Trampoline2" parent="Interactables" index="5" instance=ExtResource("8_fxjmy")]
+position = Vector2(3245, 548)
+
+[node name="Trampoline3" parent="Interactables" index="6" instance=ExtResource("8_fxjmy")]
+position = Vector2(6487, 516)
+
+[node name="Trampoline4" parent="Interactables" index="7" instance=ExtResource("8_fxjmy")]
+position = Vector2(6734, 550)
 
 [node name="Path2D" type="Path2D" parent="Interactables" index="8"]
 position = Vector2(0, 8)
@@ -121,27 +122,35 @@ speed_scale = 0.9
 
 [node name="Saw" parent="Traps" index="0"]
 position = Vector2(3776, 496)
+script = ExtResource("6_pxsa1")
 
 [node name="SpikeBall" parent="Traps" index="1"]
 position = Vector2(1680, 224)
+script = ExtResource("7_n2daf")
 
-[node name="Saw2" parent="Traps" index="2" instance=ExtResource("7_nfadn")]
+[node name="FallingPlatform" parent="Traps" index="2"]
+visible = false
+
+[node name="Fan" parent="Traps" index="3"]
+visible = false
+
+[node name="Saw2" parent="Traps" index="4" instance=ExtResource("7_nfadn")]
 z_index = -1
 position = Vector2(2424, 568)
 
-[node name="Saw3" parent="Traps" index="3" instance=ExtResource("7_nfadn")]
+[node name="Saw3" parent="Traps" index="5" instance=ExtResource("7_nfadn")]
 position = Vector2(1960, 536)
 
-[node name="SpikeBall2" parent="Traps" index="4" instance=ExtResource("9_y513n")]
+[node name="SpikeBall2" parent="Traps" index="6" instance=ExtResource("9_y513n")]
 position = Vector2(5456, 400)
 
-[node name="SpikeBall3" parent="Traps" index="5" instance=ExtResource("9_y513n")]
+[node name="SpikeBall3" parent="Traps" index="7" instance=ExtResource("9_y513n")]
 position = Vector2(5904, 384)
 
-[node name="SpikeBall4" parent="Traps" index="6" instance=ExtResource("9_y513n")]
+[node name="SpikeBall4" parent="Traps" index="8" instance=ExtResource("9_y513n")]
 position = Vector2(6128, 448)
 
-[node name="SpikeBall5" parent="Traps" index="7" instance=ExtResource("9_y513n")]
+[node name="SpikeBall5" parent="Traps" index="9" instance=ExtResource("9_y513n")]
 position = Vector2(6416, 352)
 
 [node name="Fruit" parent="Fruits" index="0"]
