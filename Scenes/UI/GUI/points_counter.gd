@@ -2,5 +2,8 @@ extends Label
 
 class_name PointsCounter
 
-func set_value(value: int):
-	text = 'x ' + str(value)
+var current = 0:
+	set(value):
+		current = value
+		text = 'x ' + str(value)
+	

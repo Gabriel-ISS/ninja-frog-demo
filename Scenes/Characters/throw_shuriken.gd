@@ -7,7 +7,7 @@ extends State
 func on_enter():
 	var shuriken = Shuriken.instantiate()
 	shuriken.position = character.position
-	shuriken.base_velocity = character.velocity
+	shuriken.initial_velocity = character.velocity
 	shuriken.is_flip = sprite.flip_h
 	character.add_sibling(shuriken)
 	sprite.play("throw_shuriken")

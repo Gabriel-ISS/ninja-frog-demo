@@ -5,6 +5,7 @@ class_name Character
 @export var state_machine: StateMachine
 @export var sprite: AnimatedSprite2D
 @export var front_ray_cast: FronRayCast
+@export var investivility_timer: Timer
 
 var _lifes = GeneralRules.INITIAL_LIFES
 var _points = 0
@@ -56,8 +57,10 @@ func set_direction(direction):
 
 func addPoints(toAdd):
 	_points += toAdd
-	gui.points.set_value(_points) 
+	gui.points.current = _points 
 
 func loseLife():
+	if not investivility_timer.is_stopped(): return
 	_lifes -= 1
 	gui.hp.removeLife()
+	investivility_timer.start()

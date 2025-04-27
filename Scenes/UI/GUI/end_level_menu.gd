@@ -1,10 +1,19 @@
 extends Panel
 
-@onready var next_level_btn = $CenterContainer/VBoxContainer/NextLevel
+class_name EndLevelMenu
+
+@onready var total_points_label: Label = $Points
+@onready var next_level_btn: Button = $CenterContainer/VBoxContainer/NextLevel
+
+var total_points = 0:
+	set(value):
+		total_points = value
+		total_points_label.text = 'Total points: ' + str(value)
 
 func _ready() -> void:
 	visible = false
 	next_level_btn.visible = GeneralRules.current_level != GeneralRules.LEVELS
+
 
 func _on_next_level_pressed() -> void:
 	var tree = get_tree()

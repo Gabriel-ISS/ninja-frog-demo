@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpg7n1p215pbc"]
+
+[ext_resource type="Script" path="res://Scenes/Traps/fire_trap.gd" id="1_8ufgm"]
+[ext_resource type="Texture2D" uid="uid://yiocjnny1vdj" path="res://Assets/Traps/Fire/Off.png" id="1_scv6v"]
+[ext_resource type="Texture2D" uid="uid://cgk75d5nl3foe" path="res://Assets/Traps/Fire/On (16x32).png" id="2_uaxe7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srpsn"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xue8"]
+atlas = ExtResource("1_scv6v")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7eyu"]
+atlas = ExtResource("2_uaxe7")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q2hs"]
+atlas = ExtResource("2_uaxe7")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jut5"]
+atlas = ExtResource("2_uaxe7")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgymn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xue8")
+}],
+"loop": false,
+"name": &"off",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7eyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q2hs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jut5")
+}],
+"loop": true,
+"name": &"on",
+"speed": 13.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwdc6"]
+size = Vector2(12, 15)
+
+[node name="FireTrap" type="StaticBody2D"]
+script = ExtResource("1_8ufgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_srpsn")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tgymn")
+animation = &"on"
+autoplay = "off"
+
+[node name="DamageZone" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_pwdc6")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

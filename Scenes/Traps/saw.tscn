@@ -74,6 +74,7 @@ size = Vector2(8, 4)
 radius = 20.0
 
 [node name="Saw" type="CharacterBody2D"]
+z_index = -4
 texture_filter = 1
 scale = Vector2(2, 2)
 collision_layer = 4

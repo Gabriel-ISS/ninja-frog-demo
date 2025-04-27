@@ -89,10 +89,12 @@ scale = Vector2(2, 2)
 script = ExtResource("1_7b5h3")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, -14)
 sprite_frames = SubResource("SpriteFrames_lbpga")
 animation = &"idle"
 
 [node name="ActivationArea" type="Area2D" parent="."]
+position = Vector2(0.5, -14)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea"]
@@ -100,6 +102,7 @@ position = Vector2(-0.5, 2.875)
 shape = SubResource("RectangleShape2D_p2wnf")
 
 [node name="ObjectCollision" type="StaticBody2D" parent="."]
+position = Vector2(0.5, -14)
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObjectCollision"]

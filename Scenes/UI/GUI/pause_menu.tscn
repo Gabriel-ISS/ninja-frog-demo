@@ -102,26 +102,25 @@ text = "Back to menu"
 
 [node name="Tutorial" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -224.0
-offset_right = 240.0
-offset_bottom = -25.0
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = 105.0
+offset_right = 128.0
+offset_bottom = 209.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_2ram4")
-text = "- Muevete con las flechas de teclado o con A y D
-- Salta con Space
-- Doble salto con Space en el aire
-- Movimiento rapido con Shift + tecla de direccion
-- Salta al cuadro amarillo para pegarte
-- Presiona Space + tecla de direccion para salir de la pared saltando o solo Space para soltarte"
-autowrap_mode = 2
+text = "- [A] and [D] to move
+- [SPACE] to jump
+- [SPACE] in air for double jump
+- [SHIFT] for fast move
+"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="value_changed" from="Panel/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]

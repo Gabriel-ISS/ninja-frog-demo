@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://6rwesrndgkug"]
+
+[node name="InGameTip" type="Label"]
+z_index = -1
+offset_right = 63.0
+offset_bottom = 45.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 40
+text = "Tip"
+autowrap_mode = 2

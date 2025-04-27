@@ -2,7 +2,7 @@ extends Node
 
 const DEBUG_PLAYER = false
 
-const LEVELS = 2
+const LEVELS = 4
 const INITIAL_LIFES = 3
 const DEADLY_Y_POSITION = 1000
 
@@ -16,3 +16,4 @@ const pineapplePoints = 7
 const strawberryPoints = 8
 
 var current_level = 0
+var last_completed_level = 1

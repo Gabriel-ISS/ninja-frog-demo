@@ -7,9 +7,9 @@ extends Node2D
 	'Mushroom',
 	'Magic'
 )
-var bg: String:
+var background: String:
 	set(value):
-		bg = value
-		var path = "res://Scenes/Background/" + bg.to_lower() + "_background.tscn"
+		background = value
+		var path = "res://Scenes/Background/" + background.to_lower() + "_background.tscn"
 		var Bg: PackedScene = load(path)
 		add_child(Bg.instantiate())

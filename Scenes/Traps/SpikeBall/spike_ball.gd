@@ -5,7 +5,8 @@ const Chain: PackedScene = preload("res://Scenes/Traps/SpikeBall/one_chain.tscn"
 const chain_spacing = 6
 
 @export var VELOCITY: float = 1
-@export var MAX_DISTANCE: int = 200
+@export var USE_MAX_DISTANCE = false
+@export var MAX_DISTANCE: int = 80
 
 @onready var rotate_animation = $RotateAnimation
 @onready var floor_detection = $FloorChecker
@@ -29,7 +30,7 @@ func _process(_delta: float) -> void:
 	# detect floor
 	if not floor_detected:
 		floor_detection.target_position.y += chain_spacing
-		if floor_detection.is_colliding():
+		if floor_detection.is_colliding() or USE_MAX_DISTANCE and floor_detection.target_position.y >= MAX_DISTANCE:
 			floor_detection.target_position.y -= chain_spacing
 			floor_detected = true
 			init_spike_ball()

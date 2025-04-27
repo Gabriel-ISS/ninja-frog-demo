@@ -7,6 +7,8 @@ const levels_path = "res://Scenes/Levels/level_"
 	set(value):
 		level = value
 		text = var_to_str(level)
+		disabled = level > GeneralRules.last_completed_level
+
 
 func _pressed() -> void:
 	GeneralRules.current_level = level

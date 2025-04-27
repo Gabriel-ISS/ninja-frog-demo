@@ -68,3 +68,4 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_kl1kd")
 
 [connection signal="body_entered" from="PlayerChecker" to="." method="_on_player_checker_body_entered"]
+[connection signal="body_exited" from="PlayerChecker" to="." method="_on_player_checker_body_exited"]

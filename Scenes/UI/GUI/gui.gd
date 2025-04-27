@@ -2,8 +2,6 @@ extends CanvasLayer
 
 class_name Gui
 
-var player: Character
-
 @export var music: AudioStream
 
 @onready var music_player = $MusicPlayer
@@ -26,6 +24,7 @@ func _ready() -> void:
 
 func open_end_level_menu():
 	get_tree().paused = true
+	end_level_menu.total_points = points.current
 	end_level_menu.visible = true
 
 

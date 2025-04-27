@@ -554,7 +554,7 @@ hue_variation_max = 1.0
 atlas = ExtResource("3_m17pd")
 region = Rect2(0, 0, 32, 32)
 
-[node name="NinjaFrog" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "sprite", "front_ray_cast")]
+[node name="NinjaFrog" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "sprite", "front_ray_cast", "investivility_timer")]
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 489
@@ -563,6 +563,7 @@ script = ExtResource("1_uefwj")
 state_machine = NodePath("StateMachine")
 sprite = NodePath("AnimatedSprite")
 front_ray_cast = NodePath("StikyWallRayCast")
+investivility_timer = NodePath("Invencibility")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y1mfh")
@@ -622,6 +623,10 @@ process_material = SubResource("ParticleProcessMaterial_6ao5b")
 texture = SubResource("AtlasTexture_2vy5g")
 lifetime = 0.07
 script = ExtResource("32_pca4p")
+
+[node name="Invencibility" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
 [node name="SharedAudios" type="Node" parent="."]
 

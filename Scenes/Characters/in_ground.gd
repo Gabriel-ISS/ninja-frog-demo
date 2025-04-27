@@ -9,7 +9,7 @@ extends State
 @export var slippery_ray_cast: RayCast2D
 @export var combo_timer: Timer
 
-const SLIDE_DELTA_MOVE_TOWARD = 5
+const SLIDE_DELTA_MOVE_TOWARD = 2
 
 const shuriken_combo = "LeftRightUpDownF"
 var current_combo = ""
