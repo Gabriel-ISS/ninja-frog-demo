@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgo4gdkg68dpx"]
+[gd_scene load_steps=17 format=3 uid="uid://cgo4gdkg68dpx"]
 
 [ext_resource type="Script" path="res://Scenes/UI/GUI/gui.gd" id="1_e1ev7"]
 [ext_resource type="Script" path="res://Scenes/UI/GUI/hp.gd" id="2_gmnd3"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://eukpto2lftyx" path="res://Scenes/UI/GUI/pause_menu.tscn" id="6_cyhx4"]
 [ext_resource type="Script" path="res://Scenes/UI/GUI/points_counter.gd" id="6_vofyj"]
 [ext_resource type="PackedScene" uid="uid://b4l06swu3b0at" path="res://Scenes/UI/GUI/end_level_menu.tscn" id="8_4nxp0"]
-[ext_resource type="Texture2D" uid="uid://bcx3a6mgcf6l3" path="res://Assets/Main Characters/Ninja Frog/Run (32x32).png" id="8_ds8pv"]
-[ext_resource type="Texture2D" uid="uid://ohtovq14c0sy" path="res://Assets/Main Characters/Ninja Frog/Jump (32x32).png" id="9_26uh5"]
-[ext_resource type="Texture2D" uid="uid://dnkxc85qtom2" path="res://Assets/Main Characters/Ninja Frog/Double Jump (32x32).png" id="10_228nd"]
+[ext_resource type="Texture2D" uid="uid://dot4ma6jxle6f" path="res://Assets/CustomAssets/LeftControl_32x32.png" id="8_wbitw"]
+[ext_resource type="Texture2D" uid="uid://cjejb3xy88ixe" path="res://Assets/CustomAssets/RightControl_32x32.png" id="9_ojuw8"]
+[ext_resource type="Texture2D" uid="uid://b0bmxcj7qceew" path="res://Assets/CustomAssets/JumpControl_32x32.png" id="10_gbsqj"]
+[ext_resource type="Texture2D" uid="uid://cni55t2lh6lnw" path="res://Assets/CustomAssets/DashControl_32x32.png" id="11_bx50g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1bpg"]
 atlas = ExtResource("3_7pwmx")
@@ -22,23 +23,8 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_iy3m3"]
 events = [SubResource("InputEventKey_qldi1")]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_480rb"]
-atlas = ExtResource("8_ds8pv")
-region = Rect2(32, 0, 32, 32)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_oto61"]
 radius = 17.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j10s6"]
-atlas = ExtResource("8_ds8pv")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_46q8h"]
-atlas = ExtResource("9_26uh5")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o1md7"]
-atlas = ExtResource("10_228nd")
-region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogsfq"]
 radius = 17.0
@@ -122,36 +108,38 @@ visible = false
 visible = false
 
 [node name="Controls" type="Node2D" parent="."]
+scale = Vector2(4, 4)
 
 [node name="Left" type="TouchScreenButton" parent="Controls"]
-position = Vector2(138, 529)
-scale = Vector2(-3, 3)
-texture_normal = SubResource("AtlasTexture_480rb")
+position = Vector2(11.5, 120.75)
+texture_normal = ExtResource("8_wbitw")
 shape = SubResource("CircleShape2D_oto61")
+shape_visible = false
 action = "move_left"
 visibility_mode = 1
 
 [node name="Right" type="TouchScreenButton" parent="Controls"]
-position = Vector2(180, 529)
-scale = Vector2(3, 3)
-texture_normal = SubResource("AtlasTexture_j10s6")
+position = Vector2(52.75, 120.75)
+texture_normal = ExtResource("9_ojuw8")
 shape = SubResource("CircleShape2D_oto61")
+shape_visible = false
 action = "move_right"
 visibility_mode = 1
 
 [node name="Jump" type="TouchScreenButton" parent="Controls"]
-position = Vector2(1021, 529)
-scale = Vector2(3, 3)
-texture_normal = SubResource("AtlasTexture_46q8h")
+position = Vector2(247.25, 120.75)
+texture_normal = ExtResource("10_gbsqj")
 shape = SubResource("CircleShape2D_oto61")
+shape_visible = false
 action = "jump"
 visibility_mode = 1
 
 [node name="Dash" type="TouchScreenButton" parent="Controls"]
-position = Vector2(1021, 400)
-scale = Vector2(3, 3)
-texture_normal = SubResource("AtlasTexture_o1md7")
+position = Vector2(230.5, 105.25)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("11_bx50g")
 shape = SubResource("CircleShape2D_ogsfq")
+shape_visible = false
 action = "dash"
 visibility_mode = 1
 
