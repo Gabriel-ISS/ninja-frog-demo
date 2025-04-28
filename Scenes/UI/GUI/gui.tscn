@@ -107,40 +107,81 @@ visible = false
 [node name="EndLevelMenu" parent="." instance=ExtResource("8_4nxp0")]
 visible = false
 
-[node name="Controls" type="Node2D" parent="."]
-scale = Vector2(4, 4)
+[node name="Controls" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Left" type="TouchScreenButton" parent="Controls"]
-position = Vector2(11.5, 120.75)
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="Left" type="Control" parent="Controls/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Left" type="TouchScreenButton" parent="Controls/HBoxContainer/Left"]
+scale = Vector2(4, 4)
 texture_normal = ExtResource("8_wbitw")
 shape = SubResource("CircleShape2D_oto61")
 shape_visible = false
 action = "move_left"
 visibility_mode = 1
 
-[node name="Right" type="TouchScreenButton" parent="Controls"]
-position = Vector2(52.75, 120.75)
+[node name="Right" type="Control" parent="Controls/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Right" type="TouchScreenButton" parent="Controls/HBoxContainer/Right"]
+scale = Vector2(4, 4)
 texture_normal = ExtResource("9_ojuw8")
 shape = SubResource("CircleShape2D_oto61")
 shape_visible = false
 action = "move_right"
 visibility_mode = 1
 
-[node name="Jump" type="TouchScreenButton" parent="Controls"]
-position = Vector2(247.25, 120.75)
-texture_normal = ExtResource("10_gbsqj")
-shape = SubResource("CircleShape2D_oto61")
-shape_visible = false
-action = "jump"
-visibility_mode = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+size_flags_horizontal = 8
 
-[node name="Dash" type="TouchScreenButton" parent="Controls"]
-position = Vector2(230.5, 105.25)
-scale = Vector2(0.5, 0.5)
+[node name="Dash" type="Control" parent="Controls/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Dash" type="TouchScreenButton" parent="Controls/VBoxContainer/Dash"]
+scale = Vector2(2, 2)
 texture_normal = ExtResource("11_bx50g")
 shape = SubResource("CircleShape2D_ogsfq")
 shape_visible = false
 action = "dash"
+visibility_mode = 1
+
+[node name="Jump" type="Control" parent="Controls/VBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Jump" type="TouchScreenButton" parent="Controls/VBoxContainer/Jump"]
+scale = Vector2(4, 4)
+texture_normal = ExtResource("10_gbsqj")
+shape = SubResource("CircleShape2D_oto61")
+shape_visible = false
+action = "jump"
 visibility_mode = 1
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]

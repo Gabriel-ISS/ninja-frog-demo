@@ -50,7 +50,7 @@ process_mode = 4
 visible = false
 
 [node name="FireTrap" parent="Traps" index="3"]
-position = Vector2(2385, 543)
+position = Vector2(2385, 551)
 off_time = 1.5
 
 [node name="Fan" parent="Traps" index="4"]
@@ -58,35 +58,35 @@ process_mode = 4
 visible = false
 
 [node name="FireTrap2" parent="Traps" index="5" instance=ExtResource("3_fa2ak")]
-position = Vector2(2416, 543)
+position = Vector2(2416, 551)
 off_time = 1.5
 
 [node name="FireTrap3" parent="Traps" index="6" instance=ExtResource("3_fa2ak")]
-position = Vector2(2448, 543)
+position = Vector2(2448, 551)
 off_time = 1.5
 
 [node name="FireTrap4" parent="Traps" index="7" instance=ExtResource("3_fa2ak")]
-position = Vector2(2480, 543)
+position = Vector2(2480, 551)
 off_time = 1.5
 
 [node name="FireTrap5" parent="Traps" index="8" instance=ExtResource("3_fa2ak")]
-position = Vector2(2512, 543)
+position = Vector2(2512, 551)
 off_time = 1.5
 
 [node name="FireTrap6" parent="Traps" index="9" instance=ExtResource("3_fa2ak")]
-position = Vector2(2544, 543)
+position = Vector2(2544, 551)
 off_time = 1.5
 
 [node name="FireTrap7" parent="Traps" index="10" instance=ExtResource("3_fa2ak")]
-position = Vector2(2576, 543)
+position = Vector2(2576, 551)
 off_time = 1.5
 
 [node name="FireTrap8" parent="Traps" index="11" instance=ExtResource("3_fa2ak")]
-position = Vector2(2608, 543)
+position = Vector2(2608, 551)
 off_time = 1.5
 
 [node name="FireTrap9" parent="Traps" index="12" instance=ExtResource("3_fa2ak")]
-position = Vector2(2640, 543)
+position = Vector2(2640, 551)
 off_time = 1.5
 
 [node name="Fruit" parent="Fruits" index="0"]
@@ -140,27 +140,27 @@ text = "Press [SPACE] in air to jump again."
 metadata/_edit_use_anchors_ = true
 
 [node name="DoubleJump1" parent="Tips/DoubleJump" index="0" instance=ExtResource("4_32han")]
-position = Vector2(236, 151)
+position = Vector2(236, 159)
 animation = &"jump"
 autoplay = "jump"
 
 [node name="DoubleJump2" parent="Tips/DoubleJump" index="1" instance=ExtResource("4_32han")]
-position = Vector2(284, 94)
+position = Vector2(284, 102)
 animation = &"double_jump1"
 autoplay = "double_jump1"
 
 [node name="DoubleJump3" parent="Tips/DoubleJump" index="2" instance=ExtResource("4_32han")]
-position = Vector2(340, 62)
+position = Vector2(340, 70)
 animation = &"double_jump2"
 autoplay = "double_jump2"
 
 [node name="DoubleJump4" parent="Tips/DoubleJump" index="3" instance=ExtResource("4_32han")]
-position = Vector2(404, 91)
+position = Vector2(404, 99)
 animation = &"double_jump3"
 autoplay = "double_jump3"
 
 [node name="DoubleJump5" parent="Tips/DoubleJump" index="4" instance=ExtResource("4_32han")]
-position = Vector2(428, 142)
+position = Vector2(428, 150)
 animation = &"fall"
 autoplay = "fall"
 
@@ -173,17 +173,17 @@ text = "If you need to go fast, press [SHIFT]"
 metadata/_edit_use_anchors_ = true
 
 [node name="Dash1" parent="Tips/Dash" index="0" instance=ExtResource("4_32han")]
-position = Vector2(336, 184)
+position = Vector2(336, 192)
 animation = &"dash1"
 autoplay = "dash1"
 
 [node name="Dash2" parent="Tips/Dash" index="1" instance=ExtResource("4_32han")]
-position = Vector2(488, 184)
+position = Vector2(488, 192)
 animation = &"dash2"
 autoplay = "dash2"
 
 [node name="Dash3" parent="Tips/Dash" index="2" instance=ExtResource("4_32han")]
-position = Vector2(664, 189)
+position = Vector2(664, 197)
 animation = &"dash3"
 autoplay = "dash3"
 
@@ -195,22 +195,22 @@ offset_bottom = 397.0
 text = "You are a ninja, try to jump over the yellow tile to climb"
 
 [node name="WallClimb1" parent="Tips/WallClimb" index="0" instance=ExtResource("4_32han")]
-position = Vector2(600, 136)
+position = Vector2(600, 152)
 autoplay = "wall_climb"
 
 [node name="WallClimb2" parent="Tips/WallClimb" index="1" instance=ExtResource("4_32han")]
-position = Vector2(504, 56)
+position = Vector2(504, 72)
 autoplay = "wall_climb"
 flip_h = true
 
 [node name="WallClimb3" parent="Tips/WallClimb" index="2" instance=ExtResource("4_32han")]
-position = Vector2(552, 96)
+position = Vector2(552, 112)
 animation = &"jump"
 autoplay = "jump"
 flip_h = true
 
 [node name="WallClimb4" parent="Tips/WallClimb" index="3" instance=ExtResource("4_32han")]
-position = Vector2(568, 185)
+position = Vector2(568, 201)
 animation = &"jump"
 autoplay = "jump"
 
