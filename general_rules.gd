@@ -19,6 +19,11 @@ var current_level = 0
 
 
 const data_file_path = "user://savegame.save"
+var default_data = {
+	'last_completed_level': 0,
+	'records': {}
+}
+
 
 func save_data(data) -> void:
 	var file = FileAccess.open(data_file_path, FileAccess.WRITE)
@@ -27,9 +32,6 @@ func save_data(data) -> void:
 
 func get_data():
 	if not FileAccess.file_exists(data_file_path):
-		var default_data = {
-			'last_completed_level' = 0
-		}
 		save_data(default_data)
 		return default_data
 	var file = FileAccess.open(data_file_path, FileAccess.READ)
@@ -38,8 +40,21 @@ func get_data():
 	return data
 
 var _saved_data = get_data()
+
 var last_completed_level = _saved_data['last_completed_level']:
 	set(value):
 		last_completed_level = value
 		_saved_data['last_completed_level'] = value
 		save_data(_saved_data)
+
+var _records = _saved_data['records']
+
+func get_record(level: int):
+	if not level in _records:
+		return null
+	return _records[level]
+	
+func set_record(level: int, record: int):
+	_records[level] = record
+	_saved_data['records'] = _records
+	save_data(_saved_data)

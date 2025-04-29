@@ -2,13 +2,19 @@ extends Panel
 
 class_name EndLevelMenu
 
-@onready var total_points_label: Label = $Points
+@onready var total_points_label: Label = $CenterContainer/VBoxContainer/Points
+@onready var record_label: Label = $CenterContainer/VBoxContainer/Record
 @onready var next_level_btn: Button = $CenterContainer/VBoxContainer/NextLevel
 
 var total_points = 0:
 	set(value):
 		total_points = value
 		total_points_label.text = 'Total points: ' + str(value)
+
+var record = 0:
+	set(value):
+		record = value
+		record_label.text = 'Record: ' + str(value)
 
 func _ready() -> void:
 	visible = false

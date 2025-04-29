@@ -26,6 +26,13 @@ func open_end_level_menu():
 	get_tree().paused = true
 	end_level_menu.total_points = points.current
 	end_level_menu.visible = true
+	
+	var record = GeneralRules.get_record(GeneralRules.current_level)
+	if not record or record > points.current:
+		end_level_menu.record = points.current
+		GeneralRules.set_record(GeneralRules.current_level, points.current)
+	else:
+		end_level_menu.record = record
 
 
 func _on_music_player_finished() -> void:
