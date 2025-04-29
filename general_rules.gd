@@ -16,4 +16,30 @@ const pineapplePoints = 7
 const strawberryPoints = 8
 
 var current_level = 0
-var last_completed_level = 1
+
+
+const data_file_path = "user://savegame.save"
+
+func save_data(data) -> void:
+	var file = FileAccess.open(data_file_path, FileAccess.WRITE)
+	var json_data = JSON.stringify(data)
+	file.store_line(json_data)
+
+func get_data():
+	if not FileAccess.file_exists(data_file_path):
+		var default_data = {
+			'last_completed_level' = 0
+		}
+		save_data(default_data)
+		return default_data
+	var file = FileAccess.open(data_file_path, FileAccess.READ)
+	var json_data = file.get_line()
+	var data = JSON.parse_string(json_data)
+	return data
+
+var _saved_data = get_data()
+var last_completed_level = _saved_data['last_completed_level']:
+	set(value):
+		last_completed_level = value
+		_saved_data['last_completed_level'] = value
+		save_data(_saved_data)

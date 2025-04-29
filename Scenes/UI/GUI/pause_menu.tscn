@@ -3,15 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/GUI/pause_menu.gd" id="1_pudq0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2u2k"]
-bg_color = Color(0, 0.54, 0.108, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
+bg_color = Color(0, 0.717647, 0.396078, 1)
 
 [sub_resource type="InputEventKey" id="InputEventKey_e02ec"]
 device = -1
@@ -25,7 +17,7 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.03, 0.03, 0.03, 0.796078)
+bg_color = Color(0.03, 0.03, 0.03, 0.596078)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -45,73 +37,73 @@ script = ExtResource("1_pudq0")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -188.0
-offset_right = 125.0
-offset_bottom = 76.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x2u2k")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Resume" type="Button" parent="Panel/VBoxContainer"]
+[node name="Resume" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_cwyph")
 text = "Resume [Esc]"
 
-[node name="MusicLabel" type="Label" parent="Panel/VBoxContainer"]
+[node name="MusicLabel" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Music"
 
-[node name="MusicVolume" type="HSlider" parent="Panel/VBoxContainer"]
+[node name="MusicVolume" type="HSlider" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 min_value = 50.0
 value = 100.0
 
-[node name="SoudEffectLabel" type="Label" parent="Panel/VBoxContainer"]
+[node name="SoudEffectLabel" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Soud effects"
 
-[node name="SoudEffectVolume" type="HSlider" parent="Panel/VBoxContainer"]
+[node name="SoudEffectVolume" type="HSlider" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 min_value = 50.0
 value = 100.0
 
-[node name="Restart" type="Button" parent="Panel/VBoxContainer"]
+[node name="Restart" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Restart"
 
-[node name="BackToMenu" type="Button" parent="Panel/VBoxContainer"]
+[node name="BackToMenu" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Back to menu"
 
 [node name="Tutorial" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -121.0
-offset_top = 105.0
-offset_right = 128.0
-offset_bottom = 209.0
-grow_horizontal = 2
+offset_left = 44.0
+offset_top = -63.0
+offset_right = 339.0
+offset_bottom = 58.0
 grow_vertical = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 20
@@ -122,8 +114,8 @@ text = "- [A] and [D] to move
 - [SHIFT] for fast move
 "
 
-[connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="value_changed" from="Panel/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="Panel/VBoxContainer/SoudEffectVolume" to="." method="_on_soud_effect_volume_value_changed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="value_changed" from="Panel/CenterContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="Panel/CenterContainer/VBoxContainer/SoudEffectVolume" to="." method="_on_soud_effect_volume_value_changed"]
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

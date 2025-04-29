@@ -62,13 +62,13 @@ alignment = 1
 
 [node name="NextLevel" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 55
 shortcut = SubResource("Shortcut_tkakg")
 text = "Next level [Enter]"
 
 [node name="BackToMenu" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 55
 shortcut = SubResource("Shortcut_2be8p")
 text = "Back to menu [Esc]"
 
