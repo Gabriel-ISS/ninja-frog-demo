@@ -9,7 +9,7 @@ var original_height = 0
 func _ready() -> void:
 	original_height = position.y
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if falling:
 		position.y += FALLING_SPEED * delta
 	elif position.y > original_height:
