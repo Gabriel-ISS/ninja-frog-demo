@@ -57,7 +57,7 @@ func set_direction(direction):
 
 func addPoints(toAdd):
 	_points += toAdd
-	gui.points.current = _points 
+	gui.points_label.current = _points 
 
 func loseLife():
 	if not investivility_timer.is_stopped(): return

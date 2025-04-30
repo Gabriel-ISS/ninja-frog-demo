@@ -1478,26 +1478,22 @@ position = Vector2(242, 213)
 [node name="EndPortal" parent="." instance=ExtResource("3_kqhyq")]
 position = Vector2(1047, -136)
 
-[node name="TileMap" type="Node" parent="."]
+[node name="TileMap" type="Node2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(2, 2)
 
 [node name="TunelLayer" type="TileMapLayer" parent="TileMap"]
 z_index = -2
-position = Vector2(0, 8)
-scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_6fmqp")
 
 [node name="BaseLayer" type="TileMapLayer" parent="TileMap"]
 z_index = -3
 texture_filter = 1
-position = Vector2(0, 8)
-scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_nwfdd")
 
 [node name="Background" type="TileMapLayer" parent="TileMap"]
 modulate = Color(0.55, 0.55, 0.55, 1)
 z_index = -4
-position = Vector2(0, 8)
-scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_qwthg")
 
 [node name="Interactables" type="Node" parent="."]

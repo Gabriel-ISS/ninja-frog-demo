@@ -51,13 +51,9 @@ shape = SubResource("CircleShape2D_b3lyn")
 [node name="FloorChecker" type="RayCast2D" parent="."]
 target_position = Vector2(0, 32)
 
-[node name="SafeTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="RotateAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_lvtsx")
 }
 
 [connection signal="body_entered" from="SpikedBall/BallArea" to="." method="_on_ball_area_body_entered"]
-[connection signal="timeout" from="SafeTimer" to="." method="_on_safe_timer_timeout"]

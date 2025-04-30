@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GeneralRules="*res://general_rules.gd"
+GeneralRules="*res://Globals/general_rules.gd"
+LocalStorage="*res://Globals/local_storage.gd"
 
 [display]
 

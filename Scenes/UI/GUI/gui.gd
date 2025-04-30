@@ -8,7 +8,7 @@ class_name Gui
 @onready var menu = $PauseMenu
 @onready var end_level_menu = $EndLevelMenu
 @onready var hp: HealthPoints = $HP 
-@onready var points: PointsCounter = $HBoxContainer/Points/PointsCounter
+@onready var points_label: PointsCounter = $HBoxContainer/Points/PointsCounter
 
 func _ready() -> void:
 	visible = true
@@ -23,14 +23,17 @@ func _ready() -> void:
 
 
 func open_end_level_menu():
+	var level = GeneralRules.current_level
+	var record = LocalStorage.get_record(level)
+	var points = points_label.current
+	
 	get_tree().paused = true
-	end_level_menu.total_points = points.current
+	end_level_menu.total_points = points
 	end_level_menu.visible = true
 	
-	var record = GeneralRules.get_record(GeneralRules.current_level)
-	if not record or record > points.current:
-		end_level_menu.record = points.current
-		GeneralRules.set_record(GeneralRules.current_level, points.current)
+	if not record or points > record:
+		end_level_menu.record = points
+		LocalStorage.set_record(level, points)
 	else:
 		end_level_menu.record = record
 
