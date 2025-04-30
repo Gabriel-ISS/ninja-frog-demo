@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://on5th0h7vdio"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f22ds"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0.05534, 0.0468, 0.12, 0.662745)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="BigBtn" type="Button"]
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_f22ds")
+text = "Text"

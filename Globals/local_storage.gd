@@ -4,7 +4,7 @@ extends Node
 
 const DATA_FILE_PATH = "user://savegame.save"
 const CURRENT_DATA_VERSION = 1
-var DEFAULT_DATA = {
+const DEFAULT_DATA = {
 	'_v': CURRENT_DATA_VERSION,
 	'last_completed_level': 0,
 	'records': {}
@@ -19,13 +19,13 @@ func _save() -> void:
 
 func _get_data():
 	if not FileAccess.file_exists(DATA_FILE_PATH):
-		return DEFAULT_DATA
+		return DEFAULT_DATA.duplicate(true)
 	
 	var file = FileAccess.open(DATA_FILE_PATH, FileAccess.READ)
 	var json_data = file.get_line()
 	var data = JSON.parse_string(json_data)
 	if data['_v'] < CURRENT_DATA_VERSION:
-		return DEFAULT_DATA
+		return DEFAULT_DATA.duplicate(true)
 	return data
 
 var last_completed_level = _data['last_completed_level']:
@@ -37,11 +37,13 @@ var last_completed_level = _data['last_completed_level']:
 var _records = _data['records']
 
 func get_record(level: int):
-	if not level in _records:
+	var str_level = str(level)
+	if not str_level in _records:
 		return null
-	return _records[level]
+	return _records[str_level]
 	
 func set_record(level: int, record: int):
-	_records[level] = record
+	var str_level = str(level)
+	_records[str_level] = record
 	_data['records'] = _records
 	_save()

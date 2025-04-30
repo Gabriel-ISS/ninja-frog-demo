@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvar60qikfd5f"]
+[gd_scene load_steps=4 format=3 uid="uid://bvar60qikfd5f"]
 
 [ext_resource type="Texture2D" uid="uid://ddk5dokopl3eq" path="res://Assets/Background/Cartoon_Forest_BG_03/Cartoon_Forest_BG_03.png" id="1_a5tju"]
 [ext_resource type="Script" path="res://Scenes/UI/start_screen.gd" id="1_x2srr"]
+[ext_resource type="PackedScene" uid="uid://on5th0h7vdio" path="res://Scenes/UI/Helpers/big_btn.tscn" id="3_degjj"]
 
 [node name="start_menu" type="CanvasLayer"]
 script = ExtResource("1_x2srr")
@@ -25,18 +26,16 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="start_game_btn" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="SelectLevelBtn" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_degjj")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Start Game"
+text = "Select level"
 
-[node name="exit_btn" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="ExitBtn" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_degjj")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
 text = "Exit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/start_game_btn" to="." method="_on_start_game_btn_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/exit_btn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/SelectLevelBtn" to="." method="_on_select_level_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

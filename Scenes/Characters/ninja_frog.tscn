@@ -567,10 +567,8 @@ investivility_timer = NodePath("Invencibility")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y1mfh")
-animation = &"hit"
+animation = &"idle"
 autoplay = "appair"
-frame = 6
-frame_progress = 1.0
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)

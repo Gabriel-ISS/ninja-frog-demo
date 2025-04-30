@@ -4,21 +4,23 @@ class_name EndLevelMenu
 
 @onready var total_points_label: Label = $CenterContainer/VBoxContainer/Points
 @onready var record_label: Label = $CenterContainer/VBoxContainer/Record
-@onready var next_level_btn: Button = $CenterContainer/VBoxContainer/NextLevel
+@onready var next_level_btn: Button = $CenterContainer/VBoxContainer/VBoxContainer/NextLevel
 
-var total_points = 0:
-	set(value):
-		total_points = value
-		total_points_label.text = 'Total points: ' + str(value)
-
-var record = 0:
-	set(value):
-		record = value
-		record_label.text = 'Record: ' + str(value)
 
 func _ready() -> void:
 	visible = false
 	next_level_btn.visible = GeneralRules.current_level != GeneralRules.LEVELS
+
+
+func set_points(won: int, total: int):
+	total_points_label.text = 'Points: {0} of {1}'.format([
+		str(won),
+		str(total)
+	])
+
+
+func set_record(record: int):
+	record_label.text = 'Record: ' + str(record)
 
 
 func _on_next_level_pressed() -> void:

@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dl87s63stwmew" path="res://Assets/Sound Effects/88_Teleport_02.wav" id="2_jugxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg70y"]
-size = Vector2(2, 24)
+size = Vector2(2, 28)
 
 [sub_resource type="Animation" id="Animation_vr4tj"]
 loop_mode = 2

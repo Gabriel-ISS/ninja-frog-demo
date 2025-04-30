@@ -1,23 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4l06swu3b0at"]
+[gd_scene load_steps=4 format=3 uid="uid://b4l06swu3b0at"]
 
 [ext_resource type="Script" path="res://Scenes/UI/GUI/end_level_menu.gd" id="1_4tisk"]
+[ext_resource type="PackedScene" uid="uid://on5th0h7vdio" path="res://Scenes/UI/Helpers/big_btn.tscn" id="2_qkp7q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6g2ge"]
 bg_color = Color(5.29438e-07, 0.716284, 0.39587, 1)
-
-[sub_resource type="InputEventKey" id="InputEventKey_7cdkn"]
-device = -1
-keycode = 4194309
-
-[sub_resource type="Shortcut" id="Shortcut_tkakg"]
-events = [SubResource("InputEventKey_7cdkn")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_ht7kn"]
-device = -1
-keycode = 4194305
-
-[sub_resource type="Shortcut" id="Shortcut_2be8p"]
-events = [SubResource("InputEventKey_ht7kn")]
 
 [node name="EndLevelMenu" type="Panel"]
 process_mode = 2
@@ -46,7 +33,7 @@ alignment = 1
 layout_mode = 2
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 80
-text = "Total points: 0"
+text = "Points: 0 of 0"
 horizontal_alignment = 1
 uppercase = true
 
@@ -60,17 +47,18 @@ text = "Record: 0
 horizontal_alignment = 1
 uppercase = true
 
-[node name="NextLevel" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 55
-shortcut = SubResource("Shortcut_tkakg")
-text = "Next level [Enter]"
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
 
-[node name="BackToMenu" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="NextLevel" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_qkp7q")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 55
-shortcut = SubResource("Shortcut_2be8p")
-text = "Back to menu [Esc]"
+text = "Next level"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[node name="BackToMenu" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_qkp7q")]
+layout_mode = 2
+text = "Back to menu"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

@@ -22,7 +22,7 @@ func _ready() -> void:
 	var tile_map: Node2D = get_parent().get_parent().get_node('TileMap')
 	
 	map_loaded = tile_map.is_node_ready()
-	tile_map.connect(
+	if not map_loaded: tile_map.connect(
 		'ready', 
 		func(): map_loaded = true
 	)
