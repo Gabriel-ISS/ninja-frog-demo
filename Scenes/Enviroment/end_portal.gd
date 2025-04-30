@@ -9,7 +9,10 @@ func _ready() -> void:
 
 
 func open_end_level_menu():
-	LocalStorage.last_completed_level <= GeneralRules.current_level
+	var current = GeneralRules.current_level
+	var last = LocalStorage.last_completed_level
+	if current > last:
+		LocalStorage.last_completed_level = current
 	gui.open_end_level_menu()
 
 

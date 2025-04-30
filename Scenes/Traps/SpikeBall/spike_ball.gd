@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 	if not map_loaded: return
 	handle_floor_detection()
 
-
+# detecta el suelo e inicializa la trampa
 func handle_floor_detection():
 	# mientras no se detecte el suelo
 	if not floor_detected:
