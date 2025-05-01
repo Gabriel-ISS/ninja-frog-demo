@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk0bikx81s4lg"]
+
+[ext_resource type="Texture2D" uid="uid://ddk5dokopl3eq" path="res://Assets/Background/Cartoon_Forest_BG_03/Cartoon_Forest_BG_03.png" id="2_53n8f"]
+[ext_resource type="Script" path="res://Scenes/UI/Helpers/link_to_screen.gd" id="2_g8wej"]
+[ext_resource type="Shortcut" uid="uid://cj68d5jll53ko" path="res://Shorcuts/back.tres" id="2_ovtdw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q7cf"]
+bg_color = Color(0, 0, 0, 0.729412)
+
+[node name="BaseMenuScreen" type="CanvasLayer"]
+
+[node name="Bg" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_53n8f")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6q7cf")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="BackBtn" type="Button" parent="VBoxContainer/Header/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 35
+shortcut = ExtResource("2_ovtdw")
+text = "< Back"
+script = ExtResource("2_g8wej")
+scene_path = "res://Scenes/UI/start_screen.tscn"
+
+[node name="MenuLabel" type="Label" parent="VBoxContainer/Header/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Menu label"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="CenterContainer" parent="VBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2

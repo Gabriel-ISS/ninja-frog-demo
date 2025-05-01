@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://dt2mnii7cmfhw"]
+
+[ext_resource type="Script" path="res://Scenes/UI/GUI/controls.gd" id="1_cpapl"]
+[ext_resource type="Texture2D" uid="uid://dot4ma6jxle6f" path="res://Assets/CustomAssets/LeftControl_32x32.png" id="1_ttx4d"]
+[ext_resource type="Texture2D" uid="uid://cjejb3xy88ixe" path="res://Assets/CustomAssets/RightControl_32x32.png" id="2_1lggm"]
+[ext_resource type="Texture2D" uid="uid://cni55t2lh6lnw" path="res://Assets/CustomAssets/DashControl_32x32.png" id="3_gmfna"]
+[ext_resource type="Texture2D" uid="uid://b0bmxcj7qceew" path="res://Assets/CustomAssets/JumpControl_32x32.png" id="4_lxx18"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oto61"]
+radius = 17.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ogsfq"]
+radius = 17.0
+
+[node name="Controls" type="MarginContainer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0, 400)
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 70
+script = ExtResource("1_cpapl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 30
+
+[node name="Left" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Left" type="TouchScreenButton" parent="HBoxContainer/Left"]
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_ttx4d")
+shape = SubResource("CircleShape2D_oto61")
+shape_visible = false
+action = "move_left"
+
+[node name="Right" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Right" type="TouchScreenButton" parent="HBoxContainer/Right"]
+scale = Vector2(5, 5)
+texture_normal = ExtResource("2_1lggm")
+shape = SubResource("CircleShape2D_oto61")
+shape_visible = false
+action = "move_right"
+visibility_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Dash" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Dash" type="TouchScreenButton" parent="VBoxContainer/Dash"]
+scale = Vector2(3, 3)
+texture_normal = ExtResource("3_gmfna")
+shape = SubResource("CircleShape2D_ogsfq")
+shape_visible = false
+action = "dash"
+visibility_mode = 1
+
+[node name="Jump" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Jump" type="TouchScreenButton" parent="VBoxContainer/Jump"]
+scale = Vector2(5, 5)
+texture_normal = ExtResource("4_lxx18")
+shape = SubResource("CircleShape2D_oto61")
+shape_visible = false
+action = "jump"

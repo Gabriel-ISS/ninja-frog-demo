@@ -9,6 +9,11 @@ const CHECKER_TARGET_X = 24
 
 var move_direction = 1
 
+func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS if visible else PROCESS_MODE_DISABLED
+
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

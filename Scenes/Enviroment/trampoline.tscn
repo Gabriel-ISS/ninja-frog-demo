@@ -112,5 +112,6 @@ polygon = PackedVector2Array(-24.1194, 11.8, -11.2239, 2.2, 10.7463, 2.2, 24.119
 
 [node name="Impulse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_jmwdg")
+bus = &"Soud Effects"
 
 [connection signal="body_entered" from="ActivationArea" to="." method="_on_activation_area_body_entered"]

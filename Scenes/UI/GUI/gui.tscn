@@ -1,36 +1,28 @@
-[gd_scene load_steps=17 format=3 uid="uid://cgo4gdkg68dpx"]
+[gd_scene load_steps=12 format=3 uid="uid://cgo4gdkg68dpx"]
 
 [ext_resource type="Script" path="res://Scenes/UI/GUI/gui.gd" id="1_e1ev7"]
 [ext_resource type="Script" path="res://Scenes/UI/GUI/hp.gd" id="2_gmnd3"]
 [ext_resource type="Texture2D" uid="uid://m0sxg4glblx1" path="res://Assets/Items/Fruits/Apple.png" id="3_7pwmx"]
 [ext_resource type="PackedScene" uid="uid://bitcbucr2kw1o" path="res://Scenes/UI/GUI/heart.tscn" id="4_l3eo5"]
+[ext_resource type="PackedScene" uid="uid://dt2mnii7cmfhw" path="res://Scenes/UI/GUI/controls.tscn" id="6_0kj83"]
 [ext_resource type="PackedScene" uid="uid://eukpto2lftyx" path="res://Scenes/UI/GUI/pause_menu.tscn" id="6_cyhx4"]
+[ext_resource type="Theme" uid="uid://jn48ba6p0oig" path="res://Scenes/UI/Themes/simple_menu_theme.tres" id="6_km7mw"]
 [ext_resource type="Script" path="res://Scenes/UI/GUI/points_counter.gd" id="6_vofyj"]
+[ext_resource type="Shortcut" uid="uid://cj68d5jll53ko" path="res://Shorcuts/back.tres" id="7_txvib"]
 [ext_resource type="PackedScene" uid="uid://b4l06swu3b0at" path="res://Scenes/UI/GUI/end_level_menu.tscn" id="8_4nxp0"]
-[ext_resource type="Texture2D" uid="uid://dot4ma6jxle6f" path="res://Assets/CustomAssets/LeftControl_32x32.png" id="8_wbitw"]
-[ext_resource type="Texture2D" uid="uid://cjejb3xy88ixe" path="res://Assets/CustomAssets/RightControl_32x32.png" id="9_ojuw8"]
-[ext_resource type="Texture2D" uid="uid://b0bmxcj7qceew" path="res://Assets/CustomAssets/JumpControl_32x32.png" id="10_gbsqj"]
-[ext_resource type="Texture2D" uid="uid://cni55t2lh6lnw" path="res://Assets/CustomAssets/DashControl_32x32.png" id="11_bx50g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1bpg"]
 atlas = ExtResource("3_7pwmx")
 region = Rect2(6, 4, 20, 20)
 
-[sub_resource type="InputEventKey" id="InputEventKey_qldi1"]
-device = -1
-keycode = 4194305
-
-[sub_resource type="Shortcut" id="Shortcut_iy3m3"]
-events = [SubResource("InputEventKey_qldi1")]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_oto61"]
-radius = 17.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ogsfq"]
-radius = 17.0
-
-[node name="Gui" type="CanvasLayer"]
+[node name="Gui" type="CanvasLayer" node_paths=PackedStringArray("music_player", "menu", "controls", "end_level_menu", "hp", "points_label")]
 script = ExtResource("1_e1ev7")
+music_player = NodePath("MusicPlayer")
+menu = NodePath("PauseMenu")
+controls = NodePath("Controls")
+end_level_menu = NodePath("EndLevelMenu")
+hp = NodePath("HP")
+points_label = NodePath("HBoxContainer/Points/PointsCounter")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -97,90 +89,17 @@ script = ExtResource("6_vofyj")
 
 [node name="Pause" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-shortcut = SubResource("Shortcut_iy3m3")
-text = "Pause [Esc]"
+theme = ExtResource("6_km7mw")
+shortcut = ExtResource("7_txvib")
+text = "Pause"
 
-[node name="Controls" type="MarginContainer" parent="."]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -400.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_left = 70
-theme_override_constants/margin_top = 70
-theme_override_constants/margin_right = 70
-theme_override_constants/margin_bottom = 70
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Controls"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 30
-
-[node name="Left" type="Control" parent="Controls/HBoxContainer"]
-custom_minimum_size = Vector2(160, 160)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="Left" type="TouchScreenButton" parent="Controls/HBoxContainer/Left"]
-scale = Vector2(5, 5)
-texture_normal = ExtResource("8_wbitw")
-shape = SubResource("CircleShape2D_oto61")
-shape_visible = false
-action = "move_left"
-visibility_mode = 1
-
-[node name="Right" type="Control" parent="Controls/HBoxContainer"]
-custom_minimum_size = Vector2(160, 160)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="Right" type="TouchScreenButton" parent="Controls/HBoxContainer/Right"]
-scale = Vector2(5, 5)
-texture_normal = ExtResource("9_ojuw8")
-shape = SubResource("CircleShape2D_oto61")
-shape_visible = false
-action = "move_right"
-visibility_mode = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Controls"]
-custom_minimum_size = Vector2(192, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="Dash" type="Control" parent="Controls/VBoxContainer"]
-custom_minimum_size = Vector2(96, 96)
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Dash" type="TouchScreenButton" parent="Controls/VBoxContainer/Dash"]
-scale = Vector2(3, 3)
-texture_normal = ExtResource("11_bx50g")
-shape = SubResource("CircleShape2D_ogsfq")
-shape_visible = false
-action = "dash"
-visibility_mode = 1
-
-[node name="Jump" type="Control" parent="Controls/VBoxContainer"]
-custom_minimum_size = Vector2(160, 160)
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="Jump" type="TouchScreenButton" parent="Controls/VBoxContainer/Jump"]
-scale = Vector2(5, 5)
-texture_normal = ExtResource("10_gbsqj")
-shape = SubResource("CircleShape2D_oto61")
-shape_visible = false
-action = "jump"
-visibility_mode = 1
+[node name="Controls" parent="." instance=ExtResource("6_0kj83")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_cyhx4")]
+visible = false
 
 [node name="EndLevelMenu" parent="." instance=ExtResource("8_4nxp0")]
+process_mode = 2
 visible = false
 
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]

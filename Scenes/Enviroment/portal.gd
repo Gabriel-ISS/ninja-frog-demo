@@ -7,6 +7,11 @@ class_name Portal
 @onready var teleport_sound = $Teleport
 
 
+func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS if visible else PROCESS_MODE_DISABLED
+	
+
+
 func _on_player_detect_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if not timer.is_stopped(): return
 	timer.start()

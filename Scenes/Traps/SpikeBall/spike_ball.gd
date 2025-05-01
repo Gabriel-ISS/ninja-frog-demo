@@ -16,6 +16,8 @@ var floor_detected = false
 var floor_detection_initial_y = 0
 
 func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS if visible else PROCESS_MODE_DISABLED
+	
 	rotate_animation.speed_scale = VELOCITY
 	floor_detection_initial_y = floor_detection.target_position.y
 	

@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=3 uid="uid://crc22hwj65thw"]
+
+[ext_resource type="PackedScene" uid="uid://dk0bikx81s4lg" path="res://Scenes/UI/Helpers/base_screen_menu.tscn" id="1_i1wix"]
+[ext_resource type="Script" path="res://Scenes/UI/LevelMenuScreen/level_menu_screen.gd" id="2_lixpy"]
+[ext_resource type="PackedScene" uid="uid://cljf6s5d2ovxx" path="res://Scenes/UI/LevelMenuScreen/level_btn.tscn" id="3_q3j30"]
+
+[node name="LevelMenuScreen" node_paths=PackedStringArray("levels_container") instance=ExtResource("1_i1wix")]
+script = ExtResource("2_lixpy")
+levels_container = NodePath("VBoxContainer/ScrollContainer/MarginContainer/Content/Levels")
+
+[node name="Levels" type="GridContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Content" index="0"]
+layout_mode = 2
+columns = 6
+
+[node name="level_btn" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="0" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "1"
+level = 1
+
+[node name="level_btn2" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="1" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "2"
+level = 2
+
+[node name="level_btn3" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="2" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "3"
+level = 3
+
+[node name="level_btn4" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="3" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "4"
+level = 4
+
+[node name="level_btn5" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="4" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "5"
+level = 5
+
+[node name="level_btn6" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="5" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "6"
+level = 6
+
+[node name="level_btn7" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="6" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "7"
+level = 7
+
+[node name="level_btn8" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="7" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "8"
+level = 8
+
+[node name="level_btn9" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="8" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "9"
+level = 9
+
+[node name="level_btn10" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="9" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "10"
+level = 10
+
+[node name="level_btn11" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="10" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "11"
+level = 11
+
+[node name="level_btn12" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="11" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "12"
+level = 12
+
+[node name="level_btn13" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="12" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "13"
+level = 13
+
+[node name="level_btn14" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="13" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "14"
+level = 14
+
+[node name="level_btn15" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="14" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "15"
+level = 15
+
+[node name="level_btn16" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="15" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "16"
+level = 16
+
+[node name="level_btn17" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="16" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "17"
+level = 17
+
+[node name="level_btn18" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="17" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "18"
+level = 18
+
+[node name="level_btn19" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="18" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "19"
+level = 19
+
+[node name="level_btn20" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="19" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "20"
+level = 20
+
+[node name="level_btn21" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="20" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "21"
+level = 21
+
+[node name="level_btn22" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="21" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "22"
+level = 22
+
+[node name="level_btn23" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="22" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "23"
+level = 23
+
+[node name="level_btn24" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/Levels" index="23" instance=ExtResource("3_q3j30")]
+layout_mode = 2
+text = "24"
+level = 24

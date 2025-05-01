@@ -16,11 +16,11 @@ point_count = 2
 
 [node name="Level3" instance=ExtResource("1_fjrvy")]
 
-[node name="Background" parent="." index="0"]
-background = "Forest"
-
-[node name="Gui" parent="." index="1"]
+[node name="Gui" parent="." index="0"]
 music = ExtResource("2_ihs1l")
+
+[node name="Background" parent="." index="1"]
+background = "Forest"
 
 [node name="NinjaFrog" parent="." index="2"]
 position = Vector2(88, 248)
@@ -38,6 +38,7 @@ tile_map_data = PackedByteArray("AADq/wkAAAAGAAAAAADq/woAAAAKAAEAAADq/wsAAAAHAAE
 tile_map_data = PackedByteArray("AABPABEAAAAHAAEAAABPABAAAAAKAAEAAABPAA8AAAAHAAEAAABOABEAAAAHAAEAAABOABAAAAAJAAEAAABOAA8AAAAHAAEAAABNABEAAAAKAAEAAABNABAAAAAGAAEAAABNAA8AAAAHAAEAAABMAA8AAAAGAAIAAABgABEAAAAJAAEAAABgABAAAAAIAAEAAABgAA8AAAAHAAEAAABfABEAAAAHAAEAAABfABAAAAAKAAEAAABfAA8AAAAHAAEAAABhAA8AAAAIAAIAAABhABEAAAAIAAAAAABQAA8AAAAHAAEAAABQABAAAAAHAAEAAABQABEAAAAHAAEAAABQABIAAAAHAAEAAABRAA8AAAAHAAEAAABRABAAAAAHAAEAAABRABEAAAAHAAEAAABRABIAAAAHAAEAAABSAA8AAAAHAAEAAABSABAAAAAHAAEAAABSABEAAAAHAAEAAABSABIAAAAHAAEAAABTAA8AAAAHAAEAAABTABAAAAAHAAEAAABTABEAAAAHAAEAAABTABIAAAAHAAEAAABUAA8AAAAHAAEAAABUABAAAAAHAAEAAABUABEAAAAJAAEAAABUABIAAAAHAAEAAABVAA8AAAAHAAEAAABVABAAAAAHAAEAAABVABEAAAAHAAAAAABVABIAAAAHAAEAAABYAA8AAAAHAAEAAABYABAAAAAHAAEAAABYABEAAAAHAAEAAABYABIAAAAHAAEAAABZAA8AAAAHAAEAAABZABAAAAAHAAEAAABZABEAAAAHAAEAAABZABIAAAAHAAEAAABaAA8AAAAHAAEAAABaABAAAAAHAAEAAABaABEAAAAHAAEAAABaABIAAAAHAAEAAABbAA8AAAAHAAEAAABbABAAAAAHAAEAAABbABEAAAAHAAEAAABbABIAAAAHAAEAAABcAA8AAAAHAAEAAABcABAAAAAHAAEAAABcABEAAAAHAAEAAABcABIAAAAHAAEAAABdAA8AAAAHAAEAAABdABAAAAAHAAEAAABdABEAAAAHAAEAAABdABIAAAAHAAEAAABeAA8AAAAHAAEAAABeABAAAAAJAAEAAABeABEAAAAHAAEAAABeABIAAAAHAAEAAABTABMAAAAHAAEAAABUABMAAAAHAAEAAABVABMAAAAHAAEAAABWABAAAAAHAAEAAABWABEAAAAHAAAAAABWABIAAAAHAAEAAABWABMAAAAHAAEAAABXABAAAAAHAAEAAABXABEAAAAKAAEAAABXABIAAAAHAAEAAABXABMAAAAHAAEAAABYABMAAAAHAAEAAABZABMAAAAHAAEAAABaABMAAAAHAAEAAABbABMAAAAHAAEAAABWAA8AAAAHAAEAAABXAA8AAAAHAAEAAACzAA0AAAAHAAEAAACzAA4AAAAGAAEAAACzAA8AAAAGAAEAAACzABAAAAAKAAEAAADLAAcAAAAHAAEAAADLAAgAAAAIAAEAAADLAAkAAAAIAAEAAADLAAoAAAAJAAEAAADLAAsAAAAHAAEAAADLAAwAAAAHAAEAAADLAA0AAAAHAAEAAADLAA4AAAAHAAEAAADLAA8AAAAHAAEAAADLABAAAAAHAAEAAAC2AAsAAAAHAAEAAAC3AAsAAAAHAAEAAAC5AAsAAAAHAAEAAAC6AAsAAAAHAAEAAAC7AAsAAAAHAAEAAAC8AAsAAAAHAAEAAAC9AAsAAAAHAAEAAAC+AAsAAAAHAAEAAADAAAwAAAAHAAEAAADBAAwAAAAHAAEAAADCAAwAAAAHAAEAAADDAAwAAAAHAAEAAADDAA0AAAAHAAEAAADEAA0AAAAHAAEAAADFAA0AAAAHAAEAAADGAA0AAAAHAAEAAADHAA0AAAAJAAEAAADHAA4AAAAHAAEAAADIAA4AAAAHAAEAAADJAA4AAAAHAAEAAADJAA0AAAAHAAEAAADEAAwAAAAHAAEAAADFAAwAAAAHAAEAAADGAAwAAAAHAAEAAADHAAwAAAAHAAEAAADIAAwAAAAHAAEAAADJAAwAAAAHAAEAAAC0AA0AAAAHAAEAAAC0AA4AAAAHAAEAAAC0AA8AAAAHAAEAAAC0ABAAAAAHAAEAAAC1AAwAAAAHAAAAAAC1AA0AAAAHAAEAAAC1AA4AAAAHAAEAAAC1ABAAAAAHAAEAAAC2AAwAAAAKAAEAAAC2AA0AAAAHAAEAAAC2AA4AAAAHAAEAAAC2ABAAAAAHAAEAAAC3AAwAAAAHAAEAAAC3AA0AAAAHAAEAAAC3AA4AAAAHAAEAAAC3ABAAAAAHAAEAAAC4AAwAAAAHAAEAAAC4AA0AAAAHAAEAAAC4AA4AAAAHAAEAAAC4AA8AAAAHAAEAAAC4ABAAAAAHAAEAAAC5AAwAAAAHAAEAAAC5AA0AAAAHAAEAAAC5AA4AAAAHAAEAAAC5AA8AAAAHAAEAAAC5ABAAAAAHAAEAAAC6AAwAAAAHAAEAAAC6AA0AAAAHAAEAAAC6AA4AAAAHAAEAAAC6AA8AAAAHAAEAAAC6ABAAAAAHAAEAAAC7AAwAAAAHAAEAAAC7AA0AAAAHAAEAAAC7AA4AAAAHAAEAAAC7AA8AAAAHAAEAAAC7ABAAAAAHAAEAAAC8AAwAAAAHAAEAAAC8AA0AAAAHAAEAAAC8AA4AAAAHAAEAAAC8AA8AAAAHAAEAAAC8ABAAAAAHAAEAAAC9AAwAAAAHAAEAAAC9AA0AAAAHAAEAAAC9AA4AAAAHAAEAAAC9AA8AAAAHAAEAAAC9ABAAAAAHAAEAAAC+AAwAAAAHAAEAAAC+AA0AAAAHAAEAAAC+AA4AAAAHAAEAAAC+AA8AAAAHAAEAAAC+ABAAAAAHAAEAAAC/AA4AAAAHAAEAAAC/AA8AAAAHAAEAAAC/ABAAAAAHAAEAAADAAAsAAAAHAAEAAADAAA0AAAAHAAEAAADAAA4AAAAHAAEAAADAAA8AAAAHAAEAAADAABAAAAAHAAEAAADBAAsAAAAHAAEAAADBAA0AAAAHAAEAAADBAA4AAAAHAAEAAADBAA8AAAAHAAEAAADBABAAAAAHAAEAAADCAAsAAAAHAAEAAADCAA0AAAAHAAEAAADCAA4AAAAHAAEAAADCAA8AAAAHAAEAAADCABAAAAAHAAEAAADDAAsAAAAHAAEAAADDAA4AAAAHAAEAAADDAA8AAAAHAAEAAADDABAAAAAHAAEAAADEAAsAAAAHAAEAAADEAA4AAAAHAAEAAADEAA8AAAAHAAEAAADEABAAAAAHAAEAAADFAAsAAAAHAAEAAADFAA4AAAAHAAEAAADFAA8AAAAHAAEAAADFABAAAAAHAAEAAADGAAsAAAAHAAEAAADGAA4AAAAHAAEAAADGAA8AAAAHAAEAAADGABAAAAAHAAEAAADHAAsAAAAHAAEAAADHAA8AAAAHAAEAAADHABAAAAAHAAEAAADIAAsAAAAHAAEAAADIAA0AAAAKAAEAAADIAA8AAAAHAAEAAADIABAAAAAHAAEAAADJAAsAAAAHAAEAAADJAA8AAAAHAAEAAADJABAAAAAHAAEAAADKAAsAAAAHAAEAAADKAAwAAAAHAAEAAADKAA0AAAAHAAEAAADKAA4AAAAHAAEAAADKAA8AAAAHAAEAAADKABAAAAAHAAEAAAC6ABEAAAAHAAEAAAC7ABEAAAAHAAEAAAC8ABEAAAAHAAEAAAC9ABEAAAAHAAEAAAC+ABEAAAAHAAEAAAC/ABEAAAAHAAEAAADAABEAAAAHAAEAAADBABEAAAAHAAEAAADCABEAAAAHAAEAAADDABEAAAAHAAEAAADEABEAAAAHAAEAAADFABEAAAAHAAEAAADGABEAAAAHAAEAAAC7ABIAAAAHAAEAAAC8ABIAAAAHAAEAAAC9ABIAAAAHAAEAAAC+ABIAAAAHAAEAAAC/ABIAAAAHAAEAAADAABIAAAAHAAEAAADBABIAAAAHAAEAAADCABIAAAAHAAEAAADDABIAAAAHAAEAAAC3AAoAAAAHAAEAAAC5AAoAAAAHAAEAAAC6AAoAAAAHAAEAAAC7AAoAAAAHAAEAAADEAAoAAAAHAAEAAADFAAoAAAAHAAEAAADGAAoAAAAHAAEAAADHAAoAAAAHAAEAAADJAAoAAAAHAAEAAADKAAoAAAAHAAEAAADJAAcAAAAHAAEAAADJAAgAAAAHAAEAAADJAAkAAAAJAAEAAADKAAcAAAAHAAEAAADKAAgAAAAHAAEAAADKAAkAAAAKAAEAAAC2AA8AAAAHAAAAAAC1AA8AAAAJAAEAAAC3AA8AAAAKAAEAAACyAA0AAAAGAAIAAABMABEAAAAGAAAAAADMAAcAAAAIAAIAAADMAAoAAAAIAAAAAACyABAAAAAGAAAAAAA=")
 
 [node name="Portal" parent="Interactables" index="0" node_paths=PackedStringArray("objetive_portal")]
+visible = true
 position = Vector2(3872, 504)
 objetive_portal = NodePath("../Portal4")
 
@@ -54,6 +55,7 @@ position = Vector2(6928, 360)
 objetive_portal = NodePath("../Portal2")
 
 [node name="Trampoline" parent="Interactables" index="4"]
+visible = true
 position = Vector2(4760, 552)
 
 [node name="Trampoline2" parent="Interactables" index="5" instance=ExtResource("4_so3cn")]
@@ -69,20 +71,25 @@ position = Vector2(6488, 552)
 position = Vector2(6736, 584)
 
 [node name="MovingPlatform" parent="Interactables" index="9"]
+visible = true
 position = Vector2(2216, 224)
 curve = SubResource("Curve2D_4r28b")
 velocity = 0.4
 
 [node name="Saw" parent="Traps" index="0"]
+visible = true
 position = Vector2(2704, 600)
 
 [node name="SpikeBall" parent="Traps" index="1"]
+visible = true
 position = Vector2(1680, 232)
 
 [node name="FallingPlatform" parent="Traps" index="2"]
+visible = true
 position = Vector2(4976, 560)
 
 [node name="FireTrap" parent="Traps" index="3"]
+visible = true
 position = Vector2(3776, 456)
 rotation = -1.57079
 
@@ -110,148 +117,187 @@ USE_MAX_DISTANCE = true
 
 [node name="Fan" parent="Traps" index="10"]
 process_mode = 4
-visible = false
 
 [node name="Fruit" parent="Fruits" index="0"]
+process_mode = 4
+visible = true
 position = Vector2(4584, 360)
 
 [node name="Fruit2" parent="Fruits" index="1" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(5400, 528)
 
 [node name="Fruit3" parent="Fruits" index="2" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(5456, 528)
 fruit_type = "banana"
 
 [node name="Fruit4" parent="Fruits" index="3" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(5512, 528)
 
 [node name="Fruit5" parent="Fruits" index="4" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(5721, 517)
 
 [node name="Fruit6" parent="Fruits" index="5" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(6016, 592)
 fruit_type = "banana"
 
 [node name="Fruit7" parent="Fruits" index="6" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(6240, 592)
 fruit_type = "banana"
 
 [node name="Fruit8" parent="Fruits" index="7" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(6488, 464)
 fruit_type = "banana"
 
 [node name="Fruit9" parent="Fruits" index="8" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(6488, 400)
 
 [node name="Fruit10" parent="Fruits" index="9" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(6488, 344)
 fruit_type = "banana"
 
 [node name="Fruit11" parent="Fruits" index="10" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(6584, 336)
 
 [node name="Fruit12" parent="Fruits" index="11" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(5112, 529)
 fruit_type = "cherry"
 
 [node name="Fruit13" parent="Fruits" index="12" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(5165, 529)
 fruit_type = "cherry"
 
 [node name="Fruit14" parent="Fruits" index="13" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(5216, 528)
 fruit_type = "cherry"
 
 [node name="Fruit15" parent="Fruits" index="14" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4016, 408)
 fruit_type = "kiwy"
 
 [node name="Fruit16" parent="Fruits" index="15" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4112, 408)
 fruit_type = "kiwy"
 
 [node name="Fruit17" parent="Fruits" index="16" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4360, 496)
 fruit_type = "cherry"
 
 [node name="Fruit18" parent="Fruits" index="17" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4496, 536)
 fruit_type = "melon"
 
 [node name="Fruit19" parent="Fruits" index="18" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4312, 602)
 fruit_type = "banana"
 
 [node name="Fruit20" parent="Fruits" index="19" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4356, 600)
 fruit_type = "kiwy"
 
 [node name="Fruit21" parent="Fruits" index="20" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4400, 600)
 fruit_type = "banana"
 
 [node name="Fruit22" parent="Fruits" index="21" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4568, 504)
 fruit_type = "cherry"
 
 [node name="Fruit23" parent="Fruits" index="22" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4616, 504)
 fruit_type = "cherry"
 
 [node name="Fruit24" parent="Fruits" index="23" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4144, 600)
 fruit_type = "strawberry"
 
 [node name="Fruit25" parent="Fruits" index="24" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4416, 304)
 
 [node name="Fruit26" parent="Fruits" index="25" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(4080, 264)
 
 [node name="Fruit27" parent="Fruits" index="26" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(3440, 368)
 
 [node name="Fruit39" parent="Fruits" index="27" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(3760, 440)
 fruit_type = "pineapple"
 
 [node name="Fruit28" parent="Fruits" index="28" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(2984, 328)
 fruit_type = "banana"
 
 [node name="Fruit29" parent="Fruits" index="29" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(2746, 293)
 fruit_type = "banana"
 
 [node name="Fruit30" parent="Fruits" index="30" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(1939, 162)
 fruit_type = "banana"
 
 [node name="Fruit31" parent="Fruits" index="31" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(2068, 165)
 fruit_type = "banana"
 
 [node name="Fruit32" parent="Fruits" index="32" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(2222, 164)
 fruit_type = "banana"
 
 [node name="Fruit33" parent="Fruits" index="33" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(1664, 168)
 fruit_type = "strawberry"
 
 [node name="Fruit34" parent="Fruits" index="34" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(1712, 168)
 fruit_type = "strawberry"
 
 [node name="Fruit35" parent="Fruits" index="35" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(1222, 338)
 
 [node name="Fruit36" parent="Fruits" index="36" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(1144, 256)
 fruit_type = "banana"
 
 [node name="Fruit37" parent="Fruits" index="37" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(560, 496)
 
 [node name="Fruit38" parent="Fruits" index="38" instance=ExtResource("10_irjrw")]
+process_mode = 3
 position = Vector2(912, 496)

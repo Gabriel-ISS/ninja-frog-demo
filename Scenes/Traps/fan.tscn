@@ -1,6 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2dvgnfuf86xl"]
 
 [ext_resource type="Texture2D" uid="uid://c6tptrecxeu60" path="res://Assets/Traps/Fan/On (24x8).png" id="1_cewtv"]
+[ext_resource type="Script" path="res://Scenes/Traps/fan.gd" id="2_uvxxi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7ni1"]
 atlas = ExtResource("1_cewtv")
@@ -38,10 +39,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="GDScript" id="GDScript_gqhev"]
-script/source = "extends AnimatedSprite2D
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eoam8"]
 size = Vector2(21, 2)
 
@@ -50,7 +47,7 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l22l5")
 autoplay = "default"
 offset = Vector2(0, -4)
-script = SubResource("GDScript_gqhev")
+script = ExtResource("2_uvxxi")
 
 [node name="DamageArea" type="Area2D" parent="."]
 collision_layer = 16

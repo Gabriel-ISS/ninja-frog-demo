@@ -7,6 +7,8 @@ var falling = false
 var original_height = 0
 
 func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS if visible else PROCESS_MODE_DISABLED
+	
 	original_height = position.y
 
 func _physics_process(delta: float) -> void:

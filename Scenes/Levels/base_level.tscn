@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dhr0npcu7vrep"]
+[gd_scene load_steps=41 format=3 uid="uid://dhr0npcu7vrep"]
 
 [ext_resource type="PackedScene" uid="uid://ni3yfhdkktve" path="res://Scenes/Background/background.tscn" id="1_2m8h4"]
 [ext_resource type="PackedScene" uid="uid://cgo4gdkg68dpx" path="res://Scenes/UI/GUI/gui.tscn" id="1_vstqe"]
@@ -1238,9 +1238,6 @@ pattern_4 = SubResource("TileMapPattern_kpvkh")
 pattern_5 = SubResource("TileMapPattern_rakdf")
 pattern_6 = SubResource("TileMapPattern_76jyb")
 
-[sub_resource type="TileMapPattern" id="TileMapPattern_aintk"]
-tile_data = PackedInt32Array(0, 589824, 0, 65536, 589824, 1, 1, 655360, 0, 65537, 655360, 1)
-
 [sub_resource type="TileMapPattern" id="TileMapPattern_vsgt6"]
 tile_data = PackedInt32Array(0, 458752, 1)
 
@@ -1249,6 +1246,18 @@ tile_data = PackedInt32Array(0, 524288, 1)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1e3cd"]
 tile_data = PackedInt32Array(0, 393216, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_3wwtv"]
+tile_data = PackedInt32Array(0, 393216, 2, 131072, 393216, 0, 1, 458752, 1, 65537, 393216, 1, 131073, 655360, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_76kvc"]
+tile_data = PackedInt32Array(0, 458752, 1, 65536, 524288, 1, 131072, 589824, 1, 1, 524288, 2, 131073, 524288, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_h7qj1"]
+tile_data = PackedInt32Array(0, 589824, 1, 1, 655360, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_yi1ni"]
+tile_data = PackedInt32Array(0, 589824, 1, 1, 458752, 0, 2, 655360, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6qjl5"]
 texture = ExtResource("5_3qpch")
@@ -1460,17 +1469,20 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Grass"
 terrain_set_0/terrain_0/color = Color(0.231185, 0.383925, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_6qjl5")
-pattern_0 = SubResource("TileMapPattern_aintk")
-pattern_1 = SubResource("TileMapPattern_vsgt6")
-pattern_2 = SubResource("TileMapPattern_ybq0v")
-pattern_3 = SubResource("TileMapPattern_1e3cd")
+pattern_0 = SubResource("TileMapPattern_vsgt6")
+pattern_1 = SubResource("TileMapPattern_ybq0v")
+pattern_2 = SubResource("TileMapPattern_1e3cd")
+pattern_3 = SubResource("TileMapPattern_3wwtv")
+pattern_4 = SubResource("TileMapPattern_76kvc")
+pattern_5 = SubResource("TileMapPattern_h7qj1")
+pattern_6 = SubResource("TileMapPattern_yi1ni")
 
 [node name="BaseLevel" type="Node"]
 
-[node name="Background" parent="." instance=ExtResource("1_2m8h4")]
-
 [node name="Gui" parent="." instance=ExtResource("1_vstqe")]
 visible = false
+
+[node name="Background" parent="." instance=ExtResource("1_2m8h4")]
 
 [node name="NinjaFrog" parent="." instance=ExtResource("2_rqqsu")]
 position = Vector2(242, 213)
@@ -1499,34 +1511,43 @@ tile_set = SubResource("TileSet_qwthg")
 [node name="Interactables" type="Node" parent="."]
 
 [node name="Portal" parent="Interactables" instance=ExtResource("5_nxs5k")]
+visible = false
 position = Vector2(248, -32)
 
 [node name="Trampoline" parent="Interactables" instance=ExtResource("6_wkqth")]
+visible = false
 position = Vector2(160, -32)
 
 [node name="MovingPlatform" parent="Interactables" instance=ExtResource("9_ohyc5")]
+visible = false
 position = Vector2(200, -80)
 
 [node name="Traps" type="Node" parent="."]
 
 [node name="Saw" parent="Traps" instance=ExtResource("7_2u1as")]
+visible = false
 y_sort_enabled = true
 position = Vector2(488, -40)
 
 [node name="SpikeBall" parent="Traps" instance=ExtResource("8_pbanv")]
+visible = false
 position = Vector2(568, -64)
 
 [node name="FallingPlatform" parent="Traps" instance=ExtResource("10_qpdyk")]
+visible = false
 position = Vector2(640, -32)
 
 [node name="FireTrap" parent="Traps" instance=ExtResource("13_w4jfg")]
+visible = false
 position = Vector2(416, -32)
 
 [node name="Fan" parent="Traps" instance=ExtResource("12_ot3at")]
+visible = false
 position = Vector2(720, -32)
-script = null
 
 [node name="Fruits" type="Node" parent="."]
 
 [node name="Fruit" parent="Fruits" instance=ExtResource("9_srrtj")]
+process_mode = 3
+visible = false
 position = Vector2(896, -32)

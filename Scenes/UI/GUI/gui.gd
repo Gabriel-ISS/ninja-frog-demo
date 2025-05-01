@@ -4,11 +4,12 @@ class_name Gui
 
 @export var music: AudioStream
 
-@onready var music_player = $MusicPlayer
-@onready var menu = $PauseMenu
-@onready var end_level_menu: EndLevelMenu = $EndLevelMenu
-@onready var hp: HealthPoints = $HP 
-@onready var points_label: PointsCounter = $HBoxContainer/Points/PointsCounter
+@export var music_player: AudioStreamPlayer
+@export var menu: Control
+@export var controls: Control
+@export var end_level_menu: EndLevelMenu
+@export var hp: HealthPoints
+@export var points_label: PointsCounter
 
 var total_points = 0
 
@@ -60,4 +61,5 @@ func _on_music_player_finished() -> void:
 
 func _on_pause_pressed() -> void:
 	get_tree().paused = true
+	controls.visible = false
 	menu.visible = true

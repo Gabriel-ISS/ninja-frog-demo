@@ -7,7 +7,7 @@ class_name Character
 @export var front_ray_cast: FronRayCast
 @export var investivility_timer: Timer
 
-var _lifes = GeneralRules.INITIAL_LIFES
+var _lifes = GeneralRules.initial_lifes
 var _points = 0
 
 var lock_movement = false

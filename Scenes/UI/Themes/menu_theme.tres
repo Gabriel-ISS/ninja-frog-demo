@@ -1,0 +1,69 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cdjcrwd5vbhrv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1j0bp"]
+bg_color = Color(0.32549, 0.694118, 0.356863, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4xqo"]
+bg_color = Color(0.427014, 0.889777, 0.466092, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p8os"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.8, 0.8, 0.8, 0.545098)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_552gv"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.427451, 0.890196, 0.466667, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtkgs"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.32549, 0.694118, 0.356863, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ngbg"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.427451, 0.890196, 0.466667, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_1j0bp")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_w4xqo")
+HSlider/styles/slider = SubResource("StyleBoxFlat_8p8os")
+Label/colors/font_shadow_color = Color(0.0588235, 0.0588235, 0.0588235, 0.909804)
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 2
+Label/constants/shadow_outline_size = 2
+Label/font_sizes/font_size = 40
+OptionButton/constants/arrow_margin = 10
+OptionButton/font_sizes/font_size = 30
+OptionButton/styles/hover = SubResource("StyleBoxFlat_552gv")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_vtkgs")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_3ngbg")

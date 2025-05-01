@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4l06swu3b0at"]
+[gd_scene load_steps=5 format=3 uid="uid://b4l06swu3b0at"]
 
 [ext_resource type="Script" path="res://Scenes/UI/GUI/end_level_menu.gd" id="1_4tisk"]
 [ext_resource type="PackedScene" uid="uid://on5th0h7vdio" path="res://Scenes/UI/Helpers/big_btn.tscn" id="2_qkp7q"]
+[ext_resource type="Shortcut" uid="uid://7jp8bno8cn0h" path="res://Shorcuts/enter.tres" id="3_0ixbw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6g2ge"]
 bg_color = Color(5.29438e-07, 0.716284, 0.39587, 1)
 
 [node name="EndLevelMenu" type="Panel"]
-process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -54,11 +54,17 @@ theme_override_constants/separation = 20
 
 [node name="NextLevel" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_qkp7q")]
 layout_mode = 2
+shortcut = ExtResource("3_0ixbw")
 text = "Next level"
+
+[node name="TryAgain" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_qkp7q")]
+layout_mode = 2
+text = "Try again"
 
 [node name="BackToMenu" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_qkp7q")]
 layout_mode = 2
 text = "Back to menu"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

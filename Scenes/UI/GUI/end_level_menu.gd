@@ -30,6 +30,10 @@ func _on_next_level_pressed() -> void:
 	tree.change_scene_to_file('res://Scenes/Levels/level_' + str(GeneralRules.current_level) + '.tscn')
 
 
+func _on_try_again_pressed() -> void:
+	get_tree().reload_current_scene()
+
+
 func _on_back_to_menu_pressed() -> void:
 	var tree = get_tree()
 	tree.paused = false

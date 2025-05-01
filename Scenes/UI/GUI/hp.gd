@@ -8,7 +8,7 @@ func _ready() -> void:
 	for child in get_children():
 		child.queue_free()
 	var hp = 0
-	while hp < GeneralRules.INITIAL_LIFES:
+	while hp < GeneralRules.initial_lifes:
 		hp += 1
 		addLife()
 

@@ -1,16 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://eukpto2lftyx"]
+[gd_scene load_steps=8 format=3 uid="uid://eukpto2lftyx"]
 
 [ext_resource type="Script" path="res://Scenes/UI/GUI/pause_menu.gd" id="1_pudq0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2u2k"]
-bg_color = Color(0, 0.717647, 0.396078, 1)
-
-[sub_resource type="InputEventKey" id="InputEventKey_e02ec"]
-device = -1
-keycode = 4194305
-
-[sub_resource type="Shortcut" id="Shortcut_cwyph"]
-events = [SubResource("InputEventKey_e02ec")]
+[ext_resource type="Theme" uid="uid://jn48ba6p0oig" path="res://Scenes/UI/Themes/simple_menu_theme.tres" id="2_x2748"]
+[ext_resource type="PackedScene" uid="uid://bfdx8xr27oku0" path="res://Scenes/UI/Helpers/volume_control.tscn" id="3_e5otq"]
+[ext_resource type="Shortcut" uid="uid://cj68d5jll53ko" path="res://Shorcuts/back.tres" id="3_ff6so"]
+[ext_resource type="Shortcut" uid="uid://0rm7pt7cmik" path="res://Shorcuts/restart.tres" id="5_pbjqa"]
+[ext_resource type="Shortcut" uid="uid://bq8ywodojp3li" path="res://Shorcuts/quit.tres" id="6_1l46b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ram4"]
 content_margin_left = 10.0
@@ -25,14 +20,12 @@ corner_radius_bottom_left = 10
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
-texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
 script = ExtResource("1_pudq0")
 
 [node name="Panel" type="Panel" parent="."]
@@ -42,7 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_x2u2k")
+theme = ExtResource("2_x2748")
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel"]
 layout_mode = 1
@@ -60,39 +53,41 @@ alignment = 1
 
 [node name="Resume" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-shortcut = SubResource("Shortcut_cwyph")
-text = "Resume [Esc]"
+theme = ExtResource("2_x2748")
+shortcut = ExtResource("3_ff6so")
+text = "Resume"
 
 [node name="MusicLabel" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Music"
 
-[node name="MusicVolume" type="HSlider" parent="Panel/CenterContainer/VBoxContainer"]
+[node name="MusicVolume" parent="Panel/CenterContainer/VBoxContainer" instance=ExtResource("3_e5otq")]
 layout_mode = 2
-min_value = 50.0
-value = 100.0
+theme = ExtResource("2_x2748")
+bus = "music"
 
 [node name="SoudEffectLabel" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Soud effects"
 
-[node name="SoudEffectVolume" type="HSlider" parent="Panel/CenterContainer/VBoxContainer"]
+[node name="EffectsVolume" parent="Panel/CenterContainer/VBoxContainer" instance=ExtResource("3_e5otq")]
 layout_mode = 2
-min_value = 50.0
-value = 100.0
+theme = ExtResource("2_x2748")
+bus = "effects"
 
 [node name="Restart" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme = ExtResource("2_x2748")
+shortcut = ExtResource("5_pbjqa")
 text = "Restart"
 
 [node name="BackToMenu" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme = ExtResource("2_x2748")
+shortcut = ExtResource("6_1l46b")
 text = "Back to menu"
 
 [node name="Tutorial" type="Label" parent="."]
@@ -100,13 +95,13 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 44.0
-offset_top = -63.0
-offset_right = 339.0
-offset_bottom = 58.0
+offset_left = 24.0
+offset_top = -76.0
+offset_right = 388.0
+offset_bottom = 69.0
 grow_vertical = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_2ram4")
 text = "- [A] and [D] to move
 - [SPACE] to jump
@@ -115,7 +110,5 @@ text = "- [A] and [D] to move
 "
 
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="value_changed" from="Panel/CenterContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="Panel/CenterContainer/VBoxContainer/SoudEffectVolume" to="." method="_on_soud_effect_volume_value_changed"]
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]

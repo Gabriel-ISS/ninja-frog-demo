@@ -141,5 +141,6 @@ one_shot = true
 
 [node name="Teleport" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_numie")
+bus = &"Soud Effects"
 
 [connection signal="area_shape_entered" from="PlayerDetect" to="." method="_on_player_detect_area_shape_entered"]

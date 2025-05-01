@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvar60qikfd5f"]
+[gd_scene load_steps=7 format=3 uid="uid://bvar60qikfd5f"]
 
 [ext_resource type="Texture2D" uid="uid://ddk5dokopl3eq" path="res://Assets/Background/Cartoon_Forest_BG_03/Cartoon_Forest_BG_03.png" id="1_a5tju"]
 [ext_resource type="Script" path="res://Scenes/UI/start_screen.gd" id="1_x2srr"]
 [ext_resource type="PackedScene" uid="uid://on5th0h7vdio" path="res://Scenes/UI/Helpers/big_btn.tscn" id="3_degjj"]
+[ext_resource type="Shortcut" uid="uid://7jp8bno8cn0h" path="res://Shorcuts/enter.tres" id="4_3pamd"]
+[ext_resource type="Script" path="res://Scenes/UI/Helpers/link_to_screen.gd" id="4_7o4md"]
+[ext_resource type="Shortcut" uid="uid://bq8ywodojp3li" path="res://Shorcuts/quit.tres" id="6_1xgv7"]
 
-[node name="start_menu" type="CanvasLayer"]
+[node name="StartScreen" type="CanvasLayer"]
 script = ExtResource("1_x2srr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -31,11 +34,20 @@ alignment = 1
 
 [node name="SelectLevelBtn" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_degjj")]
 layout_mode = 2
+shortcut = ExtResource("4_3pamd")
 text = "Select level"
+script = ExtResource("4_7o4md")
+scene_path = "res://Scenes/UI/LevelMenuScreen/level_menu_screen.tscn"
+
+[node name="SettingsBtn" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_degjj")]
+layout_mode = 2
+text = "Settings"
+script = ExtResource("4_7o4md")
+scene_path = "res://Scenes/UI/SettingsMenuScreen/settings_menu_screen.tscn"
 
 [node name="ExitBtn" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_degjj")]
 layout_mode = 2
+shortcut = ExtResource("6_1xgv7")
 text = "Exit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/SelectLevelBtn" to="." method="_on_select_level_btn_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

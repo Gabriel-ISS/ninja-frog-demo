@@ -23,6 +23,8 @@ class_name Fruit
 var collected = false
 
 func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS if visible else PROCESS_MODE_DISABLED
+	
 	if not Engine.is_editor_hint():
 		collected = false
 		animated_sprite.play(fruit_type)
