@@ -45,6 +45,7 @@ texture_normal = ExtResource("1_ttx4d")
 shape = SubResource("CircleShape2D_oto61")
 shape_visible = false
 action = "move_left"
+visibility_mode = 1
 
 [node name="Right" type="Control" parent="HBoxContainer"]
 custom_minimum_size = Vector2(160, 160)
@@ -89,3 +90,4 @@ texture_normal = ExtResource("4_lxx18")
 shape = SubResource("CircleShape2D_oto61")
 shape_visible = false
 action = "jump"
+visibility_mode = 1
