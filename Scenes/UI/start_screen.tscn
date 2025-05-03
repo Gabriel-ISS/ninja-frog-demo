@@ -11,8 +11,9 @@
 [ext_resource type="Shortcut" uid="uid://bq8ywodojp3li" path="res://Shorcuts/quit.tres" id="6_1xgv7"]
 [ext_resource type="Texture2D" uid="uid://d334rldi8a75d" path="res://Assets/Background/Cartoon_Forest_BG_04/Cartoon_Forest_BG_04.png" id="6_jqioq"]
 
-[node name="StartScreen" type="CanvasLayer"]
+[node name="StartScreen" type="CanvasLayer" node_paths=PackedStringArray("exit_btn")]
 script = ExtResource("1_x2srr")
+exit_btn = NodePath("CenterContainer/VBoxContainer/ExitBtn")
 
 [node name="Bg" type="TextureRect" parent="."]
 anchors_preset = 15
