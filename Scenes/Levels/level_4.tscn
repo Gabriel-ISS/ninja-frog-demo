@@ -316,10 +316,12 @@ fruit_type = "kiwy"
 [node name="Fruit7" parent="Fruits" index="11" instance=ExtResource("10_ejrws")]
 process_mode = 3
 position = Vector2(2008, 570.647)
+fruit_type = "banana"
 
 [node name="Fruit8" parent="Fruits" index="12" instance=ExtResource("10_ejrws")]
 process_mode = 3
 position = Vector2(2066.82, 568)
+fruit_type = "banana"
 
 [node name="Fruit9" parent="Fruits" index="13" instance=ExtResource("10_ejrws")]
 process_mode = 3

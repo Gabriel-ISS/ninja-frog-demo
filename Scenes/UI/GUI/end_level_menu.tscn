@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4l06swu3b0at"]
+[gd_scene load_steps=7 format=3 uid="uid://b4l06swu3b0at"]
 
 [ext_resource type="Script" uid="uid://btfkpv0ivkj23" path="res://Scenes/UI/GUI/end_level_menu.gd" id="1_4tisk"]
 [ext_resource type="PackedScene" uid="uid://on5th0h7vdio" path="res://Scenes/UI/Helpers/big_btn.tscn" id="2_qkp7q"]
 [ext_resource type="Shortcut" uid="uid://7jp8bno8cn0h" path="res://Shorcuts/enter.tres" id="3_0ixbw"]
+[ext_resource type="Shortcut" uid="uid://0rm7pt7cmik" path="res://Shorcuts/restart.tres" id="4_vsyva"]
+[ext_resource type="Shortcut" uid="uid://bq8ywodojp3li" path="res://Shorcuts/quit.tres" id="5_wxsk7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6g2ge"]
 bg_color = Color(5.29438e-07, 0.716284, 0.39587, 1)
@@ -59,10 +61,12 @@ text = "Next level"
 
 [node name="TryAgain" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_qkp7q")]
 layout_mode = 2
+shortcut = ExtResource("4_vsyva")
 text = "Try again"
 
 [node name="BackToMenu" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_qkp7q")]
 layout_mode = 2
+shortcut = ExtResource("5_wxsk7")
 text = "Back to menu"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
