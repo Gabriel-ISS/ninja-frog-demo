@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://crc22hwj65thw"]
 
 [ext_resource type="PackedScene" uid="uid://dk0bikx81s4lg" path="res://Scenes/UI/Helpers/base_screen_menu.tscn" id="1_i1wix"]
-[ext_resource type="Script" path="res://Scenes/UI/LevelMenuScreen/level_menu_screen.gd" id="2_lixpy"]
+[ext_resource type="Script" uid="uid://cwxuyw2eaujf6" path="res://Scenes/UI/LevelMenuScreen/level_menu_screen.gd" id="2_lixpy"]
 [ext_resource type="PackedScene" uid="uid://cljf6s5d2ovxx" path="res://Scenes/UI/LevelMenuScreen/level_btn.tscn" id="3_q3j30"]
 
 [node name="LevelMenuScreen" node_paths=PackedStringArray("levels_container") instance=ExtResource("1_i1wix")]

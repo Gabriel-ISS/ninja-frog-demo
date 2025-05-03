@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfdx8xr27oku0"]
 
-[ext_resource type="Script" path="res://Scenes/UI/Helpers/volume_control.gd" id="1_x6ol3"]
+[ext_resource type="Script" uid="uid://bg1gctvhijdgd" path="res://Scenes/UI/Helpers/volume_control.gd" id="1_x6ol3"]
 
 [node name="VolumeControl" type="HSlider"]
 offset_right = 118.0

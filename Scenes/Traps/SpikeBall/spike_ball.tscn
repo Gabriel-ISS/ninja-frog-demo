@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://5xm425cqfqjv"]
 
-[ext_resource type="Script" path="res://Scenes/Traps/SpikeBall/spike_ball.gd" id="1_k20sl"]
+[ext_resource type="Script" uid="uid://csvqbkl8h821i" path="res://Scenes/Traps/SpikeBall/spike_ball.gd" id="1_k20sl"]
 [ext_resource type="Texture2D" uid="uid://cmqxxc7b8ps5m" path="res://Assets/Traps/Spiked Ball/Spiked Ball.png" id="2_aitpq"]
 [ext_resource type="PackedScene" uid="uid://qat2xyrbafp5" path="res://Scenes/Traps/SpikeBall/one_chain.tscn" id="3_intyl"]
 
@@ -26,7 +26,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lvtsx"]
 _data = {
-"regular_move": SubResource("Animation_qkyjt")
+&"regular_move": SubResource("Animation_qkyjt")
 }
 
 [node name="SpikeBall" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://r1fop4qhcmoj"]
 
-[ext_resource type="Script" path="res://Scenes/Enviroment/end_portal.gd" id="1_skrv0"]
+[ext_resource type="Script" uid="uid://b7g6tpvcolbou" path="res://Scenes/Enviroment/end_portal.gd" id="1_skrv0"]
 [ext_resource type="AudioStream" uid="uid://dl87s63stwmew" path="res://Assets/Sound Effects/88_Teleport_02.wav" id="2_jugxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg70y"]
@@ -88,8 +88,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lebtx"]
 _data = {
-"RESET": SubResource("Animation_vr4tj"),
-"regular_move": SubResource("Animation_duf7t")
+&"RESET": SubResource("Animation_vr4tj"),
+&"regular_move": SubResource("Animation_duf7t")
 }
 
 [node name="EndPortal" type="Node2D"]

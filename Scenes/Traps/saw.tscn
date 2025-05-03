@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bjuo6axyk7u72"]
 
-[ext_resource type="Script" path="res://Scenes/Traps/saw.gd" id="1_pjpey"]
+[ext_resource type="Script" uid="uid://cwj7f226o6wmv" path="res://Scenes/Traps/saw.gd" id="1_pjpey"]
 [ext_resource type="Texture2D" uid="uid://debm8abjkmkdq" path="res://Assets/Traps/Saw/On (38x38).png" id="1_r6jbj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66y6l"]

@@ -1,16 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvar60qikfd5f"]
+[gd_scene load_steps=11 format=3 uid="uid://bvar60qikfd5f"]
 
 [ext_resource type="Texture2D" uid="uid://ddk5dokopl3eq" path="res://Assets/Background/Cartoon_Forest_BG_03/Cartoon_Forest_BG_03.png" id="1_a5tju"]
-[ext_resource type="Script" path="res://Scenes/UI/start_screen.gd" id="1_x2srr"]
+[ext_resource type="Script" uid="uid://v03qhwhn77uc" path="res://Scenes/UI/start_screen.gd" id="1_x2srr"]
+[ext_resource type="Script" uid="uid://d0n7cnbi63byt" path="res://Scenes/UI/Helpers/bg.gd" id="3_2sehy"]
 [ext_resource type="PackedScene" uid="uid://on5th0h7vdio" path="res://Scenes/UI/Helpers/big_btn.tscn" id="3_degjj"]
 [ext_resource type="Shortcut" uid="uid://7jp8bno8cn0h" path="res://Shorcuts/enter.tres" id="4_3pamd"]
-[ext_resource type="Script" path="res://Scenes/UI/Helpers/link_to_screen.gd" id="4_7o4md"]
+[ext_resource type="Script" uid="uid://doy55hyl124ix" path="res://Scenes/UI/Helpers/link_to_screen.gd" id="4_7o4md"]
+[ext_resource type="Texture2D" uid="uid://xe1pefhbcbcc" path="res://Assets/Background/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png" id="4_8rymy"]
+[ext_resource type="Texture2D" uid="uid://w6as52gyyasf" path="res://Assets/Background/Cartoon_Forest_BG_02/Cartoon_Forest_BG_02.png" id="5_qeyfo"]
 [ext_resource type="Shortcut" uid="uid://bq8ywodojp3li" path="res://Shorcuts/quit.tres" id="6_1xgv7"]
+[ext_resource type="Texture2D" uid="uid://d334rldi8a75d" path="res://Assets/Background/Cartoon_Forest_BG_04/Cartoon_Forest_BG_04.png" id="6_jqioq"]
 
 [node name="StartScreen" type="CanvasLayer"]
 script = ExtResource("1_x2srr")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Bg" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,6 +23,8 @@ grow_vertical = 2
 texture = ExtResource("1_a5tju")
 expand_mode = 2
 stretch_mode = 6
+script = ExtResource("3_2sehy")
+backgrounds = Array[Texture]([ExtResource("4_8rymy"), ExtResource("5_qeyfo"), ExtResource("1_a5tju"), ExtResource("6_jqioq")])
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15

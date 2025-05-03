@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bnoxv831rwjxe"]
 
-[ext_resource type="Script" path="res://Scenes/Traps/falling_platform.gd" id="1_coj6o"]
+[ext_resource type="Script" uid="uid://7k67h7qiegof" path="res://Scenes/Traps/falling_platform.gd" id="1_coj6o"]
 [ext_resource type="Texture2D" uid="uid://dnyo7tdb6g1br" path="res://Assets/Traps/Falling Platforms/On (32x10).png" id="2_8xl07"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p8b0b"]

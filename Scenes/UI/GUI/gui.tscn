@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://cgo4gdkg68dpx"]
 
-[ext_resource type="Script" path="res://Scenes/UI/GUI/gui.gd" id="1_e1ev7"]
-[ext_resource type="Script" path="res://Scenes/UI/GUI/hp.gd" id="2_gmnd3"]
+[ext_resource type="Script" uid="uid://ccjlx2288rn4r" path="res://Scenes/UI/GUI/gui.gd" id="1_e1ev7"]
+[ext_resource type="Script" uid="uid://da6c6v8kh0e3k" path="res://Scenes/UI/GUI/hp.gd" id="2_gmnd3"]
 [ext_resource type="Texture2D" uid="uid://m0sxg4glblx1" path="res://Assets/Items/Fruits/Apple.png" id="3_7pwmx"]
 [ext_resource type="PackedScene" uid="uid://bitcbucr2kw1o" path="res://Scenes/UI/GUI/heart.tscn" id="4_l3eo5"]
 [ext_resource type="PackedScene" uid="uid://dt2mnii7cmfhw" path="res://Scenes/UI/GUI/controls.tscn" id="6_0kj83"]
 [ext_resource type="PackedScene" uid="uid://eukpto2lftyx" path="res://Scenes/UI/GUI/pause_menu.tscn" id="6_cyhx4"]
 [ext_resource type="Theme" uid="uid://jn48ba6p0oig" path="res://Scenes/UI/Themes/simple_menu_theme.tres" id="6_km7mw"]
-[ext_resource type="Script" path="res://Scenes/UI/GUI/points_counter.gd" id="6_vofyj"]
+[ext_resource type="Script" uid="uid://cidrvyatw0dmw" path="res://Scenes/UI/GUI/points_counter.gd" id="6_vofyj"]
 [ext_resource type="Shortcut" uid="uid://cj68d5jll53ko" path="res://Shorcuts/back.tres" id="7_txvib"]
 [ext_resource type="PackedScene" uid="uid://b4l06swu3b0at" path="res://Scenes/UI/GUI/end_level_menu.tscn" id="8_4nxp0"]
 

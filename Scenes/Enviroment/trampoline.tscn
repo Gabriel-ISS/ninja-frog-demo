@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cngfcxuc5eqhi"]
 
-[ext_resource type="Script" path="res://Scenes/Enviroment/trampoline.gd" id="1_7b5h3"]
+[ext_resource type="Script" uid="uid://dtcveul2nnfi6" path="res://Scenes/Enviroment/trampoline.gd" id="1_7b5h3"]
 [ext_resource type="Texture2D" uid="uid://drchngnxl2w7s" path="res://Assets/Traps/Trampoline/Idle.png" id="1_ohwik"]
 [ext_resource type="Texture2D" uid="uid://cgoliff8jvgek" path="res://Assets/Traps/Trampoline/Jump (28x28).png" id="2_a6p0s"]
 [ext_resource type="AudioStream" uid="uid://ciy3kt8n5p861" path="res://Assets/Sound Effects/Character/35_Miss_Evade_02.wav" id="4_jmwdg"]

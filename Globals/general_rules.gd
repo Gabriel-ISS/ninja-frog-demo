@@ -19,6 +19,7 @@ const LIFES_PER_DIFICULT_LEVEL = [5, 3, 1]
 
 var initial_lifes = LIFES_PER_DIFICULT_LEVEL[LocalStorage.dificult_level]
 var current_level = 0
+var current_bg: Texture
 
 func _ready() -> void:
 	DEADLY_Y_POSITION = get_viewport().size.x + 100

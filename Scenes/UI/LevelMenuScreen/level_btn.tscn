@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cljf6s5d2ovxx"]
 
-[ext_resource type="Script" path="res://Scenes/UI/LevelMenuScreen/level_btn.gd" id="1_l1224"]
+[ext_resource type="Script" uid="uid://cqd25dpip0j1m" path="res://Scenes/UI/LevelMenuScreen/level_btn.gd" id="1_l1224"]
 
 [node name="level_btn" type="Button"]
 texture_filter = 2

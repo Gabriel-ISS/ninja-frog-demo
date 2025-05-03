@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://b7p8eldy2leet"]
 
-[ext_resource type="Script" path="res://Scenes/Characters/shuriken.gd" id="1_8xswg"]
+[ext_resource type="Script" uid="uid://bpv8vmmytil7n" path="res://Scenes/Characters/shuriken.gd" id="1_8xswg"]
 [ext_resource type="Texture2D" uid="uid://d2aonvgl26v2m" path="res://Assets/Main Characters/Desappearing (96x96).png" id="2_dhhww"]
 [ext_resource type="Texture2D" uid="uid://c22owothb40kn" path="res://Assets/Items/Suriken/04.png" id="3_v8ckb"]
 [ext_resource type="AudioStream" uid="uid://4h0l5qimkfim" path="res://Assets/Sound Effects/Character/61_Hit_03.wav" id="4_062wa"]
@@ -67,7 +67,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v5f5u"]
 _data = {
-"rotate": SubResource("Animation_kul37")
+&"rotate": SubResource("Animation_kul37")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu7kx"]

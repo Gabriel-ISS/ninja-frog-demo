@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=4 uid="uid://doxitgcw8qrbv"]
 
-[ext_resource type="Script" path="res://Scenes/UI/SettingsMenuScreen/settings_menu_screen.gd" id="2_osm7v"]
+[ext_resource type="Script" uid="uid://c3i430m7rogbs" path="res://Scenes/UI/SettingsMenuScreen/settings_menu_screen.gd" id="2_osm7v"]
 [ext_resource type="Theme" uid="uid://cdjcrwd5vbhrv" path="res://Scenes/UI/Themes/menu_theme.tres" id="3_uthj0"]
 [ext_resource type="PackedScene" uid="uid://dk0bikx81s4lg" path="res://Scenes/UI/Helpers/base_screen_menu.tscn" id="4_cxxc2"]
 [ext_resource type="PackedScene" uid="uid://bfdx8xr27oku0" path="res://Scenes/UI/Helpers/volume_control.tscn" id="4_rnnuj"]
@@ -266,6 +266,7 @@ theme = ExtResource("3_uthj0")
 selected = 1
 item_count = 3
 popup/item_0/text = "Easy"
+popup/item_0/id = 0
 popup/item_1/text = "Normal"
 popup/item_1/id = 1
 popup/item_2/text = "Hard"

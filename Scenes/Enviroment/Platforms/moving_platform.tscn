@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bju6mnxx5eesk"]
 
-[ext_resource type="Script" path="res://Scenes/Enviroment/Platforms/moving_platform.gd" id="1_q705k"]
+[ext_resource type="Script" uid="uid://bqdd56v43pd8g" path="res://Scenes/Enviroment/Platforms/moving_platform.gd" id="1_q705k"]
 [ext_resource type="Texture2D" uid="uid://d0guon0qx11q6" path="res://Assets/Terrain/Terrain (16x16).png" id="2_cf3iu"]
 
 [sub_resource type="Animation" id="Animation_j72tr"]
@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qojg1"]
 _data = {
-"move": SubResource("Animation_j72tr")
+&"move": SubResource("Animation_j72tr")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qaiy8"]

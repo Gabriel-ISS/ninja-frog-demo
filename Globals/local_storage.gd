@@ -3,7 +3,7 @@ extends Node
 # Administra el acceo a datos persistentes
 
 const DATA_FILE_PATH = "user://savegame.save"
-const CURRENT_DATA_VERSION = 2
+const CURRENT_DATA_VERSION = 3
 const DEFAULT_DATA = {
 	'_v': CURRENT_DATA_VERSION,
 	'last_completed_level': 0,
@@ -12,8 +12,13 @@ const DEFAULT_DATA = {
 	'music_volume': 100,
 	'effects_volume': 100,
 	'controls_size': 100,
+	'last_bg': 0,
 }
 var DATA_UPDATERS = [
+	func (data: Dictionary):
+		data['_v'] = 1
+		data['last_completed_level'] = 0
+		data['records'] = {},
 	func (data: Dictionary):
 		#'_v': 1,
 		#'last_completed_level': 0,
@@ -22,7 +27,17 @@ var DATA_UPDATERS = [
 		data['dificult_level'] = 1
 		data['music_volume'] = 100
 		data['effects_volume'] = 100
-		data['controls_size'] = 100
+		data['controls_size'] = 100,
+	func (data: Dictionary):
+		#'_v': 2,
+		#'last_completed_level': 0,
+		#'records': {},
+		#'dificult_level': 1,
+		#'music_volume': 100,
+		#'effects_volume': 100,
+		#'controls_size': 100,
+		data['_v'] = 3
+		data['last_bg'] = 0
 ]
 
 var _data = _get_data()
@@ -52,6 +67,7 @@ func _update_data(data: Dictionary):
 	while data['_v'] < CURRENT_DATA_VERSION:
 		DATA_UPDATERS[i].call(data)
 		i += 1
+	_save()
 
 func _get(property: StringName):
 	return _data[property]

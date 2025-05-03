@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cpg7n1p215pbc"]
 
-[ext_resource type="Script" path="res://Scenes/Traps/fire_trap.gd" id="1_8ufgm"]
+[ext_resource type="Script" uid="uid://bcf3woi442h12" path="res://Scenes/Traps/fire_trap.gd" id="1_8ufgm"]
 [ext_resource type="Texture2D" uid="uid://yiocjnny1vdj" path="res://Assets/Traps/Fire/Off.png" id="1_scv6v"]
 [ext_resource type="Texture2D" uid="uid://cgk75d5nl3foe" path="res://Assets/Traps/Fire/On (16x32).png" id="2_uaxe7"]
 
