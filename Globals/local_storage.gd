@@ -2,17 +2,22 @@ extends Node
 
 # Administra el acceo a datos persistentes
 
-const DATA_FILE_PATH = "user://savegame.save"
-const CURRENT_DATA_VERSION = 3
+# ordenado de mas reciente a mas antiguo
+const DATA_FILE_PATHS = [
+	"user://data.json",
+	"user://savegame.save",
+]
+const CURRENT_DATA_FILE_PATH = DATA_FILE_PATHS[0]
+const CURRENT_DATA_VERSION = 4
 const DEFAULT_DATA = {
-	'_v': CURRENT_DATA_VERSION,
-	'last_completed_level': 0,
-	'records': {},
-	'dificult_level': 1,
-	'music_volume': 100,
-	'effects_volume': 100,
-	'controls_size': 100,
-	'last_bg': 0,
+	_v = CURRENT_DATA_VERSION,
+	last_completed_level = 0,
+	records = {},
+	dificult_level = 1,
+	music_volume = 100,
+	effects_volume = 100,
+	controls_size = 100,
+	last_bg = 0,
 }
 var DATA_UPDATERS = [
 	func (data: Dictionary):
@@ -37,40 +42,32 @@ var DATA_UPDATERS = [
 		#'effects_volume': 100,
 		#'controls_size': 100,
 		data['_v'] = 3
-		data['last_bg'] = 0
+		data['last_bg'] = 0,
+	func (data: Dictionary):
+		data['_v'] = 4
 ]
 
-var _data = _get_data()
+var _data = DEFAULT_DATA
 
-func _save() -> void:
-	var file = FileAccess.open(DATA_FILE_PATH, FileAccess.WRITE)
-	var json_data = JSON.stringify(_data)
-	file.store_line(json_data)
 
-func _get_data():
-	if not FileAccess.file_exists(DATA_FILE_PATH):
-		return DEFAULT_DATA.duplicate(true)
-	
-	var file = FileAccess.open(DATA_FILE_PATH, FileAccess.READ)
-	var json_data = file.get_line()
-	var data = JSON.parse_string(json_data)
-	
-	if not data:
-		printerr('JSON data corrupted')
-		return DEFAULT_DATA.duplicate(true)
-	
-	_update_data(data)
-	return data
+func _ready() -> void:
+	load_game()
 
-func _update_data(data: Dictionary):
-	var i = data['_v'] - 1
-	while data['_v'] < CURRENT_DATA_VERSION:
-		DATA_UPDATERS[i].call(data)
-		i += 1
-	_save()
+
+func _get_property_list():
+	var property_list: Array[Dictionary] = []
+	for key in DEFAULT_DATA:
+		var value = DEFAULT_DATA[key]
+		property_list.append({
+			key: typeof(value)
+		})
+		
+	return property_list
+
 
 func _get(property: StringName):
 	return _data[property]
+
 
 func _set(property: StringName, variant) -> bool:
 	var exeptions = ['_v', 'records']
@@ -79,21 +76,79 @@ func _set(property: StringName, variant) -> bool:
 		return false
 	
 	_data[property] = variant
-	_save()
+	save_game()
 	return true
 
-func _get_property_list():
-	return [
-		{ "name": "dificult_level", "type": TYPE_INT },
-		{ "name": "last_completed_level", "type": TYPE_INT },
-	]
+
+func _get_updated_data(deprecated_data: Dictionary):
+	var d = deprecated_data
+	var i = d['_v'] - 1
+	while d['_v'] < CURRENT_DATA_VERSION:
+		DATA_UPDATERS[i].call(d)
+		i += 1
+	return d
+
+
+func _get_file_content_as_json(file_path):
+	if not FileAccess.file_exists(file_path):
+		return null
+	
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	var json_data = file.get_as_text(true)
+	var data = JSON.parse_string(json_data)
+	
+	if not data:
+		printerr('JSON data corrupted')
+		return null
+	
+	return data
+
+
+# solo obtieene los datos, pueden no estar actualizados
+func _get_saved_data_as_json():
+	var i = 0
+	for path in DATA_FILE_PATHS:
+		var data = _get_file_content_as_json(path)
+		
+		if data and i != 0:
+			DirAccess.remove_absolute(path)
+		
+		if data: return data
+		
+		i += 1
+	
+	return null
+
+
+func reset_game():
+	_data = DEFAULT_DATA.duplicate(true)
+	save_game()
+
+
+func load_game():
+	var data = _get_saved_data_as_json()
+	
+	if not data:
+		reset_game()
+		return
+	
+	_data = _get_updated_data(data)
+	save_game()
+
+
+func save_game() -> void:
+	var file = FileAccess.open(CURRENT_DATA_FILE_PATH, FileAccess.WRITE)
+	var json_data = JSON.stringify(_data)
+	file.store_line(json_data)
+
 
 func get_record(level: int):
 	var records = _data['records']	
 	var str_level = str(level)
 	if not str_level in records: return null
 	return records[str_level]
-	
+
+
 func set_record(level: int, record: int):
 	_data['records'][str(level)] = record
-	_save()
+	save_game()

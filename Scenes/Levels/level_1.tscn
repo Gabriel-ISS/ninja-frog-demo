@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=4 uid="uid://bu2w4ora2q782"]
+[gd_scene load_steps=12 format=4 uid="uid://bu2w4ora2q782"]
 
 [ext_resource type="PackedScene" uid="uid://dhr0npcu7vrep" path="res://Scenes/Levels/base_level.tscn" id="1_ws846"]
 [ext_resource type="AudioStream" uid="uid://d1m868sygskgd" path="res://Assets/Music/space_cadet_training_montage.ogg" id="2_rksbc"]
 [ext_resource type="PackedScene" uid="uid://6rwesrndgkug" path="res://Scenes/UI/Helpers/in_game_tip.tscn" id="2_vhtne"]
 [ext_resource type="PackedScene" uid="uid://cpg7n1p215pbc" path="res://Scenes/Traps/fire_trap.tscn" id="3_fa2ak"]
 [ext_resource type="PackedScene" uid="uid://nud21gtv1ikq" path="res://Scenes/UI/Helpers/static_character_ghost.tscn" id="4_32han"]
+[ext_resource type="Script" uid="uid://3r2sawusjt3e" path="res://Scenes/Levels/tutorial.gd" id="4_u5ghp"]
+[ext_resource type="Texture2D" uid="uid://dot4ma6jxle6f" path="res://Assets/CustomAssets/LeftControl_32x32.png" id="6_rb0md"]
+[ext_resource type="Texture2D" uid="uid://cjejb3xy88ixe" path="res://Assets/CustomAssets/RightControl_32x32.png" id="7_u5ghp"]
+[ext_resource type="Texture2D" uid="uid://b0bmxcj7qceew" path="res://Assets/CustomAssets/JumpControl_32x32.png" id="8_hwvp3"]
+[ext_resource type="Texture2D" uid="uid://cni55t2lh6lnw" path="res://Assets/CustomAssets/DashControl_32x32.png" id="9_afv7b"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7r2dd"]
+blend_mode = 4
 
 [node name="Level1" instance=ExtResource("1_ws846")]
 
@@ -74,14 +82,104 @@ position = Vector2(2607, 551)
 off_time = 1.5
 
 [node name="Fruit" parent="Fruits" index="0"]
-process_mode = 4
 visible = true
 position = Vector2(2507, 479)
 fruit_type = "strawberry"
 
-[node name="Tips" type="Node" parent="." index="8"]
+[node name="Tutorial" type="Node" parent="." index="8" node_paths=PackedStringArray("computer_tutorial", "cellphone_tutorial")]
+script = ExtResource("4_u5ghp")
+computer_tutorial = NodePath("ComputerTutorial")
+cellphone_tutorial = NodePath("CellphoneTutorial")
 
-[node name="Move" parent="Tips" index="0" instance=ExtResource("2_vhtne")]
+[node name="Ghost" type="Node" parent="Tutorial" index="0"]
+
+[node name="Move1" parent="Tutorial/Ghost" index="0" instance=ExtResource("4_32han")]
+position = Vector2(188, 521)
+animation = &"run1"
+autoplay = "run1"
+
+[node name="Move2" parent="Tutorial/Ghost" index="1" instance=ExtResource("4_32han")]
+position = Vector2(264, 521)
+animation = &"jump"
+autoplay = "run2"
+
+[node name="Jump1" parent="Tutorial/Ghost" index="2" instance=ExtResource("4_32han")]
+position = Vector2(768, 488)
+animation = &"jump"
+autoplay = "jump"
+
+[node name="Jump2" parent="Tutorial/Ghost" index="3" instance=ExtResource("4_32han")]
+position = Vector2(896, 480)
+animation = &"fall"
+autoplay = "fall"
+
+[node name="DoubleJump1" parent="Tutorial/Ghost" index="4" instance=ExtResource("4_32han")]
+position = Vector2(1624, 497)
+animation = &"jump"
+autoplay = "jump"
+
+[node name="DoubleJump2" parent="Tutorial/Ghost" index="5" instance=ExtResource("4_32han")]
+position = Vector2(1672, 440)
+animation = &"double_jump1"
+autoplay = "double_jump1"
+
+[node name="DoubleJump3" parent="Tutorial/Ghost" index="6" instance=ExtResource("4_32han")]
+position = Vector2(1728, 408)
+animation = &"double_jump2"
+autoplay = "double_jump2"
+
+[node name="DoubleJump4" parent="Tutorial/Ghost" index="7" instance=ExtResource("4_32han")]
+position = Vector2(1792, 437)
+animation = &"double_jump3"
+autoplay = "double_jump3"
+
+[node name="DoubleJump5" parent="Tutorial/Ghost" index="8" instance=ExtResource("4_32han")]
+position = Vector2(1816, 488)
+animation = &"fall"
+autoplay = "fall"
+
+[node name="Dash1" parent="Tutorial/Ghost" index="9" instance=ExtResource("4_32han")]
+position = Vector2(2368, 521)
+animation = &"dash1"
+autoplay = "dash1"
+
+[node name="Dash2" parent="Tutorial/Ghost" index="10" instance=ExtResource("4_32han")]
+position = Vector2(2496, 520)
+animation = &"dash2"
+autoplay = "dash2"
+
+[node name="Dash3" parent="Tutorial/Ghost" index="11" instance=ExtResource("4_32han")]
+position = Vector2(2648, 521)
+animation = &"dash3"
+autoplay = "dash3"
+
+[node name="WallClimb1" parent="Tutorial/Ghost" index="12" instance=ExtResource("4_32han")]
+position = Vector2(3440, 456)
+autoplay = "wall_climb"
+
+[node name="WallClimb2" parent="Tutorial/Ghost" index="13" instance=ExtResource("4_32han")]
+position = Vector2(3344, 376)
+autoplay = "wall_climb"
+flip_h = true
+
+[node name="WallClimb3" parent="Tutorial/Ghost" index="14" instance=ExtResource("4_32han")]
+position = Vector2(3392, 416)
+animation = &"jump"
+autoplay = "jump"
+flip_h = true
+
+[node name="WallClimb4" parent="Tutorial/Ghost" index="15" instance=ExtResource("4_32han")]
+position = Vector2(3408, 505)
+animation = &"jump"
+autoplay = "jump"
+
+[node name="ComputerTutorial" type="Control" parent="Tutorial" index="1"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Move" parent="Tutorial/ComputerTutorial" index="0" instance=ExtResource("2_vhtne")]
 offset_left = -147.0
 offset_top = 316.0
 offset_right = 475.0
@@ -89,17 +187,7 @@ offset_bottom = 409.0
 text = "Press [A] and [D] to move. You can also try with [LEFT] and [RIGHT]"
 metadata/_edit_use_anchors_ = true
 
-[node name="Move1" parent="Tips/Move" index="0" instance=ExtResource("4_32han")]
-position = Vector2(335, 205)
-animation = &"run1"
-autoplay = "run1"
-
-[node name="Move2" parent="Tips/Move" index="1" instance=ExtResource("4_32han")]
-position = Vector2(411, 205)
-animation = &"jump"
-autoplay = "run2"
-
-[node name="Jump" parent="Tips" index="1" instance=ExtResource("2_vhtne")]
+[node name="Jump" parent="Tutorial/ComputerTutorial" index="1" instance=ExtResource("2_vhtne")]
 offset_left = 672.0
 offset_top = 338.0
 offset_right = 1086.0
@@ -107,17 +195,7 @@ offset_bottom = 383.0
 text = "Press [SPACE] to jump"
 metadata/_edit_use_anchors_ = true
 
-[node name="Jump1" parent="Tips/Jump" index="0" instance=ExtResource("4_32han")]
-position = Vector2(96, 150)
-animation = &"jump"
-autoplay = "jump"
-
-[node name="Jump2" parent="Tips/Jump" index="1" instance=ExtResource("4_32han")]
-position = Vector2(224, 142)
-animation = &"fall"
-autoplay = "fall"
-
-[node name="DoubleJump" parent="Tips" index="2" instance=ExtResource("2_vhtne")]
+[node name="DoubleJump" parent="Tutorial/ComputerTutorial" index="2" instance=ExtResource("2_vhtne")]
 offset_left = 1388.0
 offset_top = 338.0
 offset_right = 1829.0
@@ -125,32 +203,10 @@ offset_bottom = 431.0
 text = "Press [SPACE] in air to jump again."
 metadata/_edit_use_anchors_ = true
 
-[node name="DoubleJump1" parent="Tips/DoubleJump" index="0" instance=ExtResource("4_32han")]
-position = Vector2(236, 159)
-animation = &"jump"
-autoplay = "jump"
-
-[node name="DoubleJump2" parent="Tips/DoubleJump" index="1" instance=ExtResource("4_32han")]
-position = Vector2(284, 102)
-animation = &"double_jump1"
-autoplay = "double_jump1"
-
-[node name="DoubleJump3" parent="Tips/DoubleJump" index="2" instance=ExtResource("4_32han")]
-position = Vector2(340, 70)
-animation = &"double_jump2"
-autoplay = "double_jump2"
-
-[node name="DoubleJump4" parent="Tips/DoubleJump" index="3" instance=ExtResource("4_32han")]
-position = Vector2(404, 99)
-animation = &"double_jump3"
-autoplay = "double_jump3"
-
-[node name="DoubleJump5" parent="Tips/DoubleJump" index="4" instance=ExtResource("4_32han")]
-position = Vector2(428, 150)
-animation = &"fall"
-autoplay = "fall"
-
-[node name="Dash" parent="Tips" index="3" instance=ExtResource("2_vhtne")]
+[node name="Dash" parent="Tutorial/ComputerTutorial" index="3" instance=ExtResource("2_vhtne")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = -1.025
 offset_left = 1920.0
 offset_top = 344.0
 offset_right = 2361.0
@@ -158,49 +214,122 @@ offset_bottom = 437.0
 text = "If you need to go fast, press [SHIFT]"
 metadata/_edit_use_anchors_ = true
 
-[node name="Dash1" parent="Tips/Dash" index="0" instance=ExtResource("4_32han")]
-position = Vector2(448, 177)
-animation = &"dash1"
-autoplay = "dash1"
-
-[node name="Dash2" parent="Tips/Dash" index="1" instance=ExtResource("4_32han")]
-position = Vector2(576, 176)
-animation = &"dash2"
-autoplay = "dash2"
-
-[node name="Dash3" parent="Tips/Dash" index="2" instance=ExtResource("4_32han")]
-position = Vector2(728, 177)
-animation = &"dash3"
-autoplay = "dash3"
-
-[node name="WallClimb" parent="Tips" index="4" instance=ExtResource("2_vhtne")]
+[node name="WallClimb" parent="Tutorial/ComputerTutorial" index="4" instance=ExtResource("2_vhtne")]
 offset_left = 2840.0
 offset_top = 304.0
 offset_right = 3281.0
-offset_bottom = 397.0
+offset_bottom = 445.0
 text = "You are a ninja, try to jump over the yellow tile to climb"
 
-[node name="WallClimb1" parent="Tips/WallClimb" index="0" instance=ExtResource("4_32han")]
-position = Vector2(600, 152)
-autoplay = "wall_climb"
+[node name="End" parent="Tutorial/ComputerTutorial" index="5" instance=ExtResource("2_vhtne")]
+offset_left = 3704.0
+offset_top = 96.0
+offset_right = 4145.0
+offset_bottom = 237.0
+text = "You are ready!
+Avoid the traps, and get all the fruits!"
+uppercase = true
 
-[node name="WallClimb2" parent="Tips/WallClimb" index="1" instance=ExtResource("4_32han")]
-position = Vector2(504, 72)
-autoplay = "wall_climb"
-flip_h = true
+[node name="CellphoneTutorial" type="Control" parent="Tutorial" index="2"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="WallClimb3" parent="Tips/WallClimb" index="2" instance=ExtResource("4_32han")]
-position = Vector2(552, 112)
-animation = &"jump"
-autoplay = "jump"
-flip_h = true
+[node name="Move" parent="Tutorial/CellphoneTutorial" index="0" instance=ExtResource("2_vhtne")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = -2.075
+anchor_bottom = -1.2
+offset_left = -147.0
+offset_top = 316.0
+offset_right = 475.0
+offset_bottom = 409.0
+text = "Press           and           to move"
+metadata/_edit_use_anchors_ = true
 
-[node name="WallClimb4" parent="Tips/WallClimb" index="3" instance=ExtResource("4_32han")]
-position = Vector2(568, 201)
-animation = &"jump"
-autoplay = "jump"
+[node name="Left" type="TextureRect" parent="Tutorial/CellphoneTutorial/Move" index="0"]
+material = SubResource("CanvasItemMaterial_7r2dd")
+layout_mode = 0
+offset_left = 107.0
+offset_top = -20.0
+offset_right = 198.0
+offset_bottom = 71.0
+texture = ExtResource("6_rb0md")
 
-[node name="End" parent="Tips" index="5" instance=ExtResource("2_vhtne")]
+[node name="Right" type="TextureRect" parent="Tutorial/CellphoneTutorial/Move" index="1"]
+material = SubResource("CanvasItemMaterial_7r2dd")
+layout_mode = 0
+offset_left = 275.0
+offset_top = -20.0
+offset_right = 366.0
+offset_bottom = 71.0
+texture = ExtResource("7_u5ghp")
+
+[node name="Jump" parent="Tutorial/CellphoneTutorial" index="1" instance=ExtResource("2_vhtne")]
+offset_left = 672.0
+offset_top = 338.0
+offset_right = 1086.0
+offset_bottom = 383.0
+text = "Press            to jump"
+metadata/_edit_use_anchors_ = true
+
+[node name="Jump" type="TextureRect" parent="Tutorial/CellphoneTutorial/Jump" index="0"]
+material = SubResource("CanvasItemMaterial_7r2dd")
+layout_mode = 0
+offset_left = 112.0
+offset_top = -18.0
+offset_right = 203.0
+offset_bottom = 73.0
+texture = ExtResource("8_hwvp3")
+
+[node name="DoubleJump" parent="Tutorial/CellphoneTutorial" index="2" instance=ExtResource("2_vhtne")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.7
+anchor_top = -0.275
+anchor_right = -0.125
+anchor_bottom = -1.475
+offset_left = 1388.0
+offset_top = 338.0
+offset_right = 1829.0
+offset_bottom = 431.0
+text = "You can jump in air"
+metadata/_edit_use_anchors_ = true
+
+[node name="Dash" parent="Tutorial/CellphoneTutorial" index="3" instance=ExtResource("2_vhtne")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.2
+anchor_top = -0.425
+anchor_right = -0.2
+anchor_bottom = -0.425
+offset_left = 1920.0
+offset_top = 344.0
+offset_right = 2361.0
+offset_bottom = 437.0
+theme_override_constants/line_spacing = 20
+text = "If you need to go fast, press"
+metadata/_edit_use_anchors_ = true
+
+[node name="Dash" type="TextureRect" parent="Tutorial/CellphoneTutorial/Dash" index="0"]
+material = SubResource("CanvasItemMaterial_7r2dd")
+layout_mode = 0
+offset_left = 104.0
+offset_top = 43.0
+offset_right = 195.0
+offset_bottom = 134.0
+texture = ExtResource("9_afv7b")
+
+[node name="WallClimb" parent="Tutorial/CellphoneTutorial" index="4" instance=ExtResource("2_vhtne")]
+offset_left = 2840.0
+offset_top = 304.0
+offset_right = 3281.0
+offset_bottom = 445.0
+text = "You are a ninja, try to jump over the yellow tile to climb"
+
+[node name="End" parent="Tutorial/CellphoneTutorial" index="5" instance=ExtResource("2_vhtne")]
 offset_left = 3704.0
 offset_top = 96.0
 offset_right = 4145.0

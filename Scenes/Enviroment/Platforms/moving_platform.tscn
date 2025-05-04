@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bju6mnxx5eesk"]
+[gd_scene load_steps=7 format=3 uid="uid://bju6mnxx5eesk"]
 
 [ext_resource type="Script" uid="uid://bqdd56v43pd8g" path="res://Scenes/Enviroment/Platforms/moving_platform.gd" id="1_q705k"]
 [ext_resource type="Texture2D" uid="uid://d0guon0qx11q6" path="res://Assets/Terrain/Terrain (16x16).png" id="2_cf3iu"]
+
+[sub_resource type="Curve2D" id="Curve2D_ixofv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 0)
+}
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_j72tr"]
 resource_name = "move"
@@ -30,16 +36,16 @@ size = Vector2(48, 5)
 
 [node name="MovingPlatform" type="Path2D"]
 scale = Vector2(1, 0.999996)
+curve = SubResource("Curve2D_ixofv")
 script = ExtResource("1_q705k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qojg1")
+&"": SubResource("AnimationLibrary_qojg1")
 }
 autoplay = "move"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-rotation = 3.14159
 
 [node name="Platform" type="AnimatableBody2D" parent="PathFollow2D"]
 scale = Vector2(2, 2)
