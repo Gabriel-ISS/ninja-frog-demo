@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://bdbepgya43yvq"]
+[gd_scene load_steps=12 format=4 uid="uid://bdbepgya43yvq"]
 
 [ext_resource type="PackedScene" uid="uid://dhr0npcu7vrep" path="res://Scenes/Levels/base_level.tscn" id="1_fjrvy"]
 [ext_resource type="AudioStream" uid="uid://dvvk6scqoi3mq" path="res://Assets/Music/it_takes_a_hero.ogg" id="2_ihs1l"]
 [ext_resource type="PackedScene" uid="uid://dxj5e7erqyjtm" path="res://Scenes/Enviroment/portal.tscn" id="3_6qoke"]
 [ext_resource type="PackedScene" uid="uid://cngfcxuc5eqhi" path="res://Scenes/Enviroment/trampoline.tscn" id="4_so3cn"]
+[ext_resource type="PackedScene" uid="uid://bju6mnxx5eesk" path="res://Scenes/Enviroment/Platforms/moving_platform.tscn" id="5_dl55b"]
 [ext_resource type="PackedScene" uid="uid://cpg7n1p215pbc" path="res://Scenes/Traps/fire_trap.tscn" id="6_0hhdx"]
+[ext_resource type="PackedScene" uid="uid://bjuo6axyk7u72" path="res://Scenes/Traps/saw.tscn" id="6_osqx1"]
+[ext_resource type="PackedScene" uid="uid://bnoxv831rwjxe" path="res://Scenes/Traps/falling_platform.tscn" id="8_sy7oa"]
 [ext_resource type="PackedScene" uid="uid://5xm425cqfqjv" path="res://Scenes/Traps/SpikeBall/spike_ball.tscn" id="9_biqcx"]
 [ext_resource type="PackedScene" uid="uid://uuyahgbcqmik" path="res://Scenes/Enviroment/fruit.tscn" id="10_irjrw"]
 
@@ -37,89 +40,92 @@ tile_map_data = PackedByteArray("AADq/wkAAAAGAAAAAADq/woAAAAKAAEAAADq/wsAAAAHAAE
 [node name="Background" parent="TileMap" index="2"]
 tile_map_data = PackedByteArray("AABPABEAAAAHAAEAAABPABAAAAAKAAEAAABPAA8AAAAHAAEAAABOABEAAAAHAAEAAABOABAAAAAJAAEAAABOAA8AAAAHAAEAAABNABEAAAAKAAEAAABNABAAAAAGAAEAAABNAA8AAAAHAAEAAABMAA8AAAAGAAIAAABgABEAAAAJAAEAAABgABAAAAAIAAEAAABgAA8AAAAHAAEAAABfABEAAAAHAAEAAABfABAAAAAKAAEAAABfAA8AAAAHAAEAAABhAA8AAAAIAAIAAABhABEAAAAIAAAAAABQAA8AAAAHAAEAAABQABAAAAAHAAEAAABQABEAAAAHAAEAAABQABIAAAAHAAEAAABRAA8AAAAHAAEAAABRABAAAAAHAAEAAABRABEAAAAHAAEAAABRABIAAAAHAAEAAABSAA8AAAAHAAEAAABSABAAAAAHAAEAAABSABEAAAAHAAEAAABSABIAAAAHAAEAAABTAA8AAAAHAAEAAABTABAAAAAHAAEAAABTABEAAAAHAAEAAABTABIAAAAHAAEAAABUAA8AAAAHAAEAAABUABAAAAAHAAEAAABUABEAAAAJAAEAAABUABIAAAAHAAEAAABVAA8AAAAHAAEAAABVABAAAAAHAAEAAABVABEAAAAHAAAAAABVABIAAAAHAAEAAABYAA8AAAAHAAEAAABYABAAAAAHAAEAAABYABEAAAAHAAEAAABYABIAAAAHAAEAAABZAA8AAAAHAAEAAABZABAAAAAHAAEAAABZABEAAAAHAAEAAABZABIAAAAHAAEAAABaAA8AAAAHAAEAAABaABAAAAAHAAEAAABaABEAAAAHAAEAAABaABIAAAAHAAEAAABbAA8AAAAHAAEAAABbABAAAAAHAAEAAABbABEAAAAHAAEAAABbABIAAAAHAAEAAABcAA8AAAAHAAEAAABcABAAAAAHAAEAAABcABEAAAAHAAEAAABcABIAAAAHAAEAAABdAA8AAAAHAAEAAABdABAAAAAHAAEAAABdABEAAAAHAAEAAABdABIAAAAHAAEAAABeAA8AAAAHAAEAAABeABAAAAAJAAEAAABeABEAAAAHAAEAAABeABIAAAAHAAEAAABTABMAAAAHAAEAAABUABMAAAAHAAEAAABVABMAAAAHAAEAAABWABAAAAAHAAEAAABWABEAAAAHAAAAAABWABIAAAAHAAEAAABWABMAAAAHAAEAAABXABAAAAAHAAEAAABXABEAAAAKAAEAAABXABIAAAAHAAEAAABXABMAAAAHAAEAAABYABMAAAAHAAEAAABZABMAAAAHAAEAAABaABMAAAAHAAEAAABbABMAAAAHAAEAAABWAA8AAAAHAAEAAABXAA8AAAAHAAEAAACzAA0AAAAHAAEAAACzAA4AAAAGAAEAAACzAA8AAAAGAAEAAACzABAAAAAKAAEAAADLAAcAAAAHAAEAAADLAAgAAAAIAAEAAADLAAkAAAAIAAEAAADLAAoAAAAJAAEAAADLAAsAAAAHAAEAAADLAAwAAAAHAAEAAADLAA0AAAAHAAEAAADLAA4AAAAHAAEAAADLAA8AAAAHAAEAAADLABAAAAAHAAEAAAC2AAsAAAAHAAEAAAC3AAsAAAAHAAEAAAC5AAsAAAAHAAEAAAC6AAsAAAAHAAEAAAC7AAsAAAAHAAEAAAC8AAsAAAAHAAEAAAC9AAsAAAAHAAEAAAC+AAsAAAAHAAEAAADAAAwAAAAHAAEAAADBAAwAAAAHAAEAAADCAAwAAAAHAAEAAADDAAwAAAAHAAEAAADDAA0AAAAHAAEAAADEAA0AAAAHAAEAAADFAA0AAAAHAAEAAADGAA0AAAAHAAEAAADHAA0AAAAJAAEAAADHAA4AAAAHAAEAAADIAA4AAAAHAAEAAADJAA4AAAAHAAEAAADJAA0AAAAHAAEAAADEAAwAAAAHAAEAAADFAAwAAAAHAAEAAADGAAwAAAAHAAEAAADHAAwAAAAHAAEAAADIAAwAAAAHAAEAAADJAAwAAAAHAAEAAAC0AA0AAAAHAAEAAAC0AA4AAAAHAAEAAAC0AA8AAAAHAAEAAAC0ABAAAAAHAAEAAAC1AAwAAAAHAAAAAAC1AA0AAAAHAAEAAAC1AA4AAAAHAAEAAAC1ABAAAAAHAAEAAAC2AAwAAAAKAAEAAAC2AA0AAAAHAAEAAAC2AA4AAAAHAAEAAAC2ABAAAAAHAAEAAAC3AAwAAAAHAAEAAAC3AA0AAAAHAAEAAAC3AA4AAAAHAAEAAAC3ABAAAAAHAAEAAAC4AAwAAAAHAAEAAAC4AA0AAAAHAAEAAAC4AA4AAAAHAAEAAAC4AA8AAAAHAAEAAAC4ABAAAAAHAAEAAAC5AAwAAAAHAAEAAAC5AA0AAAAHAAEAAAC5AA4AAAAHAAEAAAC5AA8AAAAHAAEAAAC5ABAAAAAHAAEAAAC6AAwAAAAHAAEAAAC6AA0AAAAHAAEAAAC6AA4AAAAHAAEAAAC6AA8AAAAHAAEAAAC6ABAAAAAHAAEAAAC7AAwAAAAHAAEAAAC7AA0AAAAHAAEAAAC7AA4AAAAHAAEAAAC7AA8AAAAHAAEAAAC7ABAAAAAHAAEAAAC8AAwAAAAHAAEAAAC8AA0AAAAHAAEAAAC8AA4AAAAHAAEAAAC8AA8AAAAHAAEAAAC8ABAAAAAHAAEAAAC9AAwAAAAHAAEAAAC9AA0AAAAHAAEAAAC9AA4AAAAHAAEAAAC9AA8AAAAHAAEAAAC9ABAAAAAHAAEAAAC+AAwAAAAHAAEAAAC+AA0AAAAHAAEAAAC+AA4AAAAHAAEAAAC+AA8AAAAHAAEAAAC+ABAAAAAHAAEAAAC/AA4AAAAHAAEAAAC/AA8AAAAHAAEAAAC/ABAAAAAHAAEAAADAAAsAAAAHAAEAAADAAA0AAAAHAAEAAADAAA4AAAAHAAEAAADAAA8AAAAHAAEAAADAABAAAAAHAAEAAADBAAsAAAAHAAEAAADBAA0AAAAHAAEAAADBAA4AAAAHAAEAAADBAA8AAAAHAAEAAADBABAAAAAHAAEAAADCAAsAAAAHAAEAAADCAA0AAAAHAAEAAADCAA4AAAAHAAEAAADCAA8AAAAHAAEAAADCABAAAAAHAAEAAADDAAsAAAAHAAEAAADDAA4AAAAHAAEAAADDAA8AAAAHAAEAAADDABAAAAAHAAEAAADEAAsAAAAHAAEAAADEAA4AAAAHAAEAAADEAA8AAAAHAAEAAADEABAAAAAHAAEAAADFAAsAAAAHAAEAAADFAA4AAAAHAAEAAADFAA8AAAAHAAEAAADFABAAAAAHAAEAAADGAAsAAAAHAAEAAADGAA4AAAAHAAEAAADGAA8AAAAHAAEAAADGABAAAAAHAAEAAADHAAsAAAAHAAEAAADHAA8AAAAHAAEAAADHABAAAAAHAAEAAADIAAsAAAAHAAEAAADIAA0AAAAKAAEAAADIAA8AAAAHAAEAAADIABAAAAAHAAEAAADJAAsAAAAHAAEAAADJAA8AAAAHAAEAAADJABAAAAAHAAEAAADKAAsAAAAHAAEAAADKAAwAAAAHAAEAAADKAA0AAAAHAAEAAADKAA4AAAAHAAEAAADKAA8AAAAHAAEAAADKABAAAAAHAAEAAAC6ABEAAAAHAAEAAAC7ABEAAAAHAAEAAAC8ABEAAAAHAAEAAAC9ABEAAAAHAAEAAAC+ABEAAAAHAAEAAAC/ABEAAAAHAAEAAADAABEAAAAHAAEAAADBABEAAAAHAAEAAADCABEAAAAHAAEAAADDABEAAAAHAAEAAADEABEAAAAHAAEAAADFABEAAAAHAAEAAADGABEAAAAHAAEAAAC7ABIAAAAHAAEAAAC8ABIAAAAHAAEAAAC9ABIAAAAHAAEAAAC+ABIAAAAHAAEAAAC/ABIAAAAHAAEAAADAABIAAAAHAAEAAADBABIAAAAHAAEAAADCABIAAAAHAAEAAADDABIAAAAHAAEAAAC3AAoAAAAHAAEAAAC5AAoAAAAHAAEAAAC6AAoAAAAHAAEAAAC7AAoAAAAHAAEAAADEAAoAAAAHAAEAAADFAAoAAAAHAAEAAADGAAoAAAAHAAEAAADHAAoAAAAHAAEAAADJAAoAAAAHAAEAAADKAAoAAAAHAAEAAADJAAcAAAAHAAEAAADJAAgAAAAHAAEAAADJAAkAAAAJAAEAAADKAAcAAAAHAAEAAADKAAgAAAAHAAEAAADKAAkAAAAKAAEAAAC2AA8AAAAHAAAAAAC1AA8AAAAJAAEAAAC3AA8AAAAKAAEAAACyAA0AAAAGAAIAAABMABEAAAAGAAAAAADMAAcAAAAIAAIAAADMAAoAAAAIAAAAAACyABAAAAAGAAAAAAA=")
 
-[node name="Portal" parent="Interactables" index="0" node_paths=PackedStringArray("objetive_portal")]
-visible = true
+[node name="MovingPlatform" parent="Interactables" index="2"]
+curve = SubResource("Curve2D_4r28b")
+velocity = 0.4
+
+[node name="Portal5" parent="Interactables" index="3" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("3_6qoke")]
 position = Vector2(3872, 504)
 objetive_portal = NodePath("../Portal4")
 
-[node name="Portal4" parent="Interactables" index="1" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("3_6qoke")]
-position = Vector2(4272, 360)
-objetive_portal = NodePath("../Portal")
-
-[node name="Portal2" parent="Interactables" index="2" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("3_6qoke")]
-position = Vector2(6864, 552)
-objetive_portal = NodePath("../Portal3")
-
-[node name="Portal3" parent="Interactables" index="3" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("3_6qoke")]
-position = Vector2(6928, 360)
-objetive_portal = NodePath("../Portal2")
-
-[node name="Trampoline" parent="Interactables" index="4"]
-visible = true
+[node name="Trampoline6" parent="Interactables" index="4" instance=ExtResource("4_so3cn")]
 position = Vector2(4760, 552)
 
-[node name="Trampoline2" parent="Interactables" index="5" instance=ExtResource("4_so3cn")]
-position = Vector2(3240, 584)
-
-[node name="Trampoline5" parent="Interactables" index="6" instance=ExtResource("4_so3cn")]
-position = Vector2(3752, 520)
-
-[node name="Trampoline3" parent="Interactables" index="7" instance=ExtResource("4_so3cn")]
-position = Vector2(6488, 552)
-
-[node name="Trampoline4" parent="Interactables" index="8" instance=ExtResource("4_so3cn")]
-position = Vector2(6736, 584)
-
-[node name="MovingPlatform" parent="Interactables" index="9"]
-visible = true
+[node name="MovingPlatform2" parent="Interactables" index="5" instance=ExtResource("5_dl55b")]
 position = Vector2(2216, 224)
 curve = SubResource("Curve2D_4r28b")
 velocity = 0.4
 
-[node name="Saw" parent="Traps" index="0"]
-visible = true
+[node name="Portal4" parent="Interactables" index="6" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("3_6qoke")]
+position = Vector2(4272, 360)
+objetive_portal = NodePath("../Portal5")
+
+[node name="Portal2" parent="Interactables" index="7" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("3_6qoke")]
+position = Vector2(6864, 552)
+objetive_portal = NodePath("../Portal3")
+
+[node name="Portal3" parent="Interactables" index="8" node_paths=PackedStringArray("objetive_portal") instance=ExtResource("3_6qoke")]
+position = Vector2(6928, 360)
+objetive_portal = NodePath("../Portal2")
+
+[node name="Trampoline2" parent="Interactables" index="9" instance=ExtResource("4_so3cn")]
+position = Vector2(3240, 584)
+
+[node name="Trampoline5" parent="Interactables" index="10" instance=ExtResource("4_so3cn")]
+position = Vector2(3752, 520)
+
+[node name="Trampoline3" parent="Interactables" index="11" instance=ExtResource("4_so3cn")]
+position = Vector2(6488, 552)
+
+[node name="Trampoline4" parent="Interactables" index="12" instance=ExtResource("4_so3cn")]
+position = Vector2(6736, 584)
+
+[node name="Fan" parent="Traps" index="3"]
+process_mode = 4
+
+[node name="FireTrap" parent="Traps" index="4"]
+rotation = -1.57079
+
+[node name="Spikes" parent="Traps" index="5"]
+process_mode = 4
+
+[node name="Saw2" parent="Traps" index="6" instance=ExtResource("6_osqx1")]
 position = Vector2(2704, 600)
 
-[node name="SpikeBall" parent="Traps" index="1"]
-visible = true
+[node name="SpikeBall7" parent="Traps" index="7" instance=ExtResource("9_biqcx")]
 position = Vector2(1680, 232)
 
-[node name="FallingPlatform" parent="Traps" index="2"]
-visible = true
+[node name="FallingPlatform2" parent="Traps" index="8" instance=ExtResource("8_sy7oa")]
 position = Vector2(4976, 560)
 
-[node name="FireTrap" parent="Traps" index="3"]
-visible = true
+[node name="FireTrap3" parent="Traps" index="9" instance=ExtResource("6_0hhdx")]
 position = Vector2(3776, 456)
 rotation = -1.57079
 
-[node name="FireTrap2" parent="Traps" index="4" instance=ExtResource("6_0hhdx")]
+[node name="FireTrap2" parent="Traps" index="10" instance=ExtResource("6_0hhdx")]
 position = Vector2(3776, 424)
 rotation = -1.57079
 
-[node name="SpikeBall2" parent="Traps" index="5" instance=ExtResource("9_biqcx")]
+[node name="SpikeBall2" parent="Traps" index="11" instance=ExtResource("9_biqcx")]
 position = Vector2(5456, 408)
 
-[node name="SpikeBall3" parent="Traps" index="6" instance=ExtResource("9_biqcx")]
+[node name="SpikeBall3" parent="Traps" index="12" instance=ExtResource("9_biqcx")]
 position = Vector2(5904, 389)
 
-[node name="SpikeBall4" parent="Traps" index="7" instance=ExtResource("9_biqcx")]
+[node name="SpikeBall4" parent="Traps" index="13" instance=ExtResource("9_biqcx")]
 position = Vector2(6128, 453)
 
-[node name="SpikeBall5" parent="Traps" index="8" instance=ExtResource("9_biqcx")]
+[node name="SpikeBall5" parent="Traps" index="14" instance=ExtResource("9_biqcx")]
 position = Vector2(6416, 357)
 USE_MAX_DISTANCE = true
 MAX_DISTANCE = 100
 
-[node name="SpikeBall6" parent="Traps" index="9" instance=ExtResource("9_biqcx")]
+[node name="SpikeBall6" parent="Traps" index="15" instance=ExtResource("9_biqcx")]
 position = Vector2(2128, 392)
 USE_MAX_DISTANCE = true
 
-[node name="Fan" parent="Traps" index="10"]
-process_mode = 4
-
 [node name="Fruit" parent="Fruits" index="0"]
-process_mode = 4
+process_mode = 3
 visible = true
 position = Vector2(4584, 360)
 
@@ -247,7 +253,7 @@ position = Vector2(3440, 368)
 
 [node name="Fruit39" parent="Fruits" index="27" instance=ExtResource("10_irjrw")]
 process_mode = 3
-position = Vector2(3760, 440)
+position = Vector2(3752, 440)
 fruit_type = "pineapple"
 
 [node name="Fruit28" parent="Fruits" index="28" instance=ExtResource("10_irjrw")]

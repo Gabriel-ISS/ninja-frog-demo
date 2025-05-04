@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgyddvfh33021"]
+
+[ext_resource type="PackedScene" uid="uid://cwixsants1t0c" path="res://Scenes/Traps/Spikes/spike_pair.tscn" id="2_glo6h"]
+[ext_resource type="Script" uid="uid://0h7iqnqq2s7q" path="res://Scenes/Traps/Spikes/spikes.gd" id="2_nm7ow"]
+
+[node name="Spikes" type="Node2D"]
+process_mode = 3
+scale = Vector2(2, 2)
+script = ExtResource("2_nm7ow")
+_SpikePair = ExtResource("2_glo6h")

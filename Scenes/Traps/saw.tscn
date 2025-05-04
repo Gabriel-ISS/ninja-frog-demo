@@ -73,12 +73,15 @@ size = Vector2(8, 4)
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmn7v"]
 radius = 20.0
 
-[node name="Saw" type="CharacterBody2D"]
+[node name="Saw" type="CharacterBody2D" node_paths=PackedStringArray("_wall_checker", "_ground_checker", "_ground_collision")]
 z_index = -4
 texture_filter = 1
 scale = Vector2(2, 2)
 collision_layer = 4
 script = ExtResource("1_pjpey")
+_wall_checker = NodePath("WallChecker")
+_ground_checker = NodePath("GroundChecker")
+_ground_collision = NodePath("GroundCollision")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1ew8q")
@@ -86,7 +89,7 @@ animation = &"on"
 autoplay = "on"
 frame_progress = 0.208768
 
-[node name="FloorCollision" type="CollisionShape2D" parent="."]
+[node name="GroundCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_nsif3")
 

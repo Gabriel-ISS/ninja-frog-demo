@@ -49,39 +49,45 @@ process_mode = 4
 [node name="FallingPlatform" parent="Traps" index="2"]
 process_mode = 4
 
-[node name="FireTrap" parent="Traps" index="3"]
-visible = true
+[node name="Fan" parent="Traps" index="3"]
+process_mode = 4
+
+[node name="FireTrap" parent="Traps" index="4"]
+off_time = 1.5
+
+[node name="FireTrap8" parent="Traps" index="5" instance=ExtResource("3_fa2ak")]
 position = Vector2(2416, 551)
 off_time = 1.5
 
-[node name="Fan" parent="Traps" index="4"]
-process_mode = 4
-
-[node name="FireTrap2" parent="Traps" index="5" instance=ExtResource("3_fa2ak")]
+[node name="FireTrap2" parent="Traps" index="6" instance=ExtResource("3_fa2ak")]
 position = Vector2(2447, 551)
 off_time = 1.5
 
-[node name="FireTrap3" parent="Traps" index="6" instance=ExtResource("3_fa2ak")]
+[node name="FireTrap3" parent="Traps" index="7" instance=ExtResource("3_fa2ak")]
 position = Vector2(2479, 551)
 off_time = 1.5
 
-[node name="FireTrap4" parent="Traps" index="7" instance=ExtResource("3_fa2ak")]
+[node name="FireTrap4" parent="Traps" index="8" instance=ExtResource("3_fa2ak")]
 position = Vector2(2511, 551)
 off_time = 1.5
 
-[node name="FireTrap5" parent="Traps" index="8" instance=ExtResource("3_fa2ak")]
+[node name="FireTrap5" parent="Traps" index="9" instance=ExtResource("3_fa2ak")]
 position = Vector2(2543, 551)
 off_time = 1.5
 
-[node name="FireTrap6" parent="Traps" index="9" instance=ExtResource("3_fa2ak")]
+[node name="FireTrap6" parent="Traps" index="10" instance=ExtResource("3_fa2ak")]
 position = Vector2(2575, 551)
 off_time = 1.5
 
-[node name="FireTrap7" parent="Traps" index="10" instance=ExtResource("3_fa2ak")]
+[node name="FireTrap7" parent="Traps" index="11" instance=ExtResource("3_fa2ak")]
 position = Vector2(2607, 551)
 off_time = 1.5
 
+[node name="Spikes" parent="Traps" index="12"]
+process_mode = 4
+
 [node name="Fruit" parent="Fruits" index="0"]
+process_mode = 3
 visible = true
 position = Vector2(2507, 479)
 fruit_type = "strawberry"
@@ -180,6 +186,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Move" parent="Tutorial/ComputerTutorial" index="0" instance=ExtResource("2_vhtne")]
+layout_mode = 0
 offset_left = -147.0
 offset_top = 316.0
 offset_right = 475.0
@@ -188,6 +195,7 @@ text = "Press [A] and [D] to move. You can also try with [LEFT] and [RIGHT]"
 metadata/_edit_use_anchors_ = true
 
 [node name="Jump" parent="Tutorial/ComputerTutorial" index="1" instance=ExtResource("2_vhtne")]
+layout_mode = 0
 offset_left = 672.0
 offset_top = 338.0
 offset_right = 1086.0
@@ -196,6 +204,7 @@ text = "Press [SPACE] to jump"
 metadata/_edit_use_anchors_ = true
 
 [node name="DoubleJump" parent="Tutorial/ComputerTutorial" index="2" instance=ExtResource("2_vhtne")]
+layout_mode = 0
 offset_left = 1388.0
 offset_top = 338.0
 offset_right = 1829.0
@@ -206,6 +215,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Dash" parent="Tutorial/ComputerTutorial" index="3" instance=ExtResource("2_vhtne")]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = -1.025
 anchor_right = -1.025
 offset_left = 1920.0
 offset_top = 344.0
@@ -215,6 +225,7 @@ text = "If you need to go fast, press [SHIFT]"
 metadata/_edit_use_anchors_ = true
 
 [node name="WallClimb" parent="Tutorial/ComputerTutorial" index="4" instance=ExtResource("2_vhtne")]
+layout_mode = 0
 offset_left = 2840.0
 offset_top = 304.0
 offset_right = 3281.0
@@ -222,6 +233,7 @@ offset_bottom = 445.0
 text = "You are a ninja, try to jump over the yellow tile to climb"
 
 [node name="End" parent="Tutorial/ComputerTutorial" index="5" instance=ExtResource("2_vhtne")]
+layout_mode = 0
 offset_left = 3704.0
 offset_top = 96.0
 offset_right = 4145.0
@@ -240,6 +252,8 @@ offset_bottom = 40.0
 [node name="Move" parent="Tutorial/CellphoneTutorial" index="0" instance=ExtResource("2_vhtne")]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = -2.075
+anchor_top = -1.2
 anchor_right = -2.075
 anchor_bottom = -1.2
 offset_left = -147.0
@@ -268,6 +282,7 @@ offset_bottom = 71.0
 texture = ExtResource("7_u5ghp")
 
 [node name="Jump" parent="Tutorial/CellphoneTutorial" index="1" instance=ExtResource("2_vhtne")]
+layout_mode = 0
 offset_left = 672.0
 offset_top = 338.0
 offset_right = 1086.0
@@ -287,8 +302,8 @@ texture = ExtResource("8_hwvp3")
 [node name="DoubleJump" parent="Tutorial/CellphoneTutorial" index="2" instance=ExtResource("2_vhtne")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 2.7
-anchor_top = -0.275
+anchor_left = -0.125
+anchor_top = -1.475
 anchor_right = -0.125
 anchor_bottom = -1.475
 offset_left = 1388.0
@@ -323,6 +338,7 @@ offset_bottom = 134.0
 texture = ExtResource("9_afv7b")
 
 [node name="WallClimb" parent="Tutorial/CellphoneTutorial" index="4" instance=ExtResource("2_vhtne")]
+layout_mode = 0
 offset_left = 2840.0
 offset_top = 304.0
 offset_right = 3281.0
@@ -330,6 +346,7 @@ offset_bottom = 445.0
 text = "You are a ninja, try to jump over the yellow tile to climb"
 
 [node name="End" parent="Tutorial/CellphoneTutorial" index="5" instance=ExtResource("2_vhtne")]
+layout_mode = 0
 offset_left = 3704.0
 offset_top = 96.0
 offset_right = 4145.0
