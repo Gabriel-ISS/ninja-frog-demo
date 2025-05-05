@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://d4jxx1ir4mk8c"]
+[gd_scene load_steps=98 format=3 uid="uid://d4jxx1ir4mk8c"]
 
 [ext_resource type="Script" uid="uid://cny4a4vy455mj" path="res://Scenes/Characters/ninja_frog.gd" id="1_uefwj"]
 [ext_resource type="Texture2D" uid="uid://cgyrmy57wli5d" path="res://Assets/Main Character/Appearing (96x96).png" id="1_uvsws"]
@@ -543,14 +543,6 @@ blend_mode = 1
 atlas = ExtResource("3_m17pd")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ao5b"]
-gravity = Vector3(0, 0, 0)
-scale_min = 2.0
-scale_max = 2.0
-color = Color(0.35, 0.4475, 1, 0.545098)
-hue_variation_min = -2.23517e-08
-hue_variation_max = 1.0
-
 [node name="NinjaFrog" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "sprite", "front_ray_cast", "investivility_timer")]
 scale = Vector2(2, 2)
 collision_layer = 2
@@ -610,14 +602,20 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_73tsr")
 debug_color = Color(0.952941, 0, 0, 0.788235)
 
-[node name="DashParticles" type="GPUParticles2D" parent="."]
+[node name="DashParticles" type="CPUParticles2D" parent="."]
 z_index = -1
 material = SubResource("CanvasItemMaterial_cjmd4")
 emitting = false
 amount = 5
 texture = SubResource("AtlasTexture_2vy5g")
 lifetime = 0.07
-process_material = SubResource("ParticleProcessMaterial_6ao5b")
+fixed_fps = 30
+draw_order = 1
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.35, 0.4475, 1, 0.545098)
+hue_variation_max = 1.0
 script = ExtResource("32_pca4p")
 
 [node name="Invencibility" type="Timer" parent="."]
