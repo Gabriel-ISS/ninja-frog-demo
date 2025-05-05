@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dhr0npcu7vrep"]
+[gd_scene load_steps=41 format=3 uid="uid://dhr0npcu7vrep"]
 
 [ext_resource type="PackedScene" uid="uid://ni3yfhdkktve" path="res://Scenes/Background/background.tscn" id="1_2m8h4"]
 [ext_resource type="PackedScene" uid="uid://cgo4gdkg68dpx" path="res://Scenes/UI/GUI/gui.tscn" id="1_vstqe"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bju6mnxx5eesk" path="res://Scenes/Enviroment/Platforms/moving_platform.tscn" id="9_ohyc5"]
 [ext_resource type="PackedScene" uid="uid://uuyahgbcqmik" path="res://Scenes/Enviroment/fruit.tscn" id="9_srrtj"]
 [ext_resource type="PackedScene" uid="uid://bnoxv831rwjxe" path="res://Scenes/Traps/falling_platform.tscn" id="10_qpdyk"]
-[ext_resource type="PackedScene" uid="uid://c2dvgnfuf86xl" path="res://Scenes/Traps/fan.tscn" id="12_ot3at"]
 [ext_resource type="PackedScene" uid="uid://cpg7n1p215pbc" path="res://Scenes/Traps/fire_trap.tscn" id="13_w4jfg"]
 [ext_resource type="PackedScene" uid="uid://bgyddvfh33021" path="res://Scenes/Traps/Spikes/spikes.tscn" id="15_bi03b"]
 
@@ -1536,10 +1535,6 @@ position = Vector2(568, -64)
 [node name="FallingPlatform" parent="Traps" instance=ExtResource("10_qpdyk")]
 visible = false
 position = Vector2(664, -8)
-
-[node name="Fan" parent="Traps" instance=ExtResource("12_ot3at")]
-visible = false
-position = Vector2(736, 0)
 
 [node name="FireTrap" parent="Traps" instance=ExtResource("13_w4jfg")]
 visible = false

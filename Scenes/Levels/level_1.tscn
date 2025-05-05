@@ -49,10 +49,7 @@ process_mode = 4
 [node name="FallingPlatform" parent="Traps" index="2"]
 process_mode = 4
 
-[node name="Fan" parent="Traps" index="3"]
-process_mode = 4
-
-[node name="FireTrap" parent="Traps" index="4"]
+[node name="FireTrap" parent="Traps" index="3"]
 off_time = 1.5
 
 [node name="FireTrap8" parent="Traps" index="5" instance=ExtResource("3_fa2ak")]
@@ -82,9 +79,6 @@ off_time = 1.5
 [node name="FireTrap7" parent="Traps" index="11" instance=ExtResource("3_fa2ak")]
 position = Vector2(2607, 551)
 off_time = 1.5
-
-[node name="Spikes" parent="Traps" index="12"]
-process_mode = 4
 
 [node name="Fruit" parent="Fruits" index="0"]
 process_mode = 3
