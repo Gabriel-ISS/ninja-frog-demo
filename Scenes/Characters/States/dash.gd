@@ -6,7 +6,7 @@ extends State
 @export var particles: DashParticles
 @export var invencivility_timer: Timer
 
-const DASH_VELOCITY = 900
+const DASH_VELOCITY = 1000
 var direction = 1
 
 func on_enter():

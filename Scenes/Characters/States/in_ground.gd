@@ -34,25 +34,32 @@ func process_state(_delta):
 
 func set_delta_move_toward():
 	if ice_ray_cast.is_colliding():
-		
-		var running = bool(Input.get_axis("move_left", "move_right"))
-		var direction = 1 if character.velocity.x > 0 else -1
-		var character_v = abs(character.velocity.x)
-		
-		# particle velocity
-		var min_particle_v = clamp(character_v, 10, 50)
-		slide_paticles.initial_velocity_min = min_particle_v
-		slide_paticles.initial_velocity_max = min_particle_v + 20
-		
-		var emit_direction = direction / (2000 / character_v)
-		print(emit_direction)
-		slide_paticles.direction.x = emit_direction * -1
-		slide_paticles.direction.y = abs(emit_direction) * -10
-		slide_paticles.emitting = !running and character_v > 0
+		set_particles()
 		delta_move_toward = SLIDE_DELTA_MOVE_TOWARD
 	else:
 		slide_paticles.emitting = false
 		delta_move_toward = DEFAULT_DELTA_MOVE_TOWARD
+
+
+func set_particles():
+	var character_v = abs(character.velocity.x)
+	
+	# particle velocity
+	var min_particle_v = clamp(character_v/3, 10, 100)
+	slide_paticles.initial_velocity_min = min_particle_v
+	slide_paticles.initial_velocity_max = min_particle_v + 20
+	
+	# particle direction
+	# cv = 0 -> y = 0 . cv = 300 -> y = 1
+	slide_paticles.direction.y = character_v / -300
+	
+	# particle size
+	# cv = 0 -> s = 0 . cv = 300 -> s = 1
+	var min_size = clamp(character_v/400, 0, 0.6) 
+	slide_paticles.scale_amount_min = min_size
+	slide_paticles.scale_amount_max = min_size + 0.1
+	
+	slide_paticles.emitting = character_v > 0
 
 
 func on_input(event: InputEvent):

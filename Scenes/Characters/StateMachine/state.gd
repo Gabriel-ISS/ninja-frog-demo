@@ -5,7 +5,7 @@ class_name State
 const DEFAULT_GARVITY = 980.0
 const DEFAULT_SPEED = 300
 const DEFAULT_JUMP_VELOCITY = -400
-const DEFAULT_DELTA_MOVE_TOWARD = 20
+const DEFAULT_DELTA_MOVE_TOWARD = 30
 const AIR_DELTA_MOVE_TOWARD = 7
 
 var invencivility = false
