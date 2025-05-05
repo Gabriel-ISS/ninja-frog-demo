@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://d4jxx1ir4mk8c"]
+[gd_scene load_steps=99 format=3 uid="uid://d4jxx1ir4mk8c"]
 
 [ext_resource type="Script" uid="uid://cny4a4vy455mj" path="res://Scenes/Characters/ninja_frog.gd" id="1_uefwj"]
 [ext_resource type="Texture2D" uid="uid://cgyrmy57wli5d" path="res://Assets/Main Character/Appearing (96x96).png" id="1_uvsws"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://b6p750du0nrgv" path="res://Scenes/Characters/front_ray_cast.gd" id="11_0yi4k"]
 [ext_resource type="AudioStream" uid="uid://7bbcfitm8alu" path="res://Assets/Sound Effects/Character/03_Step_grass_03.wav" id="11_peb8f"]
 [ext_resource type="AudioStream" uid="uid://dmml05kvelac3" path="res://Assets/Sound Effects/Character/08_Step_rock_02.wav" id="12_8tf4l"]
+[ext_resource type="Texture2D" uid="uid://dxkracn8twp4o" path="res://Assets/Traps/Sand Mud Ice/Ice Particle.png" id="13_m7p2b"]
 [ext_resource type="AudioStream" uid="uid://bfss2e5mxmqjf" path="res://Assets/Sound Effects/Character/12_Step_wood_03.wav" id="13_wu4hs"]
 [ext_resource type="AudioStream" uid="uid://d0lq3tekd22p6" path="res://Assets/Sound Effects/Character/30_Jump_03.wav" id="14_guqmy"]
 [ext_resource type="AudioStream" uid="uid://ciy3kt8n5p861" path="res://Assets/Sound Effects/Character/35_Miss_Evade_02.wav" id="15_stqsa"]
@@ -543,7 +544,7 @@ blend_mode = 1
 atlas = ExtResource("3_m17pd")
 region = Rect2(0, 0, 32, 32)
 
-[node name="NinjaFrog" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "sprite", "front_ray_cast", "investivility_timer")]
+[node name="NinjaFrog" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "sprite", "front_ray_cast")]
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 489
@@ -553,7 +554,6 @@ script = ExtResource("1_uefwj")
 state_machine = NodePath("StateMachine")
 sprite = NodePath("AnimatedSprite")
 front_ray_cast = NodePath("StikyWallRayCast")
-investivility_timer = NodePath("Invencibility")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y1mfh")
@@ -579,7 +579,7 @@ target_position = Vector2(12, 0)
 collision_mask = 8
 script = ExtResource("11_0yi4k")
 
-[node name="SlipperyRayCast" type="RayCast2D" parent="."]
+[node name="IceRayCast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 17)
 collision_mask = 64
 
@@ -618,9 +618,22 @@ color = Color(0.35, 0.4475, 1, 0.545098)
 hue_variation_max = 1.0
 script = ExtResource("32_pca4p")
 
-[node name="Invencibility" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
+[node name="SlideParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, 15.5)
+amount = 2
+texture = ExtResource("13_m7p2b")
+lifetime = 0.2
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(5, 1)
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 0.0
+initial_velocity_min = 94.44
+initial_velocity_max = 133.33
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.5
 
 [node name="SharedAudios" type="Node" parent="."]
 
@@ -632,12 +645,13 @@ bus = &"Soud Effects"
 stream = ExtResource("15_stqsa")
 bus = &"Soud Effects"
 
-[node name="CurrentState" type="Label" parent="."]
+[node name="CurrentState" type="Label" parent="." node_paths=PackedStringArray("_state_machine")]
 offset_left = -20.0
 offset_top = -47.0
 offset_right = 20.0
 offset_bottom = -24.0
 script = ExtResource("19_kugoe")
+_state_machine = NodePath("../StateMachine")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "sprite", "current_state", "damage_state")]
 script = ExtResource("19_w3qv8")
@@ -650,16 +664,14 @@ damage_state = NodePath("Damage")
 script = ExtResource("20_ixtou")
 ground_state = NodePath("../InGroundState")
 
-[node name="InGroundState" type="Node" parent="StateMachine" node_paths=PackedStringArray("air_state", "dash_state", "step_audio", "jump_audio", "slippery_ray_cast")]
+[node name="InGroundState" type="Node" parent="StateMachine" node_paths=PackedStringArray("air_state", "dash_state", "step_audio", "jump_audio", "ice_ray_cast", "slide_paticles")]
 script = ExtResource("21_vx1nt")
 air_state = NodePath("../InAirState")
 dash_state = NodePath("../Dash")
 step_audio = NodePath("StepRock")
 jump_audio = NodePath("../../SharedAudios/Jump")
-slippery_ray_cast = NodePath("../../SlipperyRayCast")
-
-[node name="Combo" type="Timer" parent="StateMachine/InGroundState"]
-one_shot = true
+ice_ray_cast = NodePath("../../IceRayCast")
+slide_paticles = NodePath("../../SlideParticles")
 
 [node name="StepGrass" type="AudioStreamPlayer" parent="StateMachine/InGroundState"]
 stream = ExtResource("11_peb8f")
@@ -731,5 +743,4 @@ particles = NodePath("../../DashParticles")
 
 [connection signal="animation_finished" from="AnimatedSprite" to="StateMachine" method="_on_animations_animation_finished"]
 [connection signal="area_shape_entered" from="DamageDetection" to="StateMachine" method="_on_damage_detection_area_shape_entered"]
-[connection signal="timeout" from="StateMachine/InGroundState/Combo" to="StateMachine/InGroundState" method="_on_combo_timeout"]
 [connection signal="finished" from="StateMachine/Die/Death" to="StateMachine/Die" method="_on_death_finished"]

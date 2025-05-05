@@ -4,17 +4,20 @@ extends State
 @export var dash_state: State
 @export var step_audio: AudioStreamPlayer
 @export var jump_audio: AudioStreamPlayer
-@export var slippery_ray_cast: RayCast2D
+@export var ice_ray_cast: RayCast2D
+@export var slide_paticles: CPUParticles2D
 
-const SLIDE_DELTA_MOVE_TOWARD = 2
+const SLIDE_DELTA_MOVE_TOWARD = 1
 
 func on_enter():
+	set_delta_move_toward()
 	sprite.play("idle")
+
 
 func process_state(_delta):
 	# run and iddle
-	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
+	var selected_direction = Input.get_axis("move_left", "move_right")
+	if selected_direction:
 		sprite.play("run")
 		if not step_audio.playing:
 			step_audio.play()
@@ -25,17 +28,41 @@ func process_state(_delta):
 	if not character.is_on_floor():
 		next_state = air_state
 	
-	# resbalar (slide?)
-	if slippery_ray_cast.is_colliding():
-		DELTA_MOVE_TOWARD = SLIDE_DELTA_MOVE_TOWARD
+	# slide
+	set_delta_move_toward()
+
+
+func set_delta_move_toward():
+	if ice_ray_cast.is_colliding():
+		
+		var running = bool(Input.get_axis("move_left", "move_right"))
+		var direction = 1 if character.velocity.x > 0 else -1
+		var character_v = abs(character.velocity.x)
+		
+		# particle velocity
+		var min_particle_v = clamp(character_v, 10, 50)
+		slide_paticles.initial_velocity_min = min_particle_v
+		slide_paticles.initial_velocity_max = min_particle_v + 20
+		
+		var emit_direction = direction / (2000 / character_v)
+		print(emit_direction)
+		slide_paticles.direction.x = emit_direction * -1
+		slide_paticles.direction.y = abs(emit_direction) * -10
+		slide_paticles.emitting = !running and character_v > 0
+		delta_move_toward = SLIDE_DELTA_MOVE_TOWARD
 	else:
-		DELTA_MOVE_TOWARD = DEFAULT_DELTA_MOVE_TOWARD
-	
+		slide_paticles.emitting = false
+		delta_move_toward = DEFAULT_DELTA_MOVE_TOWARD
+
 
 func on_input(event: InputEvent):
 	if event.is_action_pressed("jump"):
-		character.velocity.y = JUMP_VELOCITY
+		character.velocity.y = jump_speed
 		jump_audio.play()
 		next_state = air_state
 	elif event.is_action_pressed("dash"):
 		next_state = dash_state
+
+
+func on_exit():
+	slide_paticles.emitting = false

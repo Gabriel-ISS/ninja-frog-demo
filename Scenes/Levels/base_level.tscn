@@ -422,7 +422,7 @@ tile_data = PackedInt32Array(0, 589824, 9, 1, 458752, 8, 2, 458752, 8, 3, 458752
 [sub_resource type="TileMapPattern" id="TileMapPattern_76jyb"]
 tile_data = PackedInt32Array(0, 524289, 0, 65536, 524289, 2, 1, 589825, 0, 65537, 589825, 2, 2, 655361, 0, 65538, 655361, 2)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dv22y"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2a4j4"]
 texture = ExtResource("5_3qpch")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1063,7 +1063,7 @@ texture = ExtResource("5_3qpch")
 20:10/0/physics_layer_2/polygon_0/points = PackedVector2Array(-5.9375, -8, 6.0625, -8, 5.9375, 8, -5.8125, 8)
 20:10/0/terrains_peering_bit/top_side = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbp3e"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bi03b"]
 texture = ExtResource("6_x86r3")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1228,8 +1228,8 @@ terrain_set_1/terrain_1/color = Color(0.237539, 0.237539, 0.237539, 1)
 terrain_set_2/mode = 2
 terrain_set_2/terrain_0/name = "ore"
 terrain_set_2/terrain_0/color = Color(0.5, 0.4375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_dv22y")
-sources/1 = SubResource("TileSetAtlasSource_wbp3e")
+sources/0 = SubResource("TileSetAtlasSource_2a4j4")
+sources/1 = SubResource("TileSetAtlasSource_bi03b")
 pattern_0 = SubResource("TileMapPattern_ou47h")
 pattern_1 = SubResource("TileMapPattern_pw0q2")
 pattern_2 = SubResource("TileMapPattern_47osh")
@@ -1479,8 +1479,9 @@ pattern_6 = SubResource("TileMapPattern_yi1ni")
 
 [node name="BaseLevel" type="Node"]
 
-[node name="Gui" parent="." instance=ExtResource("1_vstqe")]
+[node name="Gui" parent="." node_paths=PackedStringArray("fruits_node") instance=ExtResource("1_vstqe")]
 visible = false
+fruits_node = NodePath("../Fruits")
 
 [node name="Background" parent="." instance=ExtResource("1_2m8h4")]
 

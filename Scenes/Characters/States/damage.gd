@@ -6,7 +6,8 @@ extends State
 @export var damage_audio: AudioStreamPlayer
 
 func on_enter():
-	character.loseLife()
+	character.lose_life()
+	invencivility = true
 	
 	if (character._lifes > 0):
 		sprite.play("hit")
@@ -14,5 +15,10 @@ func on_enter():
 	else:
 		next_state = die_state
 
+
 func on_sprite_animation_finished(_animation):
 	next_state = ground_state if character.is_on_floor() else air_state
+
+
+func on_exit():
+	invencivility = false

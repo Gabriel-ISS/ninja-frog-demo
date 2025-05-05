@@ -3,63 +3,75 @@ extends CanvasLayer
 class_name Gui
 
 @export var music: AudioStream
+@export var fruits_node: Node
+@export_category('Private')
+@export var _points_label: PointsCounter
+@export var _hp: HealthPoints
+@export var _music_player: AudioStreamPlayer
+@export var _menu: Control
+@export var _controls: Control
+@export var _end_level_menu: EndLevelMenu
 
-@export var music_player: AudioStreamPlayer
-@export var menu: Control
-@export var controls: Control
-@export var end_level_menu: EndLevelMenu
-@export var hp: HealthPoints
-@export var points_label: PointsCounter
-
-var total_points = 0
+var available_points = 0
 
 func _ready() -> void:
 	visible = true
 	
 	# music
-	music_player.stream = music
-	music_player.play()
+	_music_player.stream = music
+	_music_player.play()
 	
-	# pause menu
-	menu.visible =  false
+	# pause _menu
+	_menu.visible =  false
 	get_tree().paused = false
 	
 	# update total points
-	var fruits_node = get_parent().get_node('Fruits')
 	if fruits_node.is_node_ready():
-		update_total_points(fruits_node)
+		_update_available_points()
 	else:
 		fruits_node.connect(
-			'ready', func(): update_total_points(fruits_node)
+			'ready', func(): _update_available_points()
 		)
 
 
-func update_total_points(fruits_node: Node):
+func _update_available_points():
 	for fruit: Fruit in fruits_node.get_children():
-		total_points += GeneralRules.POINTS[fruit.fruit_type]
+		available_points += GeneralRules.POINTS[fruit.fruit_type]
+
+
+func set_points(points: int):
+	_points_label.current = points
+
+
+func add_life():
+	_hp.add_life()
+
+
+func remove_life():
+	_hp.remove_life()
 
 
 func open_end_level_menu():
 	var level = GeneralRules.current_level
 	var record = LocalStorage.get_record(level)
-	var points = points_label.current
+	var points = _points_label.current
 	
 	get_tree().paused = true
-	end_level_menu.set_points(points, total_points)
-	end_level_menu.visible = true
+	_end_level_menu.set_points(points, available_points)
+	_end_level_menu.visible = true
 	
 	if not record or points > record:
-		end_level_menu.set_record(points)
+		_end_level_menu.set_record(points)
 		LocalStorage.set_record(level, points)
 	else:
-		end_level_menu.set_record(record)
+		_end_level_menu.set_record(record)
 
 
 func _on_music_player_finished() -> void:
-	music_player.play()
+	_music_player.play()
 
 
 func _on_pause_pressed() -> void:
 	get_tree().paused = true
-	controls.visible = false
-	menu.visible = true
+	_controls.visible = false
+	_menu.visible = true

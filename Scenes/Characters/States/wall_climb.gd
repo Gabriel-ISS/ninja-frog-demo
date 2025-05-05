@@ -6,6 +6,7 @@ extends State
 
 var lock_player = true
 
+
 func on_enter():
 	character.lock_movement = true
 	character.lock_direction = true
@@ -13,21 +14,24 @@ func on_enter():
 	character.velocity.y = 0
 	sprite.play("wall_climb")
 
+
 func process_state(_delta):
 	if lock_player:
 		character.velocity.y = 5
+
 
 func on_input(event):
 	if event.is_action_pressed("jump"):
 		var direction := Input.get_axis("move_left", "move_right")
 		lock_player = false
 		if direction:
-			character.velocity.x = direction * SPEED
-			character.velocity.y = JUMP_VELOCITY
+			character.velocity.x = direction * speed
+			character.velocity.y = jump_speed
 			sprite.play("jump")
 			jump_audio.play()
 		air_state.can_double_jump = true
 		next_state = air_state
+
 
 func on_exit():
 	character.lock_movement = false

@@ -6,11 +6,13 @@ const DEFAULT_GARVITY = 980.0
 const DEFAULT_SPEED = 300
 const DEFAULT_JUMP_VELOCITY = -400
 const DEFAULT_DELTA_MOVE_TOWARD = 20
+const AIR_DELTA_MOVE_TOWARD = 7
 
-var GARVITY = DEFAULT_GARVITY
-var SPEED = DEFAULT_SPEED
-var JUMP_VELOCITY = DEFAULT_JUMP_VELOCITY 
-var DELTA_MOVE_TOWARD = DEFAULT_DELTA_MOVE_TOWARD
+var invencivility = false
+var gravity = DEFAULT_GARVITY
+var speed = DEFAULT_SPEED
+var jump_speed = DEFAULT_JUMP_VELOCITY 
+var delta_move_toward = DEFAULT_DELTA_MOVE_TOWARD
 
 var character: Character
 var sprite: AnimatedSprite2D

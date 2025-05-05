@@ -6,14 +6,18 @@ extends State
 
 const DOUBLE_JUMP_VELOCITY = -300
 
+
 func on_enter():
+	delta_move_toward = AIR_DELTA_MOVE_TOWARD
 	character.velocity.y = DOUBLE_JUMP_VELOCITY
 	sprite.play("double_jump")
 	double_jump_audio.play()
 
+
 func on_input(event: InputEvent) -> void:
 	if event.is_action_pressed('dash'):
 		next_state = dash_state
+
 
 func on_sprite_animation_finished(_animation):
 	next_state = air_state

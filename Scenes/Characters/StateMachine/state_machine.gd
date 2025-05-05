@@ -6,6 +6,7 @@ const DEBBUG = GeneralRules.DEBUG_PLAYER
 
 @export var character: Character
 @export var sprite: AnimatedSprite2D
+@export var invencivility_timer: Timer
 
 @export var current_state: State
 @export var damage_state: State
@@ -21,6 +22,7 @@ func _ready() -> void:
 	current_state.on_enter()
 
 func _physics_process(_delta: float) -> void:
+	current_state.process_state(_delta)
 	if current_state.next_state != null:
 		change_state(current_state.next_state)
 
@@ -40,4 +42,5 @@ func _on_animations_animation_finished() -> void:
 	current_state.on_sprite_animation_finished(sprite.animation)
 
 func _on_damage_detection_area_shape_entered(_area_rid: RID, _area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
+	if current_state.invencivility: return
 	change_state(damage_state)

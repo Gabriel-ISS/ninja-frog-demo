@@ -29,13 +29,15 @@ func _ready() -> void:
 		collected = false
 		animated_sprite.play(fruit_type)
 
+
 func _on_collect_area_body_entered(body: Node2D) -> void:
 	if collected: return
 	if body is Character:
 		var fruit_points = GeneralRules.POINTS[fruit_type]
-		body.addPoints(fruit_points)
+		body.add_points(fruit_points)
 		collect_sound.play()
 		animated_sprite.play('collected')
+
 
 func _on_animations_animation_finished() -> void:
 	queue_free()

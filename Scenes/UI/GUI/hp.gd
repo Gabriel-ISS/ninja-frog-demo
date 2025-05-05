@@ -10,13 +10,15 @@ func _ready() -> void:
 	var hp = 0
 	while hp < GeneralRules.initial_lifes:
 		hp += 1
-		addLife()
+		add_life()
 
-func addLife():
+
+func add_life():
 	var heart = Heart.instantiate()
 	add_child(heart)
 
-func removeLife():
+
+func remove_life():
 	var element = get_child(0)
 	if not element: return
 	element.queue_free()

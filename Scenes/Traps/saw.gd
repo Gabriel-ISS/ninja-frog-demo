@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const CHECKER_TARGET_X = 24
-@export var SPEED = 200
+@export var speed = 200
 @export var MAKE_STATIC = false
 @export_category('Private')
 @export var _wall_checker: RayCast2D
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor(): velocity += get_gravity() * delta
 	
 	# move
-	velocity.x = SPEED * move_direction
+	velocity.x = speed * move_direction
 	
 	handle_direction_change()
 	move_and_slide()
