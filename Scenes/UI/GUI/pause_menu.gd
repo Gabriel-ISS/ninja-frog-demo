@@ -1,11 +1,16 @@
 extends Control
 
+
+@export var cronometer: Cronometer
+
+
 func _ready() -> void:
 	visible = false
 	get_tree().paused = false
 
 
 func _on_resume_pressed() -> void:
+	cronometer.start()
 	visible = false
 	get_tree().paused = false
 

@@ -8,10 +8,11 @@ const DATA_FILE_PATHS = [
 	"user://savegame.save",
 ]
 const CURRENT_DATA_FILE_PATH = DATA_FILE_PATHS[0]
-const CURRENT_DATA_VERSION = 4
+const CURRENT_DATA_VERSION = 5
 const DEFAULT_DATA = {
 	_v = CURRENT_DATA_VERSION,
 	last_completed_level = 0,
+	# {level: time_ms}
 	records = {},
 	dificult_level = 1,
 	music_volume = 100,
@@ -44,7 +45,12 @@ var DATA_UPDATERS = [
 		data['_v'] = 3
 		data['last_bg'] = 0,
 	func (data: Dictionary):
-		data['_v'] = 4
+		data['_v'] = 4,
+	func (data: Dictionary):
+		data['_v'] = 5
+		var records: Dictionary = data['records']
+		for level in records.keys():
+			data['records'][level] = 0
 ]
 
 var _data = DEFAULT_DATA

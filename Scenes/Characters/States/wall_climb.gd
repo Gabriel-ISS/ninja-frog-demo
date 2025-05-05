@@ -16,8 +16,14 @@ func on_enter():
 
 
 func process_state(_delta):
+	handle_fall()
 	if lock_player:
 		character.velocity.y = 5
+
+
+func handle_fall():
+	if not front_ray_cast.is_colliding():
+		next_state = air_state
 
 
 func on_input(event):

@@ -1,26 +1,42 @@
-extends Panel
+class_name EndLevelMenu extends Panel
 
-class_name EndLevelMenu
-
-@onready var total_points_label: Label = $CenterContainer/VBoxContainer/Points
-@onready var record_label: Label = $CenterContainer/VBoxContainer/Record
-@onready var next_level_btn: Button = $CenterContainer/VBoxContainer/VBoxContainer/NextLevel
-
+@export var _total_points_label: Label
+@export var _time_label: Label
+@export var _record_time_label: Label
+@export var _next_level_btn: Button
 
 func _ready() -> void:
 	visible = false
-	next_level_btn.visible = GeneralRules.current_level != GeneralRules.LEVELS
+	_next_level_btn.visible = GeneralRules.current_level != GeneralRules.LEVELS
 
 
 func set_points(won: int, total: int):
-	total_points_label.text = 'Points: {0} of {1}'.format([
+	_total_points_label.text = 'Points: {0} of {1}'.format([
 		str(won),
 		str(total)
 	])
 
 
-func set_record(record: int):
-	record_label.text = 'Record: ' + str(record)
+func set_time(time: int):
+	_time_label.text = 'Time: ' + _ms_to_readable(time)
+
+
+func set_record_time(time: int):
+	_record_time_label.text = 'Best time: ' + _ms_to_readable(time)
+
+
+func _ms_to_readable(ms: int) -> String:
+	var total_seconds = ms / 1000.0
+	var milliseconds = ms % 1000
+	var seconds = int(total_seconds) % 60
+	var total_minutes = total_seconds / 60
+	var minutes = int(total_minutes) % 60
+	
+	return "{minutes}:{seconds}.{milliseconds}".format({
+		minutes = str(minutes).pad_zeros(2),
+		seconds = str(seconds).pad_zeros(2),
+		milliseconds = str(milliseconds).pad_zeros(3)
+	})
 
 
 func _on_next_level_pressed() -> void:
