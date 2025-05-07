@@ -1,0 +1,44 @@
+keys,en,es,pt
+SHARED_LABEL_MUSIC_VOLUME,Music,Música,Música
+SHARED_LABEL_SOUND_EFFECTS_VOLUME,Sound effects,Efectos de sonido,Efeitos sonoros
+SHARED_BTN_BACK_TO_MENU,Back to menu,Volver al menú,Voltar ao menu
+SHARED_BTN_BACK,"< Back","< Volver","< Voltar"
+START_MENU_BTN_SELECT_LEVEL,Select level,Seleccionar nivel,Selecionar nível
+START_MENU_BTN_SETTINGS,Settings,Configuraciones,Configurações
+START_MENU_BTN_EXIT,Exit,Salir,Sair
+SELECT_LEVEL_HEADER,Select level,Seleccionar nivel,Selecionar nível
+SETTINGS_HEADER,Settings,Configuraciones,Configurações
+SETTINGS_LABEL_LANGUAGE,Idioma,Language,Idioma
+SETTINGS_LABEL_DIFICULTY_LEVEL,Dificulty level,Nivel de dificultad,Nível de dificuldade
+SETTINGS_DIFICULTY_OPTION_EASY,Easy,Fácil,Fácil
+SETTINGS_DIFICULTY_OPTION_NORMAL,Normal,Normal,Normal
+SETTINGS_DIFICULTY_OPTION_HARD,Hard,Difícil,Difícil
+SETTINGS_LABEL_CONTROLS_SIZE,Controls size,Tamaño de controles,Tamanho dos controles
+LEVEL_BTN_PAUSE,Pause,Pausa,Pausa
+LEVEL_BTN_RESUME,Resume,Reanudar,Retomar
+LEVEL_BTN_RESTART,Restart,Reiniciar,Reiniciar
+LEVEL_LABEL_COMPUTER_CONTROLS,"- [A] and [D] to move
+- [SPACE] to jump
+- [SPACE] in air for double jump
+- [SHIFT] for fast move","- [A] Y [D] para moverse
+- [SPACE] para saltar
+- [SPACE] para saltar en el aire
+- [SHIFT] para movimiento rápido","- [A] e [D] para mover
+- [ESPAÇO] para pular
+- [ESPAÇO] para pular no ar
+- [SHIFT] para movimento rápido"
+END_LEVEL_LABEL_POINTS,Points: {0} of {1},Puntos: {0} de {1},Pontos: {0} de {1}
+END_LEVEL_LABEL_TIME,Time: ,Tiempo:,Tempo:
+END_LEVEL_LABEL_RECORD_TIME,Best time: ,Mejor tiempo:,Melhor tempo:
+END_LEVEL_BTN_NEXT_LEVEL,Next level,Siguiente nivel,Próximo nível
+END_LEVEL_BTN_TRY_AGAIN,Try again,Intenta de nuevo,Tente novamente
+TUTORIAL_LABEL_MOVE,Press [A] and [D] to move. You can also move with [LEFT] and [RIGHT],Presiona [A] y [D] para moverte. También puedes moverte con [IZQUIERDA] y [DERECHA],Pressione [A] e [D] para se mover. Você também pode se mover com [ESQUERDA] e [DIREITA]
+TUTORIAL_LABEL_JUMP,Press [SPACE] to jump,Presiona [ESPACIO] para saltar,Pressione [ESPACO] para pular
+TUTORIAL_LABEL_DOUBLEJUMP,You can jump in air,Puedes saltar en el aire,Você pode saltar no ar
+TUTORIAL_LABEL_DASH,"If you need to go fast, press [SHIFT]","Si necesitas ir rápido, presiona [SHIFT]","Se você precisar ir rápido, pressione [SHIFT]"
+TUTORIAL_LABEL_DASH_TIP,Move fast to avoid damage,Muévete rápido para evitar el daño,Se mova rápido para evitar o dano
+TUTORIAL_LABEL_WALLCLIMB,"You are a ninja, try to jump over the yellow column to climb","Eres un ninja, intenta saltar sobre la columna amarilla para escalar","Você é um ninja, tente saltar sobre a coluna amarela para escalar"
+TUTORIAL_LABEL_END,"You are ready!
+Avoid the traps, and get all the fruits!","Estas listo!
+Evita las trampas y obtén todas las frutas!","Você está pronto!
+Evite as armadilhas e obtenha todas as frutas!"

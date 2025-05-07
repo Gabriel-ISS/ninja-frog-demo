@@ -11,18 +11,18 @@ func _ready() -> void:
 
 
 func set_points(won: int, total: int):
-	_total_points_label.text = 'Points: {0} of {1}'.format([
+	_total_points_label.text = tr('END_LEVEL_LABEL_POINTS').format([
 		str(won),
 		str(total)
 	])
 
 
 func set_time(time: int):
-	_time_label.text = 'Time: ' + _ms_to_readable(time)
+	_time_label.text = tr('END_LEVEL_LABEL_TIME') + ' ' + _ms_to_readable(time)
 
 
 func set_record_time(time: int):
-	_record_time_label.text = 'Best time: ' + _ms_to_readable(time)
+	_record_time_label.text = tr('END_LEVEL_LABEL_RECORD_TIME') + ' ' + _ms_to_readable(time)
 
 
 func _ms_to_readable(ms: int) -> String:

@@ -54,6 +54,10 @@ dash={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Localization/Translates/translates.en.translation", "res://Localization/Translates/translates.es.translation", "res://Localization/Translates/translates.pt.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Blocks"

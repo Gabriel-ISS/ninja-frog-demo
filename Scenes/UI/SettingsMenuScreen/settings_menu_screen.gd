@@ -26,3 +26,12 @@ func _on_dificulty_level_item_selected(index: int) -> void:
 
 func _on_controls_size_value_changed(value: float) -> void:
 	LocalStorage.controls_size = int(value)
+
+
+const lanuages = {
+	0: 'en',
+	1: 'pt',
+	2: 'es'
+}
+func _on_language_item_selected(index: int) -> void:
+	TranslationServer.set_locale(lanuages[index])

@@ -30,7 +30,7 @@ music = ExtResource("2_rksbc")
 background = "Mushroom"
 
 [node name="NinjaFrog" parent="." index="2"]
-position = Vector2(536, 456)
+position = Vector2(9439.43, 344.597)
 
 [node name="EndPortal" parent="." index="3"]
 position = Vector2(9680, 320)
@@ -492,7 +492,7 @@ offset_left = -147.0
 offset_top = 316.0
 offset_right = 475.0
 offset_bottom = 409.0
-text = "Press [A] and [D] to move. You can also try with [LEFT] and [RIGHT]"
+text = "TUTORIAL_LABEL_MOVE"
 target = 2
 metadata/_edit_use_anchors_ = true
 
@@ -507,42 +507,44 @@ offset_left = 672.0
 offset_top = 338.0
 offset_right = 1086.0
 offset_bottom = 383.0
-text = "Press [SPACE] to jump"
+text = "TUTORIAL_LABEL_JUMP"
 target = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/GlobalTutorial" index="2"]
 layout_mode = 0
-offset_left = 1952.0
-offset_top = 312.0
-offset_right = 2452.0
-offset_bottom = 454.0
+offset_left = 2120.0
+offset_top = 168.0
+offset_right = 2808.0
+offset_bottom = 262.0
+alignment = 1
 
 [node name="Dash" parent="Tutorial/GlobalTutorial/VBoxContainer" index="0" instance=ExtResource("2_vhtne")]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-text = "If you need to go fast, press [SHIFT]"
+text = "TUTORIAL_LABEL_DASH"
 target = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DashDamageTip" parent="Tutorial/GlobalTutorial/VBoxContainer" index="1" instance=ExtResource("2_vhtne")]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-text = "Move fast to avoid damage"
+text = "TUTORIAL_LABEL_DASH_TIP"
 metadata/_edit_use_anchors_ = true
 
 [node name="DoubleJump" parent="Tutorial/GlobalTutorial" index="3" instance=ExtResource("2_vhtne")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 4.9
-anchor_top = -0.25
-anchor_right = 2.275
-anchor_bottom = -1.375
+anchor_left = 2.3
+anchor_top = -1.45
+anchor_right = 5.475
+anchor_bottom = -1.45
 offset_left = 1388.0
 offset_top = 338.0
 offset_right = 1829.0
 offset_bottom = 431.0
-text = "You can jump in air"
+text = "TUTORIAL_LABEL_DOUBLEJUMP"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="WallClimb" parent="Tutorial/GlobalTutorial" index="4" instance=ExtResource("2_vhtne")]
@@ -551,14 +553,13 @@ offset_left = 2840.0
 offset_top = 304.0
 offset_right = 3281.0
 offset_bottom = 445.0
-text = "You are a ninja, try to jump over the yellow tile to climb"
+text = "TUTORIAL_LABEL_WALLCLIMB"
 
 [node name="End" parent="Tutorial/GlobalTutorial" index="5" instance=ExtResource("2_vhtne")]
 layout_mode = 0
-offset_left = 3704.0
-offset_top = 96.0
-offset_right = 4145.0
-offset_bottom = 237.0
-text = "You are ready!
-Avoid the traps, and get all the fruits!"
+offset_left = 3592.0
+offset_top = 56.0
+offset_right = 4033.0
+offset_bottom = 197.0
+text = "TUTORIAL_LABEL_END"
 uppercase = true

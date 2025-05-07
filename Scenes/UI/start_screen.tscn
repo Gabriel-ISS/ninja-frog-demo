@@ -42,19 +42,19 @@ alignment = 1
 [node name="SelectLevelBtn" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_degjj")]
 layout_mode = 2
 shortcut = ExtResource("4_3pamd")
-text = "Select level"
+text = "START_MENU_BTN_SELECT_LEVEL"
 script = ExtResource("4_7o4md")
 scene_path = "res://Scenes/UI/LevelMenuScreen/level_menu_screen.tscn"
 
 [node name="SettingsBtn" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_degjj")]
 layout_mode = 2
-text = "Settings"
+text = "START_MENU_BTN_SETTINGS"
 script = ExtResource("4_7o4md")
 scene_path = "res://Scenes/UI/SettingsMenuScreen/settings_menu_screen.tscn"
 
 [node name="ExitBtn" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_degjj")]
 layout_mode = 2
 shortcut = ExtResource("6_1xgv7")
-text = "Exit"
+text = "START_MENU_BTN_EXIT"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

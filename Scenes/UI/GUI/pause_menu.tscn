@@ -18,7 +18,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("_computer_controls")]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 15
@@ -27,6 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pudq0")
+_computer_controls = NodePath("ComputerControls")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -55,12 +56,12 @@ alignment = 1
 layout_mode = 2
 theme = ExtResource("2_x2748")
 shortcut = ExtResource("3_ff6so")
-text = "Resume"
+text = "LEVEL_BTN_RESUME"
 
 [node name="MusicLabel" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Music"
+text = "SHARED_LABEL_MUSIC_VOLUME"
 
 [node name="MusicVolume" parent="Panel/CenterContainer/VBoxContainer" instance=ExtResource("3_e5otq")]
 layout_mode = 2
@@ -70,7 +71,7 @@ bus = "music"
 [node name="SoudEffectLabel" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Soud effects"
+text = "SHARED_LABEL_SOUND_EFFECTS_VOLUME"
 
 [node name="EffectsVolume" parent="Panel/CenterContainer/VBoxContainer" instance=ExtResource("3_e5otq")]
 layout_mode = 2
@@ -81,33 +82,29 @@ bus = "effects"
 layout_mode = 2
 theme = ExtResource("2_x2748")
 shortcut = ExtResource("5_pbjqa")
-text = "Restart"
+text = "LEVEL_BTN_RESTART"
 
 [node name="BackToMenu" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 theme = ExtResource("2_x2748")
 shortcut = ExtResource("6_1l46b")
-text = "Back to menu"
+text = "SHARED_BTN_BACK_TO_MENU"
 
-[node name="Tutorial" type="Label" parent="."]
+[node name="ComputerControls" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 24.0
-offset_top = -76.0
+offset_top = -92.0
 offset_right = 388.0
-offset_bottom = 69.0
+offset_bottom = 53.0
 grow_vertical = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_2ram4")
-text = "- [A] and [D] to move
-- [SPACE] to jump
-- [SPACE] in air for double jump
-- [SHIFT] for fast move
-"
+text = "LEVEL_LABEL_COMPUTER_CONTROLS"
 
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

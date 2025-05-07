@@ -2,11 +2,15 @@ extends Control
 
 
 @export var cronometer: Cronometer
+@export_category('Private')
+@export var _computer_controls: Label
 
 
 func _ready() -> void:
 	visible = false
 	get_tree().paused = false
+	
+	_computer_controls.visible = !DisplayServer.is_touchscreen_available()
 
 
 func _on_resume_pressed() -> void:

@@ -55,7 +55,7 @@ size_flags_horizontal = 0
 theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 35
 shortcut = ExtResource("2_ovtdw")
-text = "< Back"
+text = "SHARED_BTN_BACK"
 script = ExtResource("2_g8wej")
 scene_path = "res://Scenes/UI/start_screen.tscn"
 

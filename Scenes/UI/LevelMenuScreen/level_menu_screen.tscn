@@ -8,6 +8,9 @@
 script = ExtResource("2_lixpy")
 levels_container = NodePath("VBoxContainer/ScrollContainer/MarginContainer/Content/Levels")
 
+[node name="MenuLabel" parent="VBoxContainer/Header/MarginContainer" index="1"]
+text = "SELECT_LEVEL_HEADER"
+
 [node name="Levels" type="GridContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Content" index="0"]
 layout_mode = 2
 columns = 6

@@ -7,9 +7,12 @@
 
 [node name="SettingsMenuScreen" node_paths=PackedStringArray("dificulty_control", "controls_size_label", "controls_size_control") instance=ExtResource("4_cxxc2")]
 script = ExtResource("2_osm7v")
-dificulty_control = NodePath("VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer/DificultyLevel")
+dificulty_control = NodePath("VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer/Language")
 controls_size_label = NodePath("VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer/ControlsSizeLabel")
 controls_size_control = NodePath("VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer/ControlsSize")
+
+[node name="MenuLabel" parent="VBoxContainer/Header/MarginContainer" index="1"]
+text = "SETTINGS_HEADER"
 
 [node name="VBoxContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Content" index="0"]
 layout_mode = 2
@@ -17,24 +20,41 @@ theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 40
 columns = 2
 
-[node name="DificultyLevelLabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="0"]
+[node name="LanguageLabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="0"]
 layout_mode = 2
 theme = ExtResource("3_uthj0")
-text = "Dificulty level"
+text = "SETTINGS_LABEL_LANGUAGE"
 
-[node name="DificultyLevel" type="OptionButton" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="1"]
+[node name="Language" type="OptionButton" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="1"]
 layout_mode = 2
 theme = ExtResource("3_uthj0")
 selected = 1
 item_count = 3
-popup/item_0/text = "Easy"
+popup/item_0/text = "English"
 popup/item_0/id = 0
-popup/item_1/text = "Normal"
+popup/item_1/text = "Portuguese"
 popup/item_1/id = 1
-popup/item_2/text = "Hard"
+popup/item_2/text = "Spanish"
 popup/item_2/id = 2
 
-[node name="MusicVolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="2"]
+[node name="DificultyLevelLabel2" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="2"]
+layout_mode = 2
+theme = ExtResource("3_uthj0")
+text = "SETTINGS_LABEL_DIFICULTY_LEVEL"
+
+[node name="DificultyLevel2" type="OptionButton" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="3"]
+layout_mode = 2
+theme = ExtResource("3_uthj0")
+selected = 1
+item_count = 3
+popup/item_0/text = "SETTINGS_DIFICULTY_OPTION_EASY"
+popup/item_0/id = 0
+popup/item_1/text = "SETTINGS_DIFICULTY_OPTION_NORMAL"
+popup/item_1/id = 1
+popup/item_2/text = "SETTINGS_DIFICULTY_OPTION_HARD"
+popup/item_2/id = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="4"]
 layout_mode = 2
 theme = ExtResource("3_uthj0")
 theme_override_colors/font_shadow_color = Color(0.06, 0.06, 0.06, 0.909804)
@@ -42,14 +62,14 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 2
 theme_override_font_sizes/font_size = 40
-text = "Music volume"
+text = "SHARED_LABEL_MUSIC_VOLUME"
 
-[node name="MusicVolume" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="3" instance=ExtResource("4_rnnuj")]
+[node name="MusicVolume" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="5" instance=ExtResource("4_rnnuj")]
 layout_mode = 2
 theme = ExtResource("3_uthj0")
 bus = "music"
 
-[node name="EffectsVolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="4"]
+[node name="EffectsVolumeLabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="6"]
 layout_mode = 2
 theme = ExtResource("3_uthj0")
 theme_override_colors/font_shadow_color = Color(0.06, 0.06, 0.06, 0.909804)
@@ -57,14 +77,14 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 2
 theme_override_font_sizes/font_size = 40
-text = "Sound effects volume"
+text = "SHARED_LABEL_SOUND_EFFECTS_VOLUME"
 
-[node name="EffectsVolume" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="5" instance=ExtResource("4_rnnuj")]
+[node name="EffectsVolume" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="7" instance=ExtResource("4_rnnuj")]
 layout_mode = 2
 theme = ExtResource("3_uthj0")
 bus = "effects"
 
-[node name="ControlsSizeLabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="6"]
+[node name="ControlsSizeLabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="8"]
 layout_mode = 2
 theme = ExtResource("3_uthj0")
 theme_override_colors/font_shadow_color = Color(0.06, 0.06, 0.06, 0.909804)
@@ -72,14 +92,15 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 2
 theme_override_font_sizes/font_size = 40
-text = "Controls size"
+text = "SETTINGS_LABEL_CONTROLS_SIZE"
 
-[node name="ControlsSize" type="HSlider" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="7"]
+[node name="ControlsSize" type="HSlider" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="9"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("3_uthj0")
 min_value = 50.0
 value = 80.0
 
-[connection signal="item_selected" from="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer/DificultyLevel" to="." method="_on_dificulty_level_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer/Language" to="." method="_on_language_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer/DificultyLevel2" to="." method="_on_dificulty_level_item_selected"]
 [connection signal="value_changed" from="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer/ControlsSize" to="." method="_on_controls_size_value_changed"]
