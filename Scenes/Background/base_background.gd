@@ -1,6 +1,5 @@
-extends ParallaxBackground
+class_name Background extends ParallaxBackground
 
-@export var SPRITE_WIDTH = 1920
 
 func _ready() -> void:
 	pass

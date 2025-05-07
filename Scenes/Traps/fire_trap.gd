@@ -24,6 +24,10 @@ func on():
 
 
 func off():
+	if not off_time:
+		on()
+		return
+	
 	is_on = false
 	timer.wait_time = off_time
 	damage_zone.disabled = true

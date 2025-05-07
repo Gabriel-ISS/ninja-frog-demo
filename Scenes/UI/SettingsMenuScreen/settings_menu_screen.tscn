@@ -20,7 +20,7 @@ columns = 2
 [node name="DificultyLevelLabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="0"]
 layout_mode = 2
 theme = ExtResource("3_uthj0")
-text = "Setting"
+text = "Dificulty level"
 
 [node name="DificultyLevel" type="OptionButton" parent="VBoxContainer/ScrollContainer/MarginContainer/Content/VBoxContainer" index="1"]
 layout_mode = 2

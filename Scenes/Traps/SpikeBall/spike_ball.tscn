@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://qat2xyrbafp5" path="res://Scenes/Traps/SpikeBall/one_chain.tscn" id="3_intyl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b3lyn"]
-radius = 13.0096
+radius = 11.5
 
 [sub_resource type="Animation" id="Animation_qkyjt"]
 resource_name = "regular_move"
@@ -53,7 +53,7 @@ target_position = Vector2(0, 32)
 
 [node name="RotateAnimation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_lvtsx")
+&"": SubResource("AnimationLibrary_lvtsx")
 }
 
 [connection signal="body_entered" from="SpikedBall/BallArea" to="." method="_on_ball_area_body_entered"]

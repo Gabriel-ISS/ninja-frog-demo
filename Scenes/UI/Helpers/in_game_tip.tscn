@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://6rwesrndgkug"]
+[gd_scene load_steps=2 format=3 uid="uid://6rwesrndgkug"]
+
+[ext_resource type="Script" uid="uid://c2edxiaf8yi81" path="res://Scenes/UI/Helpers/in_game_tip.gd" id="1_r7fyo"]
 
 [node name="InGameTip" type="Label"]
 z_index = -1
@@ -8,3 +10,4 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 40
 text = "Tip"
 autowrap_mode = 2
+script = ExtResource("1_r7fyo")
